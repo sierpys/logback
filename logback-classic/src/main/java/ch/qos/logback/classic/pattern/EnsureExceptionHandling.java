@@ -37,6 +37,7 @@ public class EnsureExceptionHandling implements PostCompileProcessor<ILoggingEve
      * 
      * 
      */
+    @Override
     public void process(Context context, Converter<ILoggingEvent> head) {
         if (head == null) {
             // this should never happen

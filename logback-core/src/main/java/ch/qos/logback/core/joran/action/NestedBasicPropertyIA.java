@@ -47,6 +47,7 @@ public class NestedBasicPropertyIA extends ImplicitAction {
         this.beanDescriptionCache = beanDescriptionCache;
     }
 
+    @Override
     public boolean isApplicable(ElementPath elementPath, Attributes attributes, InterpretationContext ec) {
         // System.out.println("in NestedSimplePropertyIA.isApplicable [" + pattern +
         // "]");
@@ -85,6 +86,7 @@ public class NestedBasicPropertyIA extends ImplicitAction {
         // NOP
     }
 
+    @Override
     public void body(InterpretationContext ec, String body) {
 
         String finalBody = ec.subst(body);

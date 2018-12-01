@@ -31,8 +31,9 @@ public class DefaultTimeBasedFileNamingAndTriggeringPolicy<E> extends TimeBasedF
     @Override
     public void start() {
         super.start();
-        if (!super.isErrorFree())
+        if (!super.isErrorFree()) {
             return;
+        }
         if(tbrp.fileNamePattern.hasIntegerTokenCOnverter()) {
             addError("Filename pattern ["+tbrp.fileNamePattern+"] contains an integer token converter, i.e. %i, INCOMPATIBLE with this configuration. Remove it.");
             return;
@@ -43,6 +44,7 @@ public class DefaultTimeBasedFileNamingAndTriggeringPolicy<E> extends TimeBasedF
         started = true;
     }
 
+    @Override
     public boolean isTriggeringEvent(File activeFile, final E event) {
         long time = getCurrentTime();
         if (time >= nextCheck) {

@@ -38,8 +38,9 @@ public class EnvUtil {
 
     static private boolean isJDK_N_OrHigher(int n) {
         String javaVersionStr = System.getProperty("java.version", "");
-        if (javaVersionStr.isEmpty())
+        if (javaVersionStr.isEmpty()) {
             return false;
+        }
 
         int version = getJDKVersion(javaVersionStr);
         return version > 0 && n <= version;

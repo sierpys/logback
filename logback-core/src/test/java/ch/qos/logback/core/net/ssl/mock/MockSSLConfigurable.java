@@ -28,6 +28,7 @@ public class MockSSLConfigurable implements SSLConfigurable {
     private boolean needClientAuth;
     private boolean wantClientAuth;
 
+    @Override
     public String[] getDefaultProtocols() {
         return defaultProtocols;
     }
@@ -36,6 +37,7 @@ public class MockSSLConfigurable implements SSLConfigurable {
         this.defaultProtocols = defaultProtocols;
     }
 
+    @Override
     public String[] getSupportedProtocols() {
         return supportedProtocols;
     }
@@ -48,10 +50,12 @@ public class MockSSLConfigurable implements SSLConfigurable {
         return enabledProtocols;
     }
 
+    @Override
     public void setEnabledProtocols(String[] enabledProtocols) {
         this.enabledProtocols = enabledProtocols;
     }
 
+    @Override
     public String[] getDefaultCipherSuites() {
         return defaultCipherSuites;
     }
@@ -60,6 +64,7 @@ public class MockSSLConfigurable implements SSLConfigurable {
         this.defaultCipherSuites = defaultCipherSuites;
     }
 
+    @Override
     public String[] getSupportedCipherSuites() {
         return supportedCipherSuites;
     }
@@ -72,6 +77,7 @@ public class MockSSLConfigurable implements SSLConfigurable {
         return enabledCipherSuites;
     }
 
+    @Override
     public void setEnabledCipherSuites(String[] enabledCipherSuites) {
         this.enabledCipherSuites = enabledCipherSuites;
     }
@@ -80,6 +86,7 @@ public class MockSSLConfigurable implements SSLConfigurable {
         return needClientAuth;
     }
 
+    @Override
     public void setNeedClientAuth(boolean needClientAuth) {
         this.needClientAuth = needClientAuth;
     }
@@ -88,6 +95,7 @@ public class MockSSLConfigurable implements SSLConfigurable {
         return wantClientAuth;
     }
 
+    @Override
     public void setWantClientAuth(boolean wantClientAuth) {
         this.wantClientAuth = wantClientAuth;
     }

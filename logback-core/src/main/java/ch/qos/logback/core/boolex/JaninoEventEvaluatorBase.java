@@ -61,6 +61,7 @@ abstract public class JaninoEventEvaluatorBase<E> extends EventEvaluatorBase<E> 
         }
     }
 
+    @Override
     public boolean evaluate(E event) throws EvaluationException {
         if (!isStarted()) {
             throw new IllegalStateException("Evaluator [" + name + "] was called in stopped state");

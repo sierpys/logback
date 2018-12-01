@@ -115,18 +115,21 @@ public class NodeToStringTransformer {
 
     private String lookupKey(String key) {
         String value = propertyContainer0.getProperty(key);
-        if (value != null)
+        if (value != null) {
             return value;
+        }
 
         if (propertyContainer1 != null) {
             value = propertyContainer1.getProperty(key);
-            if (value != null)
+            if (value != null) {
                 return value;
+            }
         }
 
         value = OptionHelper.getSystemProperty(key, null);
-        if (value != null)
+        if (value != null) {
             return value;
+        }
 
         value = OptionHelper.getEnv(key);
         if (value != null) {
@@ -173,12 +176,15 @@ public class NodeToStringTransformer {
     }
 
     private boolean equalNodes(Node node1, Node node2) {
-        if (node1.type != null && !node1.type.equals(node2.type))
+        if (node1.type != null && !node1.type.equals(node2.type)) {
             return false;
-        if (node1.payload != null && !node1.payload.equals(node2.payload))
+        }
+        if (node1.payload != null && !node1.payload.equals(node2.payload)) {
             return false;
-        if (node1.defaultPart != null && !node1.defaultPart.equals(node2.defaultPart))
+        }
+        if (node1.defaultPart != null && !node1.defaultPart.equals(node2.defaultPart)) {
             return false;
+        }
 
         return true;
     }

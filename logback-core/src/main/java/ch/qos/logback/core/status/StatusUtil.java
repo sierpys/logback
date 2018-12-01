@@ -45,20 +45,23 @@ public class StatusUtil {
      */
     static public boolean contextHasStatusListener(Context context) {
         StatusManager sm = context.getStatusManager();
-        if (sm == null)
+        if (sm == null) {
             return false;
+        }
         List<StatusListener> listeners = sm.getCopyOfStatusListenerList();
-        if (listeners == null || listeners.size() == 0)
+        if (listeners == null || listeners.size() == 0) {
             return false;
-        else
+        } else {
             return true;
+        }
     }
 
     static public List<Status> filterStatusListByTimeThreshold(List<Status> rawList, long threshold) {
         List<Status> filteredList = new ArrayList<Status>();
         for (Status s : rawList) {
-            if (s.getDate() >= threshold)
+            if (s.getDate() >= threshold) {
                 filteredList.add(s);
+            }
         }
         return filteredList;
     }
@@ -93,8 +96,9 @@ public class StatusUtil {
         List<Status> filteredList = filterStatusListByTimeThreshold(sm.getCopyOfStatusList(), threshold);
         int maxLevel = Status.INFO;
         for (Status s : filteredList) {
-            if (s.getLevel() > maxLevel)
+            if (s.getLevel() > maxLevel) {
                 maxLevel = s.getLevel();
+            }
         }
         return maxLevel;
     }
@@ -175,8 +179,9 @@ public class StatusUtil {
      */
     public long timeOfLastReset() {
         List<Status> statusList = sm.getCopyOfStatusList();
-        if (statusList == null)
+        if (statusList == null) {
             return -1;
+        }
 
         int len = statusList.size();
         for (int i = len - 1; i >= 0; i--) {

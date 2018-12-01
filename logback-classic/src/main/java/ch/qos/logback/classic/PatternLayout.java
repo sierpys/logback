@@ -130,6 +130,7 @@ public class PatternLayout extends PatternLayoutBase<ILoggingEvent> {
         this.postCompileProcessor = new EnsureExceptionHandling();
     }
 
+    @Override
     public Map<String, String> getDefaultConverterMap() {
         return defaultConverterMap;
     }

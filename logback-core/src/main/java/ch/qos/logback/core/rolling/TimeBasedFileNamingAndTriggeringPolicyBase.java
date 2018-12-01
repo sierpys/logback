@@ -42,6 +42,7 @@ abstract public class TimeBasedFileNamingAndTriggeringPolicyBase<E> extends Cont
     protected boolean started = false;
     protected boolean errorFree = true;
 
+    @Override
     public boolean isStarted() {
         return started;
     }

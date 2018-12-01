@@ -140,8 +140,9 @@ public class Tokenizer {
     }
 
     private void addLiteralToken(List<Token> tokenList, StringBuilder stringBuilder) {
-        if (stringBuilder.length() == 0)
+        if (stringBuilder.length() == 0) {
             return;
+        }
         tokenList.add(new Token(Token.Type.LITERAL, stringBuilder.toString()));
     }
 

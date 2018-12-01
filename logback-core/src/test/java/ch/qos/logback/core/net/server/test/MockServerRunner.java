@@ -49,10 +49,12 @@ public class MockServerRunner<T extends Client> extends ContextAwareBase impleme
         startCount--;
     }
 
+    @Override
     public boolean isRunning() {
         return startCount > 0;
     }
 
+    @Override
     @SuppressWarnings("rawtypes")
     public void accept(ClientVisitor visitor) {
         throw new UnsupportedOperationException();

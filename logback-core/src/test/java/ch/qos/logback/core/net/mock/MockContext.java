@@ -57,30 +57,37 @@ public class MockContext extends ContextBase {
 
     private class MockStatusManager implements StatusManager {
 
+        @Override
         public void add(Status status) {
             lastStatus = status;
         }
 
+        @Override
         public List<Status> getCopyOfStatusList() {
             throw new UnsupportedOperationException();
         }
 
+        @Override
         public int getCount() {
             throw new UnsupportedOperationException();
         }
 
+        @Override
         public boolean add(StatusListener listener) {
             throw new UnsupportedOperationException();
         }
 
+        @Override
         public void remove(StatusListener listener) {
             throw new UnsupportedOperationException();
         }
 
+        @Override
         public void clear() {
             throw new UnsupportedOperationException();
         }
 
+        @Override
         public List<StatusListener> getCopyOfStatusListenerList() {
             throw new UnsupportedOperationException();
         }

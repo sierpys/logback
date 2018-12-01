@@ -65,10 +65,12 @@ public abstract class RollingPolicyBase extends ContextAwareBase implements Roll
         return fileNamePatternStr;
     }
 
+    @Override
     public CompressionMode getCompressionMode() {
         return compressionMode;
     }
 
+    @Override
     public boolean isStarted() {
         return started;
     }
@@ -81,6 +83,7 @@ public abstract class RollingPolicyBase extends ContextAwareBase implements Roll
         started = false;
     }
 
+    @Override
     public void setParent(FileAppender<?> appender) {
         this.parent = appender;
     }

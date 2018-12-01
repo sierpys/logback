@@ -22,6 +22,7 @@ public class DummyThrowableProxy implements IThrowableProxy {
     private IThrowableProxy cause;
     private IThrowableProxy[] suppressed;
 
+    @Override
     public String getClassName() {
         return className;
     }
@@ -30,6 +31,7 @@ public class DummyThrowableProxy implements IThrowableProxy {
         this.className = className;
     }
 
+    @Override
     public String getMessage() {
         return message;
     }
@@ -38,6 +40,7 @@ public class DummyThrowableProxy implements IThrowableProxy {
         this.message = message;
     }
 
+    @Override
     public int getCommonFrames() {
         return commonFramesCount;
     }
@@ -46,6 +49,7 @@ public class DummyThrowableProxy implements IThrowableProxy {
         this.commonFramesCount = commonFramesCount;
     }
 
+    @Override
     public StackTraceElementProxy[] getStackTraceElementProxyArray() {
         return stackTraceElementProxyArray;
     }
@@ -54,6 +58,7 @@ public class DummyThrowableProxy implements IThrowableProxy {
         this.stackTraceElementProxyArray = stackTraceElementProxyArray;
     }
 
+    @Override
     public IThrowableProxy getCause() {
         return cause;
     }
@@ -62,6 +67,7 @@ public class DummyThrowableProxy implements IThrowableProxy {
         this.cause = cause;
     }
 
+    @Override
     public IThrowableProxy[] getSuppressed() {
         return suppressed;
     }

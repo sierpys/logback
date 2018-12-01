@@ -153,14 +153,17 @@ public class LoggingEvent implements ILoggingEvent {
         this.argumentArray = argArray;
     }
 
+    @Override
     public Object[] getArgumentArray() {
         return this.argumentArray;
     }
 
+    @Override
     public Level getLevel() {
         return level;
     }
 
+    @Override
     public String getLoggerName() {
         return loggerName;
     }
@@ -169,6 +172,7 @@ public class LoggingEvent implements ILoggingEvent {
         this.loggerName = loggerName;
     }
 
+    @Override
     public String getThreadName() {
         if (threadName == null) {
             threadName = (Thread.currentThread()).getName();
@@ -191,6 +195,7 @@ public class LoggingEvent implements ILoggingEvent {
      * Returns the throwable information contained within this event. May be
      * <code>null</code> if there is no such information.
      */
+    @Override
     public IThrowableProxy getThrowableProxy() {
         return throwableProxy;
     }
@@ -221,6 +226,7 @@ public class LoggingEvent implements ILoggingEvent {
         this.getMDCPropertyMap();
     }
 
+    @Override
     public LoggerContextVO getLoggerContextVO() {
         return loggerContextVO;
     }
@@ -229,6 +235,7 @@ public class LoggingEvent implements ILoggingEvent {
         this.loggerContextVO = loggerContextVO;
     }
 
+    @Override
     public String getMessage() {
         return message;
     }
@@ -274,6 +281,7 @@ public class LoggingEvent implements ILoggingEvent {
      * information.
      * </p>
      */
+    @Override
     public StackTraceElement[] getCallerData() {
         if (callerDataArray == null) {
             callerDataArray = CallerData
@@ -282,6 +290,7 @@ public class LoggingEvent implements ILoggingEvent {
         return callerDataArray;
     }
 
+    @Override
     public boolean hasCallerData() {
         return (callerDataArray != null);
     }
@@ -290,6 +299,7 @@ public class LoggingEvent implements ILoggingEvent {
         this.callerDataArray = callerDataArray;
     }
 
+    @Override
     public Marker getMarker() {
         return marker;
     }
@@ -306,6 +316,7 @@ public class LoggingEvent implements ILoggingEvent {
     }
 
     // lazy computation as suggested in LOGBACK-495
+    @Override
     public String getFormattedMessage() {
         if (formattedMessage != null) {
             return formattedMessage;
@@ -319,6 +330,7 @@ public class LoggingEvent implements ILoggingEvent {
         return formattedMessage;
     }
 
+    @Override
     public Map<String, String> getMDCPropertyMap() {
         // populate mdcPropertyMap if null
         if (mdcPropertyMap == null) {

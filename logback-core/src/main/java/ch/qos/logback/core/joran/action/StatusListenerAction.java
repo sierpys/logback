@@ -28,6 +28,7 @@ public class StatusListenerAction extends Action {
     Boolean effectivelyAdded = null;
     StatusListener statusListener = null;
 
+    @Override
     public void begin(InterpretationContext ec, String name, Attributes attributes) throws ActionException {
         inError = false;
         effectivelyAdded = null;
@@ -57,6 +58,7 @@ public class StatusListenerAction extends Action {
     public void finish(InterpretationContext ec) {
     }
 
+    @Override
     public void end(InterpretationContext ec, String e) {
         if (inError) {
             return;
@@ -73,8 +75,9 @@ public class StatusListenerAction extends Action {
     }
 
     private boolean isEffectivelyAdded() {
-        if (effectivelyAdded == null)
+        if (effectivelyAdded == null) {
             return false;
+        }
         return effectivelyAdded;
     }
 }

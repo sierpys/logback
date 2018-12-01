@@ -180,6 +180,7 @@ public class AccessEventDiscriminator extends AbstractDiscriminator<IAccessEvent
         this.defaultValue = defaultValue;
     }
 
+    @Override
     public String getKey() {
         return key;
     }

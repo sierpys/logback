@@ -34,6 +34,7 @@ abstract public class TriggeringPolicyBase<E> extends ContextAwareBase implement
         start = false;
     }
 
+    @Override
     public boolean isStarted() {
         return start;
     }

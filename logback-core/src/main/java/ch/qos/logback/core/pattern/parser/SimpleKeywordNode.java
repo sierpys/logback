@@ -35,6 +35,7 @@ public class SimpleKeywordNode extends FormattingNode {
         this.optionList = optionList;
     }
 
+    @Override
     public boolean equals(Object o) {
         if (!super.equals(o)) {
             return false;

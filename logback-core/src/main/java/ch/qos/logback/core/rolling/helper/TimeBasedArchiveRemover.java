@@ -47,6 +47,7 @@ public class TimeBasedArchiveRemover extends ContextAwareBase implements Archive
     }
 
     int callCount = 0;
+    @Override
     public void clean(Date now) {
  
         long nowInMillis = now.getTime();
@@ -198,6 +199,7 @@ public class TimeBasedArchiveRemover extends ContextAwareBase implements Archive
         }
     }
 
+    @Override
     public void setMaxHistory(int maxHistory) {
         this.maxHistory = maxHistory;
     }
@@ -206,6 +208,7 @@ public class TimeBasedArchiveRemover extends ContextAwareBase implements Archive
         return -maxHistory - 1;
     }
 
+    @Override
     public void setTotalSizeCap(long totalSizeCap) {
         this.totalSizeCap = totalSizeCap;
     }
@@ -214,6 +217,7 @@ public class TimeBasedArchiveRemover extends ContextAwareBase implements Archive
         return "c.q.l.core.rolling.helper.TimeBasedArchiveRemover";
     }
 
+    @Override
     public Future<?> cleanAsynchronously(Date now) {
         ArhiveRemoverRunnable runnable = new ArhiveRemoverRunnable(now);
         ExecutorService executorService = context.getScheduledExecutorService();

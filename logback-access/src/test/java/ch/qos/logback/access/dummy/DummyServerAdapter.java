@@ -27,18 +27,22 @@ public class DummyServerAdapter implements ServerAdapter {
         this.response = dummyResponse;
     }
 
+    @Override
     public long getContentLength() {
         return response.getContentCount();
     }
 
+    @Override
     public int getStatusCode() {
         return response.getStatus();
     }
 
+    @Override
     public long getRequestTimestamp() {
         return -1;
     }
 
+    @Override
     public Map<String, String> buildResponseHeaderMap() {
         return response.headerMap;
     }

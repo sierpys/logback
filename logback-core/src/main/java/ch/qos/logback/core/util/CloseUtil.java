@@ -30,8 +30,9 @@ public class CloseUtil {
      * @param closeable the socket to close
      */
     public static void closeQuietly(Closeable closeable) {
-        if (closeable == null)
+        if (closeable == null) {
             return;
+        }
         try {
             closeable.close();
         } catch (IOException ex) {
@@ -44,8 +45,9 @@ public class CloseUtil {
      * @param socket the socket to close
      */
     public static void closeQuietly(Socket socket) {
-        if (socket == null)
+        if (socket == null) {
             return;
+        }
         try {
             socket.close();
         } catch (IOException ex) {
@@ -59,8 +61,9 @@ public class CloseUtil {
      * @param serverSocket the socket to close
      */
     public static void closeQuietly(ServerSocket serverSocket) {
-        if (serverSocket == null)
+        if (serverSocket == null) {
             return;
+        }
         try {
             serverSocket.close();
         } catch (IOException ex) {

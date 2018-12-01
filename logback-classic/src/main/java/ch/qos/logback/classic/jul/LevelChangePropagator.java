@@ -103,6 +103,7 @@ public class LevelChangePropagator extends ContextAwareBase implements LoggerCon
         isStarted = false;
     }
 
+    @Override
     public boolean isStarted() {
         return isStarted;
     }

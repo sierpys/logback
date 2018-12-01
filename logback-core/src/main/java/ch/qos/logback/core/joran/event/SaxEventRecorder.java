@@ -161,38 +161,47 @@ public class SaxEventRecorder extends DefaultHandler implements ContextAware {
         addWarn(XML_PARSING + " - Parsing warning on line " + spe.getLineNumber() + " and column " + spe.getColumnNumber(), spe);
     }
 
+    @Override
     public void addError(String msg) {
         cai.addError(msg);
     }
 
+    @Override
     public void addError(String msg, Throwable ex) {
         cai.addError(msg, ex);
     }
 
+    @Override
     public void addInfo(String msg) {
         cai.addInfo(msg);
     }
 
+    @Override
     public void addInfo(String msg, Throwable ex) {
         cai.addInfo(msg, ex);
     }
 
+    @Override
     public void addStatus(Status status) {
         cai.addStatus(status);
     }
 
+    @Override
     public void addWarn(String msg) {
         cai.addWarn(msg);
     }
 
+    @Override
     public void addWarn(String msg, Throwable ex) {
         cai.addWarn(msg, ex);
     }
 
+    @Override
     public Context getContext() {
         return cai.getContext();
     }
 
+    @Override
     public void setContext(Context context) {
         cai.setContext(context);
     }

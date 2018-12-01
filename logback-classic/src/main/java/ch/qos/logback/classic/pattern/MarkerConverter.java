@@ -26,6 +26,7 @@ public class MarkerConverter extends ClassicConverter {
 
     private static String EMPTY = "";
 
+    @Override
     public String convert(ILoggingEvent le) {
         Marker marker = le.getMarker();
         if (marker == null) {

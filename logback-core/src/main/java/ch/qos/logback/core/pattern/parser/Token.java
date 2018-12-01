@@ -72,6 +72,7 @@ class Token {
         return optionsList;
     }
     
+    @Override
     public String toString() {
         String typeStr = null;
         switch (type) {
@@ -108,6 +109,7 @@ class Token {
         }
     }
 
+    @Override
     public int hashCode() {
         int result;
         result = type;
@@ -115,18 +117,23 @@ class Token {
         return result;
     }
 
+    @Override
     public boolean equals(Object o) {
-        if (this == o)
+        if (this == o) {
             return true;
-        if (!(o instanceof Token))
+        }
+        if (!(o instanceof Token)) {
             return false;
+        }
 
         final Token token = (Token) o;
 
-        if (type != token.type)
+        if (type != token.type) {
             return false;
-        if (value != null ? !value.equals(token.value) : token.value != null)
+        }
+        if (value != null ? !value.equals(token.value) : token.value != null) {
             return false;
+        }
 
         return true;
     }

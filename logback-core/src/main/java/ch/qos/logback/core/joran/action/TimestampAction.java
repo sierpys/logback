@@ -59,8 +59,9 @@ public class TimestampAction extends Action {
             addInfo("Using current interpretation time, i.e. now, as time reference.");
         }
 
-        if (inError)
+        if (inError) {
             return;
+        }
 
         String scopeStr = attributes.getValue(SCOPE_ATTRIBUTE);
         Scope scope = ActionUtil.stringToScope(scopeStr);

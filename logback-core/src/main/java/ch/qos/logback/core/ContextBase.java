@@ -60,6 +60,7 @@ public class ContextBase implements Context, LifeCycle {
         initCollisionMaps();
     }
 
+    @Override
     public StatusManager getStatusManager() {
         return sm;
     }
@@ -82,10 +83,12 @@ public class ContextBase implements Context, LifeCycle {
         this.sm = statusManager;
     }
 
+    @Override
     public Map<String, String> getCopyOfPropertyMap() {
         return new HashMap<String, String>(propertyMap);
     }
 
+    @Override
     public void putProperty(String key, String val) {
         if (HOSTNAME_KEY.equalsIgnoreCase(key)) {
             putHostnameProperty(val);
@@ -106,9 +109,11 @@ public class ContextBase implements Context, LifeCycle {
      * @param key
      * @return
      */
+    @Override
     public String getProperty(String key) {
-        if (CONTEXT_NAME_KEY.equals(key))
+        if (CONTEXT_NAME_KEY.equals(key)) {
             return getName();
+        }
         if (HOSTNAME_KEY.equalsIgnoreCase(key)) {
             return lazyGetHostname();
         }
@@ -134,10 +139,12 @@ public class ContextBase implements Context, LifeCycle {
         }
     }
 
+    @Override
     public Object getObject(String key) {
         return objectMap.get(key);
     }
 
+    @Override
     public void putObject(String key, Object value) {
         objectMap.put(key, value);
     }
@@ -146,10 +153,12 @@ public class ContextBase implements Context, LifeCycle {
         objectMap.remove(key);
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public void start() {
         // We'd like to create the executor service here, but we can't;
         // ContextBase has not always implemented LifeCycle and there are *many*
@@ -157,6 +166,7 @@ public class ContextBase implements Context, LifeCycle {
         started = true;
     }
 
+    @Override
     public void stop() {
         // We don't check "started" here, because the executor service uses
         // lazy initialization, rather than being created in the start method
@@ -165,6 +175,7 @@ public class ContextBase implements Context, LifeCycle {
         started = false;
     }
 
+    @Override
     public boolean isStarted() {
         return started;
     }
@@ -188,6 +199,7 @@ public class ContextBase implements Context, LifeCycle {
      *
      * @throws IllegalStateException if the context already has a name, other than "default".
      */
+    @Override
     public void setName(String name) throws IllegalStateException {
         if (name != null && name.equals(this.name)) {
             return; // idempotent naming
@@ -199,10 +211,12 @@ public class ContextBase implements Context, LifeCycle {
         }
     }
 
+    @Override
     public long getBirthTime() {
         return birthTime;
     }
 
+    @Override
     public Object getConfigurationLock() {
         return configurationLock;
     }
@@ -243,6 +257,7 @@ public class ContextBase implements Context, LifeCycle {
         }
     }
 
+    @Override
     public void register(LifeCycle component) {
         getLifeCycleManager().register(component);
     }
@@ -280,10 +295,12 @@ public class ContextBase implements Context, LifeCycle {
         return new ArrayList<ScheduledFuture<?>>(scheduledFutures);
     }
     
+    @Override
     public SequenceNumberGenerator getSequenceNumberGenerator() {
         return sequenceNumberGenerator;
     }
 
+    @Override
     public void setSequenceNumberGenerator(SequenceNumberGenerator sequenceNumberGenerator) {
         this.sequenceNumberGenerator = sequenceNumberGenerator;
     }

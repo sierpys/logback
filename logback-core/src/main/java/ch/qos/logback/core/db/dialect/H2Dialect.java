@@ -21,6 +21,7 @@ package ch.qos.logback.core.db.dialect;
 public class H2Dialect implements SQLDialect {
     public static final String SELECT_CURRVAL = "CALL IDENTITY()";
 
+    @Override
     public String getSelectInsertId() {
         return SELECT_CURRVAL;
     }

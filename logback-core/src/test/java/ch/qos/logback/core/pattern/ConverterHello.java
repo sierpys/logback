@@ -17,6 +17,7 @@ import ch.qos.logback.core.pattern.DynamicConverter;
 
 public class ConverterHello extends DynamicConverter<Object> {
 
+    @Override
     public String convert(Object event) {
         return "Hello";
     }

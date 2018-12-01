@@ -141,6 +141,7 @@ public class AppenderTrackerTest {
     // ======================================================================
     static class ListAppenderFactory implements AppenderFactory<Object> {
 
+        @Override
         public Appender<Object> buildAppender(Context context, String discriminatingValue) throws JoranException {
             ListAppender<Object> la = new ListAppender<Object>();
             la.setContext(context);

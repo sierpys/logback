@@ -29,6 +29,7 @@ public class SamplePatternLayout<E> extends PatternLayoutBase<E> {
         converterMap.put("hello", ConverterHello.class.getName());
     }
 
+    @Override
     public Map<String, String> getDefaultConverterMap() {
         return converterMap;
     }

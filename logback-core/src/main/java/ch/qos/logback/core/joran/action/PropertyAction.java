@@ -50,6 +50,7 @@ public class PropertyAction extends Action {
      * all the properties found in the given file.
      * 
      */
+    @Override
     public void begin(InterpretationContext ec, String localName, Attributes attributes) {
 
         if ("substitutionProperty".equals(localName)) {
@@ -133,6 +134,7 @@ public class PropertyAction extends Action {
         return (!(OptionHelper.isEmpty(name) || OptionHelper.isEmpty(value)) && (OptionHelper.isEmpty(file) && OptionHelper.isEmpty(resource)));
     }
 
+    @Override
     public void end(InterpretationContext ec, String name) {
     }
 

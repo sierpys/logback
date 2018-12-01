@@ -39,12 +39,15 @@ public class LoggerNameUtil {
         int dotIndex = name.indexOf(CoreConstants.DOT, fromIndex);
         int dollarIndex = name.indexOf(CoreConstants.DOLLAR, fromIndex);
 
-        if (dotIndex == -1 && dollarIndex == -1)
+        if (dotIndex == -1 && dollarIndex == -1) {
             return -1;
-        if (dotIndex == -1)
+        }
+        if (dotIndex == -1) {
             return dollarIndex;
-        if (dollarIndex == -1)
+        }
+        if (dollarIndex == -1) {
             return dotIndex;
+        }
 
         return dotIndex < dollarIndex ? dotIndex : dollarIndex;
     }

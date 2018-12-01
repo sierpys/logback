@@ -61,8 +61,9 @@ public class MDCFilter extends MatchingFilter {
             errorCount++;
         }
         
-        if(errorCount == 0)
+        if(errorCount == 0) {
             this.start = true;
+        }
     }
     @Override
     public FilterReply decide(Marker marker, Logger logger, Level level, String format, Object[] params, Throwable t) {

@@ -50,10 +50,12 @@ import ch.qos.logback.classic.util.ContextSelectorStaticBinder;
  */
 public class LoggerContextFilter implements Filter {
 
+    @Override
     public void destroy() {
         // do nothing
     }
 
+    @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
         LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
@@ -74,6 +76,7 @@ public class LoggerContextFilter implements Filter {
         }
     }
 
+    @Override
     public void init(FilterConfig arg0) throws ServletException {
         // do nothing
     }

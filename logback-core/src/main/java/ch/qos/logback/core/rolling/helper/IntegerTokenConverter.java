@@ -40,6 +40,7 @@ public class IntegerTokenConverter extends DynamicConverter<Object> implements M
         return sbuf.append(s).toString();
     }
 
+    @Override
     public String convert(Object o) {
         if (o == null) {
             throw new IllegalArgumentException("Null argument forbidden");

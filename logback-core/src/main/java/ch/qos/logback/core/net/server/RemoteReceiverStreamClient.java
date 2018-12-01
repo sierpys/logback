@@ -68,6 +68,7 @@ class RemoteReceiverStreamClient extends ContextAwareBase implements RemoteRecei
     /**
      * {@inheritDoc}
      */
+    @Override
     public void setQueue(BlockingQueue<Serializable> queue) {
         this.queue = queue;
     }
@@ -75,6 +76,7 @@ class RemoteReceiverStreamClient extends ContextAwareBase implements RemoteRecei
     /**
      * {@inheritDoc}
      */
+    @Override
     public boolean offer(Serializable event) {
         if (queue == null) {
             throw new IllegalStateException("client has no event queue");

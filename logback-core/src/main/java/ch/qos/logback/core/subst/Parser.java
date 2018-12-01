@@ -42,8 +42,9 @@ public class Parser {
     }
 
     public Node parse() throws ScanException {
-        if (tokenList == null || tokenList.isEmpty())
+        if (tokenList == null || tokenList.isEmpty()) {
             return null;
+        }
         return E();
     }
 

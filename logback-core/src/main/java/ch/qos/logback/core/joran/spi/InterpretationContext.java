@@ -59,6 +59,7 @@ public class InterpretationContext extends ContextAwareBase implements PropertyC
         return defaultNestedComponentRegistry;
     }
 
+    @Override
     public Map<String, String> getCopyOfPropertyMap() {
         return new HashMap<String, String>(propertiesMap);
     }
@@ -141,6 +142,7 @@ public class InterpretationContext extends ContextAwareBase implements PropertyC
      * If a key is found in propertiesMap then return it. Otherwise, delegate to
      * the context.
      */
+    @Override
     public String getProperty(String key) {
         String v = propertiesMap.get(key);
         if (v != null) {

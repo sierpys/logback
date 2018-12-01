@@ -76,6 +76,7 @@ public class FileNamePattern extends ContextAwareBase {
         return pattern.replace(")", "\\)");
     }
 
+    @Override
     public String toString() {
         return pattern;
     }
@@ -91,18 +92,23 @@ public class FileNamePattern extends ContextAwareBase {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         FileNamePattern other = (FileNamePattern) obj;
         if (pattern == null) {
-            if (other.pattern != null)
+            if (other.pattern != null) {
                 return false;
-        } else if (!pattern.equals(other.pattern))
+            }
+        } else if (!pattern.equals(other.pattern)) {
             return false;
+        }
         return true;
     }
 
@@ -114,8 +120,9 @@ public class FileNamePattern extends ContextAwareBase {
             if (p instanceof DateTokenConverter) {
                 DateTokenConverter<Object> dtc = (DateTokenConverter<Object>) p;
                 // only primary converters should be returned as
-                if (dtc.isPrimary())
+                if (dtc.isPrimary()) {
                     return dtc;
+                }
             }
 
             p = p.getNext();

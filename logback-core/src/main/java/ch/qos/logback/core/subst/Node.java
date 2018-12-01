@@ -56,13 +56,15 @@ public class Node {
         case VARIABLE:
             StringBuilder payloadBuf = new StringBuilder();
             StringBuilder defaultPartBuf2 = new StringBuilder();
-            if (defaultPart != null)
+            if (defaultPart != null) {
                 recursive((Node) defaultPart, defaultPartBuf2);
+            }
 
             recursive((Node) payload, payloadBuf);
             String r = "Node{" + "type=" + type + ", payload='" + payloadBuf.toString() + "'";
-            if (defaultPart != null)
+            if (defaultPart != null) {
                 r += ", defaultPart=" + defaultPartBuf2.toString();
+            }
             r += '}';
             return r;
         }
@@ -94,21 +96,27 @@ public class Node {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o)
+        if (this == o) {
             return true;
-        if (o == null || getClass() != o.getClass())
+        }
+        if (o == null || getClass() != o.getClass()) {
             return false;
+        }
 
         Node node = (Node) o;
 
-        if (type != node.type)
+        if (type != node.type) {
             return false;
-        if (payload != null ? !payload.equals(node.payload) : node.payload != null)
+        }
+        if (payload != null ? !payload.equals(node.payload) : node.payload != null) {
             return false;
-        if (defaultPart != null ? !defaultPart.equals(node.defaultPart) : node.defaultPart != null)
+        }
+        if (defaultPart != null ? !defaultPart.equals(node.defaultPart) : node.defaultPart != null) {
             return false;
-        if (next != null ? !next.equals(node.next) : node.next != null)
+        }
+        if (next != null ? !next.equals(node.next) : node.next != null) {
             return false;
+        }
 
         return true;
     }

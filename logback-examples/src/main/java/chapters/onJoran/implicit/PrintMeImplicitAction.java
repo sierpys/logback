@@ -28,6 +28,7 @@ import ch.qos.logback.core.joran.spi.InterpretationContext;
  */
 public class PrintMeImplicitAction extends ImplicitAction {
 
+    @Override
     public boolean isApplicable(ElementPath elementPath, Attributes attributes, InterpretationContext ec) {
         String printmeStr = attributes.getValue("printme");
 

@@ -27,6 +27,7 @@ public class MockLifeCycleComponent implements LifeCycle {
         started = false;
     }
 
+    @Override
     public boolean isStarted() {
         return started;
     }

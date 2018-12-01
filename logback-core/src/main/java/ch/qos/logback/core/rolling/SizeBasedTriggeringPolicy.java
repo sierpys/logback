@@ -45,6 +45,7 @@ public class SizeBasedTriggeringPolicy<E> extends TriggeringPolicyBase<E> {
 
     InvocationGate invocationGate = new DefaultInvocationGate();
 
+    @Override
     public boolean isTriggeringEvent(final File activeFile, final E event) {
         long now = System.currentTimeMillis();
         if (invocationGate.isTooSoon(now))

@@ -62,6 +62,7 @@ public interface ServerListener<T extends Client> extends Closeable {
      * permitted to propagate any {@link IOException} that occurs when closing
      * the underlying resource(s).
      */
+    @Override
     void close();
 
 }

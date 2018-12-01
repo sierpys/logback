@@ -20,6 +20,7 @@ public class DoNotAutoStart implements LifeCycle {
 
     boolean started = false;
 
+    @Override
     public boolean isStarted() {
         return started;
     }

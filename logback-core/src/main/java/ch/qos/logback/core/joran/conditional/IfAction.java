@@ -134,10 +134,12 @@ public class IfAction extends Action {
     }
 
     public boolean isActive() {
-        if (stack == null)
+        if (stack == null) {
             return false;
-        if (stack.isEmpty())
+        }
+        if (stack.isEmpty()) {
             return false;
+        }
         return stack.peek().active;
     }
 }

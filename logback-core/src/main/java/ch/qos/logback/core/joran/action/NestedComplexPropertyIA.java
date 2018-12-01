@@ -52,6 +52,7 @@ public class NestedComplexPropertyIA extends ImplicitAction {
         this.beanDescriptionCache = beanDescriptionCache;
     }
 
+    @Override
     public boolean isApplicable(ElementPath elementPath, Attributes attributes, InterpretationContext ic) {
 
         String nestedElementTagName = elementPath.peekLast();

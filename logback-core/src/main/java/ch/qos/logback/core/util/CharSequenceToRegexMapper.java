@@ -32,13 +32,14 @@ class CharSequenceToRegexMapper {
         case 'G':
         case 'z':
             return ".*";
-        case 'M':
-            if (occurrences <= 2)
-                return number(occurrences);
-            else if (occurrences == 3)
-                return getRegexForShortMonths();
-            else
-                return getRegexForLongMonths();
+            case 'M':
+                if (occurrences <= 2) {
+                    return number(occurrences);
+                } else if (occurrences == 3) {
+                    return getRegexForShortMonths();
+                } else {
+                    return getRegexForLongMonths();
+                }
         case 'y':
         case 'w':
         case 'W':
@@ -116,8 +117,9 @@ class CharSequenceToRegexMapper {
         for (String symbol : symbols) {
             int len = symbol.length();
             // some SENTINEL values can be empty strings, the month at index 12 or the weekday at index 0
-            if (len == 0)
+            if (len == 0) {
                 continue;
+            }
             min = Math.min(min, len);
             max = Math.max(max, len);
         }

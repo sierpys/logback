@@ -23,6 +23,7 @@ public class ContextNameAction extends Action {
     public void begin(InterpretationContext ec, String name, Attributes attributes) {
     }
 
+    @Override
     public void body(InterpretationContext ec, String body) {
 
         String finalBody = ec.subst(body);

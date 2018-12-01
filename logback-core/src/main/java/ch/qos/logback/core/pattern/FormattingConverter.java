@@ -44,8 +44,9 @@ abstract public class FormattingConverter<E> extends Converter<E> {
         int max = formattingInfo.getMax();
 
         if (s == null) {
-            if (0 < min)
+            if (0 < min) {
                 SpacePadder.spacePad(buf, min);
+            }
             return;
         }
 

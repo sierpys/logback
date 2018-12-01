@@ -36,6 +36,7 @@ public class DefinePropertyAction extends Action {
     PropertyDefiner definer;
     boolean inError;
 
+    @Override
     public void begin(InterpretationContext ec, String localName, Attributes attributes) throws ActionException {
         // reset variables
         scopeStr = null;
@@ -83,6 +84,7 @@ public class DefinePropertyAction extends Action {
      * Now property definer is initialized by all properties and we can put
      * property value to context
      */
+    @Override
     public void end(InterpretationContext ec, String name) {
         if (inError) {
             return;

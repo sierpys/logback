@@ -46,6 +46,7 @@ public class SiftAction extends Action implements InPlayListener {
         }
     }
 
+    @Override
     public void inPlay(SaxEvent event) {
         seList.add(event);
     }

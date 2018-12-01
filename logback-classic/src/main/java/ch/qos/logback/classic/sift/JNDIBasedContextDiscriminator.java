@@ -37,6 +37,7 @@ public class JNDIBasedContextDiscriminator extends AbstractDiscriminator<ILoggin
     /**
      * Return the name of the current context name as found in the logging event.
      */
+    @Override
     public String getDiscriminatingValue(ILoggingEvent event) {
         ContextSelector selector = ContextSelectorStaticBinder.getSingleton().getContextSelector();
 
@@ -52,6 +53,7 @@ public class JNDIBasedContextDiscriminator extends AbstractDiscriminator<ILoggin
         return lc.getName();
     }
 
+    @Override
     public String getKey() {
         return KEY;
     }

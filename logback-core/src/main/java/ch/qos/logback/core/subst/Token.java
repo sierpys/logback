@@ -34,17 +34,21 @@ public class Token {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o)
+        if (this == o) {
             return true;
-        if (o == null || getClass() != o.getClass())
+        }
+        if (o == null || getClass() != o.getClass()) {
             return false;
+        }
 
         Token token = (Token) o;
 
-        if (type != token.type)
+        if (type != token.type) {
             return false;
-        if (payload != null ? !payload.equals(token.payload) : token.payload != null)
+        }
+        if (payload != null ? !payload.equals(token.payload) : token.payload != null) {
             return false;
+        }
 
         return true;
     }
@@ -59,8 +63,9 @@ public class Token {
     @Override
     public String toString() {
         String result = "Token{" + "type=" + type;
-        if (payload != null)
+        if (payload != null) {
             result += ", payload='" + payload + '\'';
+        }
 
         result += '}';
         return result;

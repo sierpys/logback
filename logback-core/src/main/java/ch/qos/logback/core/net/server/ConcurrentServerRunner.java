@@ -72,6 +72,7 @@ public abstract class ConcurrentServerRunner<T extends Client> extends ContextAw
     /**
      * {@inheritDoc}
      */
+    @Override
     public boolean isRunning() {
         return running;
     }
@@ -95,6 +96,7 @@ public abstract class ConcurrentServerRunner<T extends Client> extends ContextAw
     /**
      * {@inheritDoc}
      */
+    @Override
     public void accept(ClientVisitor<T> visitor) {
         Collection<T> clients = copyClients();
         for (T client : clients) {

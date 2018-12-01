@@ -71,6 +71,7 @@ public class DateTokenConverter<E> extends DynamicConverter<E> implements MonoTy
         return cdf.format(date.getTime());
     }
 
+    @Override
     public String convert(Object o) {
         if (o == null) {
             throw new IllegalArgumentException("Null argument forbidden");

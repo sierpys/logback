@@ -118,6 +118,7 @@ public class FixedWindowRollingPolicy extends RollingPolicyBase {
         return stemOfFileNamePattern.replace("%i", "%d{" + ZIP_ENTRY_DATE_PATTERN + "}");
     }
 
+    @Override
     public void rollover() throws RolloverFailure {
 
         // Inside this method it is guaranteed that the hereto active log file is

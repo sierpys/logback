@@ -19,6 +19,7 @@ public class AsLowerCasePropertyDefiner extends PropertyDefinerBase {
 
     String val;
 
+    @Override
     public String getPropertyValue() {
         if (val == null) {
             return null;

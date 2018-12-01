@@ -24,6 +24,7 @@ public class FileFilterUtil {
 
     public static void sortFileArrayByName(File[] fileArray) {
         Arrays.sort(fileArray, new Comparator<File>() {
+            @Override
             public int compare(File o1, File o2) {
                 String o1Name = o1.getName();
                 String o2Name = o2.getName();
@@ -34,6 +35,7 @@ public class FileFilterUtil {
 
     public static void reverseSortFileArrayByName(File[] fileArray) {
         Arrays.sort(fileArray, new Comparator<File>() {
+            @Override
             public int compare(File o1, File o2) {
                 String o1Name = o1.getName();
                 String o2Name = o2.getName();
@@ -80,6 +82,7 @@ public class FileFilterUtil {
             return new File[0];
         }
         return file.listFiles(new FilenameFilter() {
+            @Override
             public boolean accept(File dir, String name) {
                 return name.matches(stemRegex);
             }
@@ -90,8 +93,9 @@ public class FileFilterUtil {
         int max = Integer.MIN_VALUE;
         for (File aFile : matchingFileArray) {
             int aCounter = FileFilterUtil.extractCounter(aFile, stemRegex);
-            if (max < aCounter)
+            if (max < aCounter) {
                 max = aCounter;
+            }
         }
         return max;
     }

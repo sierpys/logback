@@ -114,6 +114,7 @@ public class LayoutWrappingEncoder<E> extends EncoderBase<E> {
         return convertToBytes(txt);
     }
 
+    @Override
     public boolean isStarted() {
         return false;
     }

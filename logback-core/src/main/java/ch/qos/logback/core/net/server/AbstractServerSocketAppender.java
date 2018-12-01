@@ -55,8 +55,9 @@ public abstract class AbstractServerSocketAppender<E> extends AppenderBase<E> {
 
     @Override
     public void start() {
-        if (isStarted())
+        if (isStarted()) {
             return;
+        }
         try {
             ServerSocket socket = getServerSocketFactory().createServerSocket(getPort(), getBacklog(), getInetAddress());
             ServerListener<RemoteReceiverClient> listener = createServerListener(socket);

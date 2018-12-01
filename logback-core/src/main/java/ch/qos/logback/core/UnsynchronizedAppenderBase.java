@@ -109,6 +109,7 @@ abstract public class UnsynchronizedAppenderBase<E> extends ContextAwareBase imp
         started = false;
     }
 
+    @Override
     public boolean isStarted() {
         return started;
     }
@@ -125,6 +126,7 @@ abstract public class UnsynchronizedAppenderBase<E> extends ContextAwareBase imp
         fai.clearAllFilters();
     }
 
+    @Override
     public List<Filter<E>> getCopyOfAttachedFiltersList() {
         return fai.getCopyOfAttachedFiltersList();
     }

@@ -70,6 +70,7 @@ abstract public class PatternLayoutBase<E> extends LayoutBase<E> {
         return effectiveMap;
     }
 
+    @Override
     public void start() {
         if (pattern == null || pattern.length() == 0) {
             addError("Empty or null pattern.");
@@ -126,6 +127,7 @@ abstract public class PatternLayoutBase<E> extends LayoutBase<E> {
         this.pattern = pattern;
     }
 
+    @Override
     public String toString() {
         return this.getClass().getName() + "(\"" + getPattern() + "\")";
     }

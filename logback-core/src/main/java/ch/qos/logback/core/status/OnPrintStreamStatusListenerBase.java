@@ -45,16 +45,19 @@ abstract public class OnPrintStreamStatusListenerBase extends ContextAwareBase i
 
     private void print(Status status) {
         StringBuilder sb = new StringBuilder();
-        if(prefix != null)
+        if(prefix != null) {
             sb.append(prefix);
+        }
         
         StatusPrinter.buildStr(sb, "", status);
         getPrintStream().print(sb);
     }
 
+    @Override
     public void addStatusEvent(Status status) {
-        if (!isStarted)
+        if (!isStarted) {
             return;
+        }
         print(status);
     }
 
@@ -62,8 +65,9 @@ abstract public class OnPrintStreamStatusListenerBase extends ContextAwareBase i
      * Print status messages retrospectively
      */
     private void retrospectivePrint() {
-        if (context == null)
+        if (context == null) {
             return;
+        }
         long now = System.currentTimeMillis();
         StatusManager sm = context.getStatusManager();
         List<Status> statusList = sm.getCopyOfStatusList();
@@ -84,6 +88,7 @@ abstract public class OnPrintStreamStatusListenerBase extends ContextAwareBase i
      * Invoking the start method can cause the instance to print status messages created less than 
      * value of retrospectiveThresold. 
      */
+    @Override
     public void start() {
         isStarted = true;
         if (retrospectiveThresold > 0) {
@@ -107,10 +112,12 @@ abstract public class OnPrintStreamStatusListenerBase extends ContextAwareBase i
         return retrospectiveThresold;
     }
 
+    @Override
     public void stop() {
         isStarted = false;
     }
 
+    @Override
     public boolean isStarted() {
         return isStarted;
     }

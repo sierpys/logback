@@ -33,6 +33,7 @@ public class AppenderAction<E> extends Action {
      * The appender thus generated is placed in the {@link InterpretationContext}'s
      * appender bag.
      */
+    @Override
     @SuppressWarnings("unchecked")
     public void begin(InterpretationContext ec, String localName, Attributes attributes) throws ActionException {
         // We are just beginning, reset variables
@@ -81,6 +82,7 @@ public class AppenderAction<E> extends Action {
      * Once the children elements are also parsed, now is the time to activate the
      * appender options.
      */
+    @Override
     public void end(InterpretationContext ec, String name) {
         if (inError) {
             return;

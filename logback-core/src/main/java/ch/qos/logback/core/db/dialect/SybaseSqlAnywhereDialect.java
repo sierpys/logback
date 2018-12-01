@@ -26,6 +26,7 @@ public class SybaseSqlAnywhereDialect implements SQLDialect {
 
     public static final String SELECT_CURRVAL = "SELECT @@identity id";
 
+    @Override
     public String getSelectInsertId() {
         return SELECT_CURRVAL;
     }

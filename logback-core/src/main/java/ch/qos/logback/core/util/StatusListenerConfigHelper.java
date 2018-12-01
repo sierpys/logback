@@ -42,7 +42,9 @@ public class StatusListenerConfigHelper {
     private static void initAndAddListener(Context context, StatusListener listener) {
         if (listener != null) {
             if (listener instanceof ContextAware) // LOGBACK-767
+            {
                 ((ContextAware) listener).setContext(context);
+            }
 
             boolean effectivelyAdded = context.getStatusManager().add(listener);
             if (effectivelyAdded && (listener instanceof LifeCycle)) {

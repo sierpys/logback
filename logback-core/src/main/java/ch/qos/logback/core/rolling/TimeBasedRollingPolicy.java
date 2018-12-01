@@ -156,6 +156,7 @@ public class TimeBasedRollingPolicy<E> extends RollingPolicyBase implements Trig
         return timeBasedFileNamingAndTriggeringPolicy;
     }
 
+    @Override
     public void rollover() throws RolloverFailure {
 
         // when rollover is called the elapsed period's file has
@@ -219,6 +220,7 @@ public class TimeBasedRollingPolicy<E> extends RollingPolicyBase implements Trig
         }
     }
 
+    @Override
     public boolean isTriggeringEvent(File activeFile, final E event) {
         return timeBasedFileNamingAndTriggeringPolicy.isTriggeringEvent(activeFile, event);
     }

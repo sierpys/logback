@@ -29,10 +29,12 @@ import ch.qos.logback.classic.util.JNDIUtil;
 
 public class ContextDetachingSCL implements ServletContextListener {
 
+    @Override
     public void contextInitialized(ServletContextEvent arg0) {
         // do nothing
     }
     
+    @Override
     public void contextDestroyed(ServletContextEvent servletContextEvent) {
         String loggerContextName = null;
 

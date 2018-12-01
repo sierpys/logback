@@ -56,25 +56,33 @@ public class ClassPackagingData implements Serializable {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         final ClassPackagingData other = (ClassPackagingData) obj;
         if (codeLocation == null) {
-            if (other.codeLocation != null)
+            if (other.codeLocation != null) {
                 return false;
-        } else if (!codeLocation.equals(other.codeLocation))
+            }
+        } else if (!codeLocation.equals(other.codeLocation)) {
             return false;
-        if (exact != other.exact)
+        }
+        if (exact != other.exact) {
             return false;
+        }
         if (version == null) {
-            if (other.version != null)
+            if (other.version != null) {
                 return false;
-        } else if (!version.equals(other.version))
+            }
+        } else if (!version.equals(other.version)) {
             return false;
+        }
         return true;
     }
 

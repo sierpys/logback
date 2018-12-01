@@ -52,8 +52,9 @@ public class StringCollectionUtil {
      * @param patterns patterns to match
      */
     public static void retainMatching(Collection<String> values, Collection<String> patterns) {
-        if (patterns.isEmpty())
+        if (patterns.isEmpty()) {
             return;
+        }
         List<String> matches = new ArrayList<String>(values.size());
         for (String p : patterns) {
             Pattern pattern = Pattern.compile(p);

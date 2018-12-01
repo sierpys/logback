@@ -113,6 +113,7 @@ public abstract class ConnectionSourceBase extends ContextAwareBase implements C
         return supportsBatchUpdates;
     }
 
+    @Override
     public boolean isStarted() {
         return started;
     }

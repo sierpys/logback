@@ -28,6 +28,7 @@ public class SizeAndTimeBasedArchiveRemover extends TimeBasedArchiveRemover {
         super(fileNamePattern, rc);
     }
 
+    @Override
     protected File[] getFilesInPeriod(Date dateOfPeriodToClean) {
         File archive0 = new File(fileNamePattern.convertMultipleArguments(dateOfPeriodToClean, 0));
         File parentDir = getParentDir(archive0);
@@ -54,13 +55,15 @@ public class SizeAndTimeBasedArchiveRemover extends TimeBasedArchiveRemover {
                 int index1 = extractIndex(pattern, f1);
                 int index2 = extractIndex(pattern, f2);
 
-                if (index1 == index2)
+                if (index1 == index2) {
                     return 0;
+                }
                 // descending sort, i.e. newest files first
-                if (index2 < index1)
+                if (index2 < index1) {
                     return -1;
-                else
+                } else {
                     return 1;
+                }
             }
 
             private int extractIndex(Pattern pattern, File f1) {
@@ -68,12 +71,14 @@ public class SizeAndTimeBasedArchiveRemover extends TimeBasedArchiveRemover {
                 if (matcher.find()) {
                     String indexAsStr = matcher.group(1);
                     
-                    if (indexAsStr == null || indexAsStr.isEmpty())
+                    if (indexAsStr == null || indexAsStr.isEmpty()) {
                         return NO_INDEX; // unreachable code?
-                    else
+                    } else {
                         return Integer.parseInt(indexAsStr);
-                } else
+                    }
+                } else {
                     return NO_INDEX;
+                }
             }
         });
     }

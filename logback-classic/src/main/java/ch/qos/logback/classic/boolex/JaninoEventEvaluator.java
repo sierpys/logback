@@ -72,6 +72,7 @@ public class JaninoEventEvaluator extends JaninoEventEvaluatorBase<ILoggingEvent
         DEFAULT_PARAM_TYPE_LIST.add(Throwable.class);
     }
 
+    @Override
     protected String getDecoratedExpression() {
         String expression = getExpression();
         if (!expression.contains("return")) {

@@ -201,12 +201,14 @@ public final class Logger implements org.slf4j.Logger, LocationAwareLogger, Appe
      * <p/>
      * This is useful when re-reading configuration information.
      */
+    @Override
     public void detachAndStopAllAppenders() {
         if (aai != null) {
             aai.detachAndStopAllAppenders();
         }
     }
 
+    @Override
     public boolean detachAppender(String name) {
         if (aai == null) {
             return false;
@@ -216,6 +218,7 @@ public final class Logger implements org.slf4j.Logger, LocationAwareLogger, Appe
 
     // this method MUST be synchronized. See comments on 'aai' field for further
     // details.
+    @Override
     public synchronized void addAppender(Appender<ILoggingEvent> newAppender) {
         if (aai == null) {
             aai = new AppenderAttachableImpl<ILoggingEvent>();
@@ -223,6 +226,7 @@ public final class Logger implements org.slf4j.Logger, LocationAwareLogger, Appe
         aai.addAppender(newAppender);
     }
 
+    @Override
     public boolean isAttached(Appender<ILoggingEvent> appender) {
         if (aai == null) {
             return false;
@@ -230,6 +234,7 @@ public final class Logger implements org.slf4j.Logger, LocationAwareLogger, Appe
         return aai.isAttached(appender);
     }
 
+    @Override
     @SuppressWarnings("unchecked")
     public Iterator<Appender<ILoggingEvent>> iteratorForAppenders() {
         if (aai == null) {
@@ -238,6 +243,7 @@ public final class Logger implements org.slf4j.Logger, LocationAwareLogger, Appe
         return aai.iteratorForAppenders();
     }
 
+    @Override
     public Appender<ILoggingEvent> getAppender(String name) {
         if (aai == null) {
             return null;
@@ -276,6 +282,7 @@ public final class Logger implements org.slf4j.Logger, LocationAwareLogger, Appe
     /**
      * Remove the appender passed as parameter form the list of appenders.
      */
+    @Override
     public boolean detachAppender(Appender<ILoggingEvent> appender) {
         if (aai == null) {
             return false;

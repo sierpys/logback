@@ -69,6 +69,7 @@ public abstract class Action extends ContextAwareBase {
      */
     public abstract void end(InterpretationContext ic, String name) throws ActionException;
 
+    @Override
     public String toString() {
         return this.getClass().getName();
     }

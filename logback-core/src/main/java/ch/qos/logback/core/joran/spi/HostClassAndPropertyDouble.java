@@ -52,23 +52,30 @@ public class HostClassAndPropertyDouble {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         final HostClassAndPropertyDouble other = (HostClassAndPropertyDouble) obj;
         if (hostClass == null) {
-            if (other.hostClass != null)
+            if (other.hostClass != null) {
                 return false;
-        } else if (!hostClass.equals(other.hostClass))
+            }
+        } else if (!hostClass.equals(other.hostClass)) {
             return false;
+        }
         if (propertyName == null) {
-            if (other.propertyName != null)
+            if (other.propertyName != null) {
                 return false;
-        } else if (!propertyName.equals(other.propertyName))
+            }
+        } else if (!propertyName.equals(other.propertyName)) {
             return false;
+        }
         return true;
     }
 

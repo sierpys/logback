@@ -31,10 +31,12 @@ public class ActionUtil {
      * @return a scope corresponding to the input string;  Scope.LOCAL by default.
      */
     static public Scope stringToScope(String scopeStr) {
-        if (Scope.SYSTEM.toString().equalsIgnoreCase(scopeStr))
+        if (Scope.SYSTEM.toString().equalsIgnoreCase(scopeStr)) {
             return Scope.SYSTEM;
-        if (Scope.CONTEXT.toString().equalsIgnoreCase(scopeStr))
+        }
+        if (Scope.CONTEXT.toString().equalsIgnoreCase(scopeStr)) {
             return Scope.CONTEXT;
+        }
 
         return Scope.LOCAL;
     }

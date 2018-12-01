@@ -24,10 +24,12 @@ abstract public class LayoutBase<E> extends ContextAwareBase implements Layout<E
     String presentationHeader;
     String presentationFooter;
 
+    @Override
     public void setContext(Context context) {
         this.context = context;
     }
 
+    @Override
     public Context getContext() {
         return this.context;
     }
@@ -40,6 +42,7 @@ abstract public class LayoutBase<E> extends ContextAwareBase implements Layout<E
         started = false;
     }
 
+    @Override
     public boolean isStarted() {
         return started;
     }

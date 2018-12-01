@@ -31,6 +31,7 @@ public class CounterBasedEvaluator extends ContextAwareBase implements EventEval
     String name;
     boolean started;
 
+    @Override
     public boolean evaluate(Object event) throws NullPointerException, EvaluationException {
         counter++;
 
@@ -50,6 +51,7 @@ public class CounterBasedEvaluator extends ContextAwareBase implements EventEval
         this.name = name;
     }
 
+    @Override
     public boolean isStarted() {
         return started;
     }

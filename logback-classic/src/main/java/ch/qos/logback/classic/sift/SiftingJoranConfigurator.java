@@ -62,6 +62,7 @@ public class SiftingJoranConfigurator extends SiftingJoranConfiguratorBase<ILogg
         interpreter.setInterpretationContextPropertiesMap(propertiesMap);
     }
 
+    @Override
     @SuppressWarnings("unchecked")
     public Appender<ILoggingEvent> getAppender() {
         Map<String, Object> omap = interpreter.getInterpretationContext().getObjectMap();

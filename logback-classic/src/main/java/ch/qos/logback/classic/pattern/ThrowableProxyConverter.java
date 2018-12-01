@@ -42,6 +42,7 @@ public class ThrowableProxyConverter extends ThrowableHandlingConverter {
 
     int errorCount = 0;
 
+    @Override
     @SuppressWarnings("unchecked")
     public void start() {
 
@@ -98,6 +99,7 @@ public class ThrowableProxyConverter extends ThrowableHandlingConverter {
         ignoredStackTraceLines.add(ignoredStackTraceLine);
     }
 
+    @Override
     public void stop() {
         evaluatorList = null;
         super.stop();
@@ -107,6 +109,7 @@ public class ThrowableProxyConverter extends ThrowableHandlingConverter {
         // nop
     }
 
+    @Override
     public String convert(ILoggingEvent event) {
 
         IThrowableProxy tp = event.getThrowableProxy();
@@ -154,8 +157,9 @@ public class ThrowableProxyConverter extends ThrowableHandlingConverter {
     }
 
     private void recursiveAppend(StringBuilder sb, String prefix, int indent, IThrowableProxy tp) {
-        if (tp == null)
+        if (tp == null) {
             return;
+        }
         subjoinFirstLine(sb, prefix, indent, tp);
         sb.append(CoreConstants.LINE_SEPARATOR);
         subjoinSTEPArray(sb, indent, tp);

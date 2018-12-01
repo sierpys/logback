@@ -38,6 +38,7 @@ public class Matcher extends ContextAwareBase implements LifeCycle {
         this.regex = regex;
     }
 
+    @Override
     public void start() {
         if (name == null) {
             addError("All Matcher objects must be named");
@@ -64,10 +65,12 @@ public class Matcher extends ContextAwareBase implements LifeCycle {
         }
     }
 
+    @Override
     public void stop() {
         start = false;
     }
 
+    @Override
     public boolean isStarted() {
         return start;
     }

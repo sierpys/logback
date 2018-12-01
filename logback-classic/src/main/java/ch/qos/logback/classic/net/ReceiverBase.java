@@ -58,6 +58,7 @@ public abstract class ReceiverBase extends ContextAwareBase implements LifeCycle
     /**
      * {@inheritDoc}
      */
+    @Override
     public final boolean isStarted() {
         return started;
     }

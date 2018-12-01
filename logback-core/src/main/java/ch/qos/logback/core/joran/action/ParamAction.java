@@ -29,6 +29,7 @@ public class ParamAction extends Action {
 		this.beanDescriptionCache=beanDescriptionCache;
 	}
 
+    @Override
     public void begin(InterpretationContext ec, String localName, Attributes attributes) {
         String name = attributes.getValue(NAME_ATTRIBUTE);
         String value = attributes.getValue(VALUE_ATTRIBUTE);
@@ -61,6 +62,7 @@ public class ParamAction extends Action {
         propSetter.setProperty(name, value);
     }
 
+    @Override
     public void end(InterpretationContext ec, String localName) {
     }
 

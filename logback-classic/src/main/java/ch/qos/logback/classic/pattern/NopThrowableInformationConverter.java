@@ -34,6 +34,7 @@ import ch.qos.logback.core.CoreConstants;
  */
 public class NopThrowableInformationConverter extends ThrowableHandlingConverter {
 
+    @Override
     public String convert(ILoggingEvent event) {
         return CoreConstants.EMPTY_STRING;
     }

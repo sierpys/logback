@@ -39,6 +39,7 @@ public class TrivialStatusListener implements StatusListener, LifeCycle {
         start = false;
     }
 
+    @Override
     public boolean isStarted() {
         return start;
     }

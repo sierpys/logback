@@ -183,8 +183,9 @@ public class IncludeAction extends Action {
 
     InputStream getInputStream(InterpretationContext ec, Attributes attributes) {
         URL inputURL = getInputURL(ec, attributes);
-        if (inputURL == null)
+        if (inputURL == null) {
             return null;
+        }
 
         ConfigurationWatchListUtil.addToWatchList(context, inputURL);
         return openURL(inputURL);

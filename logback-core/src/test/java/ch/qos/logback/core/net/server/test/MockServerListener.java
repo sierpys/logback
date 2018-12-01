@@ -51,6 +51,7 @@ public class MockServerListener<T extends Client> implements ServerListener<T> {
         this.closed = closed;
     }
 
+    @Override
     public T acceptClient() throws IOException, InterruptedException {
         if (isClosed()) {
             throw new IOException("closed");
@@ -67,6 +68,7 @@ public class MockServerListener<T extends Client> implements ServerListener<T> {
         queue.offer(client);
     }
 
+    @Override
     public synchronized void close() {
         setClosed(true);
         Thread waiter = getWaiter();

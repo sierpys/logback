@@ -43,6 +43,7 @@ public class Loader {
         }
 
         HAS_GET_CLASS_LOADER_PERMISSION = AccessController.doPrivileged(new PrivilegedAction<Boolean>() {
+            @Override
             public Boolean run() {
                 try {
                     AccessController.checkPermission(new RuntimePermission("getClassLoader"));
@@ -141,14 +142,16 @@ public class Loader {
      * @return
      */
     public static ClassLoader getClassLoaderAsPrivileged(final Class<?> clazz) {
-        if (!HAS_GET_CLASS_LOADER_PERMISSION)
+        if (!HAS_GET_CLASS_LOADER_PERMISSION) {
             return null;
-        else
+        } else {
             return AccessController.doPrivileged(new PrivilegedAction<ClassLoader>() {
+                @Override
                 public ClassLoader run() {
                     return clazz.getClassLoader();
                 }
             });
+        }
     }
 
     /**

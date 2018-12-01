@@ -26,6 +26,7 @@ import java.util.HashMap;
 public class AppenderRefAction<E> extends Action {
     boolean inError = false;
 
+    @Override
     @SuppressWarnings("unchecked")
     public void begin(InterpretationContext ec, String tagName, Attributes attributes) {
         // Let us forget about previous errors (in this object)
@@ -70,6 +71,7 @@ public class AppenderRefAction<E> extends Action {
         appenderAttachable.addAppender(appender);
     }
 
+    @Override
     public void end(InterpretationContext ec, String n) {
     }
 

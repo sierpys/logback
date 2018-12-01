@@ -45,16 +45,18 @@ public class ContextUtil extends ContextAwareBase {
     }
 
     public static Map<String, String> getFilenameCollisionMap(Context context) {
-        if (context == null)
+        if (context == null) {
             return null;
+        }
         @SuppressWarnings("unchecked")
         Map<String, String> map = (Map<String, String>) context.getObject(FA_FILENAME_COLLISION_MAP);
         return map;
     }
 
     public static Map<String, FileNamePattern> getFilenamePatternCollisionMap(Context context) {
-        if (context == null)
+        if (context == null) {
             return null;
+        }
         @SuppressWarnings("unchecked")
         Map<String, FileNamePattern> map = (Map<String, FileNamePattern>) context.getObject(RFA_FILENAME_PATTERN_COLLISION_MAP);
         return map;

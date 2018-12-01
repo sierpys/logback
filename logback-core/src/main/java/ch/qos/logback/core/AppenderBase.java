@@ -107,6 +107,7 @@ abstract public class AppenderBase<E> extends ContextAwareBase implements Append
         started = false;
     }
 
+    @Override
     public boolean isStarted() {
         return started;
     }
@@ -123,6 +124,7 @@ abstract public class AppenderBase<E> extends ContextAwareBase implements Append
         fai.clearAllFilters();
     }
 
+    @Override
     public List<Filter<E>> getCopyOfAttachedFiltersList() {
         return fai.getCopyOfAttachedFiltersList();
     }

@@ -44,6 +44,7 @@ public class CallerDataConverter extends ClassicConverter {
     final int MAX_ERROR_COUNT = 4;
     int errorCount = 0;
 
+    @Override
     @SuppressWarnings("unchecked")
     public void start() {
         String depthStr = getFirstOption();
@@ -109,6 +110,7 @@ public class CallerDataConverter extends ClassicConverter {
         evaluatorList.add(ee);
     }
 
+    @Override
     public String convert(ILoggingEvent le) {
         StringBuilder buf = new StringBuilder();
 
