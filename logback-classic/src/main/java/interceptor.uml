@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="181.0" y="370.0">ch.qos.logback.core.ConsoleAppender</node>
+    <node x="1615.75" y="210.0">ch.qos.logback.core.Context</node>
+    <node x="1412.75" y="210.0">ch.qos.logback.core.joran.spi.InterpretationContext</node>
+    <node x="680.75" y="210.0">ch.qos.logback.core.joran.action.Action</node>
+    <node x="223.0" y="210.0">ch.qos.logback.core.UnsynchronizedAppenderBase</node>
+    <node x="1523.6708333333331" y="100.0">ch.qos.logback.core.spi.PropertyContainer</node>
+    <node x="245.0" y="290.0">ch.qos.logback.core.OutputStreamAppender</node>
+    <node x="265.79166666666663" y="0.0">ch.qos.logback.core.spi.FilterAttachable</node>
+    <node x="1698.5434523809522" y="370.0">ch.qos.logback.classic.LoggerContext</node>
+    <node x="1705.0434523809522" y="290.0">ch.qos.logback.core.ContextBase</node>
+    <node x="415.0" y="605.0">ch.qos.logback.core.joran.event.StartEvent</node>
+    <node x="361.0" y="370.0">ch.qos.logback.core.FileAppender</node>
+    <node x="0.0" y="210.0">ch.qos.logback.core.joran.spi.CAI_WithLocatorSupport</node>
+    <node x="961.0" y="525.0">ch.qos.logback.core.joran.spi.EventPlayer</node>
+    <node x="790.75" y="210.0">ch.qos.logback.core.joran.util.beans.BeanDescriptionFactory</node>
+    <node x="518.75" y="370.0">ch.qos.logback.core.joran.action.NestedBasicPropertyIA</node>
+    <node x="364.0434523809522" y="100.0">ch.qos.logback.core.Appender</node>
+    <node x="520.75" y="210.0">ch.qos.logback.core.AppenderBase</node>
+    <node x="431.79166666666663" y="0.0">ch.qos.logback.core.spi.ContextAware</node>
+    <node x="730.75" y="370.0">ch.qos.logback.core.joran.action.NestedComplexPropertyIA</node>
+    <node x="1792.0" y="100.0">ch.qos.logback.core.joran.spi.RuleStore</node>
+    <node x="659.25" y="290.0">ch.qos.logback.core.joran.action.ImplicitAction</node>
+    <node x="1128.0" y="525.0">ch.qos.logback.core.joran.spi.Interpreter</node>
+    <node x="232.0" y="525.0">ch.qos.logback.core.joran.spi.ElementPath</node>
+    <node x="575.0" y="525.0">ch.qos.logback.classic.util.ContextInitializer</node>
+    <node x="1207.75" y="290.0">ch.qos.logback.core.joran.JoranConfiguratorBase</node>
+    <node x="773.0" y="525.0">ch.qos.logback.core.status.StatusManager</node>
+    <node x="20.5" y="100.0">ch.qos.logback.core.spi.ContextAwareImpl</node>
+    <node x="1859.0" y="0.0">ch.qos.logback.core.spi.LifeCycle</node>
+    <node x="1007.75" y="210.0">ch.qos.logback.core.joran.util.beans.BeanDescriptionCache</node>
+    <node x="1216.75" y="210.0">ch.qos.logback.core.joran.GenericConfigurator</node>
+    <node x="1734.75" y="210.0">ch.qos.logback.core.joran.spi.SimpleRuleStore</node>
+    <node x="41.5" y="605.0">ch.qos.logback.classic.Logger</node>
+    <node x="0.0" y="525.0">ch.qos.logback.core.spi.AppenderAttachable</node>
+    <node x="221.0" y="605.0">ch.qos.logback.core.joran.spi.ElementSelector</node>
+    <node x="340.5" y="450.0">ch.qos.logback.core.rolling.RollingFileAppender</node>
+    <node x="1222.75" y="370.0">ch.qos.logback.access.joran.JoranConfigurator</node>
+    <node x="419.0" y="525.0">ch.qos.logback.core.joran.event.SaxEvent</node>
+    <node x="1518.4184523809522" y="290.0">org.slf4j.ILoggerFactory</node>
+    <node x="912.25" y="100.0">ch.qos.logback.core.spi.ContextAwareBase</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ch.qos.logback.core.spi.ContextAwareBase" target="ch.qos.logback.core.spi.ContextAware">
+      <point x="0.0" y="-15.0" />
+      <point x="995.75" y="70.0" />
+      <point x="545.9583333333333" y="70.0" />
+      <point x="45.66666666666663" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.ContextBase" target="ch.qos.logback.core.spi.LifeCycle">
+      <point x="32.25" y="-15.0" />
+      <point x="1801.7934523809522" y="265.0" />
+      <point x="1911.5" y="265.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.Appender" target="ch.qos.logback.core.spi.LifeCycle">
+      <point x="36.666666666666686" y="-15.0" />
+      <point x="455.71011904761895" y="80.0" />
+      <point x="1876.5" y="80.0" />
+      <point x="-35.0" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.joran.GenericConfigurator" target="ch.qos.logback.core.spi.ContextAwareBase">
+      <point x="0.0" y="-15.0" />
+      <point x="1304.75" y="180.0" />
+      <point x="1027.0625" y="180.0" />
+      <point x="31.3125" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.classic.LoggerContext" target="ch.qos.logback.core.spi.LifeCycle">
+      <point x="47.33333333333326" y="-15.0" />
+      <point x="1816.8767857142855" y="345.0" />
+      <point x="1936.9208333333331" y="345.0" />
+      <point x="1936.9208333333331" y="80.0" />
+      <point x="1946.5" y="80.0" />
+      <point x="35.0" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.joran.spi.InterpretationContext" target="ch.qos.logback.core.spi.PropertyContainer">
+      <point x="45.75" y="-15.0" />
+      <point x="1550.0" y="190.0" />
+      <point x="1564.4208333333331" y="190.0" />
+      <point x="-40.75" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.joran.event.StartEvent" target="ch.qos.logback.core.joran.event.SaxEvent">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.joran.action.NestedComplexPropertyIA" target="ch.qos.logback.core.joran.action.ImplicitAction">
+      <point x="0.0" y="-15.0" />
+      <point x="836.75" y="345.0" />
+      <point x="759.0" y="345.0" />
+      <point x="33.25" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.FileAppender" target="ch.qos.logback.core.OutputStreamAppender">
+      <point x="0.0" y="-15.0" />
+      <point x="426.0" y="345.0" />
+      <point x="392.75" y="345.0" />
+      <point x="49.25" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.joran.spi.SimpleRuleStore" target="ch.qos.logback.core.joran.spi.RuleStore">
+      <point x="37.25" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.UnsynchronizedAppenderBase" target="ch.qos.logback.core.Appender">
+      <point x="-60.25" y="-15.0" />
+      <point x="283.25" y="190.0" />
+      <point x="391.5434523809522" y="190.0" />
+      <point x="-27.5" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.joran.spi.SimpleRuleStore" target="ch.qos.logback.core.spi.ContextAwareBase">
+      <point x="-37.25" y="-15.0" />
+      <point x="1772.0" y="160.0" />
+      <point x="1068.8125" y="160.0" />
+      <point x="73.0625" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.spi.ContextAwareImpl" target="ch.qos.logback.core.spi.ContextAware">
+      <point x="0.0" y="-15.0" />
+      <point x="101.5" y="60.0" />
+      <point x="454.625" y="60.0" />
+      <point x="-45.666666666666686" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.joran.JoranConfiguratorBase" target="ch.qos.logback.core.joran.GenericConfigurator">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.rolling.RollingFileAppender" target="ch.qos.logback.core.FileAppender">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.OutputStreamAppender" target="ch.qos.logback.core.UnsynchronizedAppenderBase">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.Appender" target="ch.qos.logback.core.spi.FilterAttachable">
+      <point x="-36.66666666666663" y="-15.0" />
+      <point x="382.3767857142856" y="50.0" />
+      <point x="338.79166666666663" y="50.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.AppenderBase" target="ch.qos.logback.core.spi.ContextAwareBase">
+      <point x="35.0" y="-15.0" />
+      <point x="625.75" y="170.0" />
+      <point x="943.5625" y="170.0" />
+      <point x="-52.1875" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.Appender" target="ch.qos.logback.core.spi.ContextAware">
+      <point x="0.0" y="-15.0" />
+      <point x="419.0434523809522" y="70.0" />
+      <point x="500.29166666666663" y="70.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.joran.util.beans.BeanDescriptionCache" target="ch.qos.logback.core.spi.ContextAwareBase">
+      <point x="0.0" y="-15.0" />
+      <point x="1102.25" y="190.0" />
+      <point x="1006.1875" y="190.0" />
+      <point x="10.4375" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.classic.LoggerContext" target="ch.qos.logback.core.ContextBase">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.joran.util.beans.BeanDescriptionFactory" target="ch.qos.logback.core.spi.ContextAwareBase">
+      <point x="0.0" y="-15.0" />
+      <point x="889.25" y="190.0" />
+      <point x="985.3125" y="190.0" />
+      <point x="-10.4375" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.AppenderBase" target="ch.qos.logback.core.Appender">
+      <point x="-35.0" y="-15.0" />
+      <point x="555.75" y="150.0" />
+      <point x="446.5434523809522" y="150.0" />
+      <point x="27.5" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.joran.spi.ElementSelector" target="ch.qos.logback.core.joran.spi.ElementPath">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.classic.Logger" target="ch.qos.logback.core.spi.AppenderAttachable">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.joran.spi.InterpretationContext" target="ch.qos.logback.core.spi.ContextAwareBase">
+      <point x="-45.75" y="-15.0" />
+      <point x="1458.5" y="170.0" />
+      <point x="1047.9375" y="170.0" />
+      <point x="52.1875" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.access.joran.JoranConfigurator" target="ch.qos.logback.core.joran.JoranConfiguratorBase">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.joran.spi.CAI_WithLocatorSupport" target="ch.qos.logback.core.spi.ContextAwareImpl">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.ConsoleAppender" target="ch.qos.logback.core.OutputStreamAppender">
+      <point x="0.0" y="-15.0" />
+      <point x="261.0" y="345.0" />
+      <point x="294.25" y="345.0" />
+      <point x="-49.25" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.ContextBase" target="ch.qos.logback.core.Context">
+      <point x="-32.25" y="-15.0" />
+      <point x="1737.2934523809522" y="265.0" />
+      <point x="1665.25" y="265.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.Context" target="ch.qos.logback.core.spi.PropertyContainer">
+      <point x="0.0" y="-15.0" />
+      <point x="1665.25" y="190.0" />
+      <point x="1645.9208333333331" y="190.0" />
+      <point x="40.75" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.classic.LoggerContext" target="org.slf4j.ILoggerFactory">
+      <point x="-47.33333333333326" y="-15.0" />
+      <point x="1722.210119047619" y="345.0" />
+      <point x="1589.4184523809522" y="345.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.joran.action.NestedBasicPropertyIA" target="ch.qos.logback.core.joran.action.ImplicitAction">
+      <point x="0.0" y="-15.0" />
+      <point x="614.75" y="345.0" />
+      <point x="692.5" y="345.0" />
+      <point x="-33.25" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.joran.action.Action" target="ch.qos.logback.core.spi.ContextAwareBase">
+      <point x="0.0" y="-15.0" />
+      <point x="725.75" y="180.0" />
+      <point x="964.4375" y="180.0" />
+      <point x="-31.3125" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.UnsynchronizedAppenderBase" target="ch.qos.logback.core.spi.ContextAwareBase">
+      <point x="60.25" y="-15.0" />
+      <point x="403.75" y="160.0" />
+      <point x="922.6875" y="160.0" />
+      <point x="-73.0625" y="15.0" />
+    </edge>
+    <edge source="ch.qos.logback.core.joran.action.ImplicitAction" target="ch.qos.logback.core.joran.action.Action">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="940.0" y="212.5" />
+  <SelectedNodes>
+    <node>ch.qos.logback.classic.Logger</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

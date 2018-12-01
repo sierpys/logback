@@ -41,10 +41,12 @@ public class CounterBasedEvaluator extends ContextAwareBase implements EventEval
         }
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public void setName(String name) {
         this.name = name;
     }
@@ -54,10 +56,12 @@ public class CounterBasedEvaluator extends ContextAwareBase implements EventEval
         return started;
     }
 
+    @Override
     public void start() {
         started = true;
     }
 
+    @Override
     public void stop() {
         started = false;
     }
