@@ -52,6 +52,7 @@ public class IntegerTokenConverter extends DynamicConverter<Object> implements M
         throw new IllegalArgumentException("Cannot convert " + o + " of type" + o.getClass().getName());
     }
 
+    @Override
     public boolean isApplicable(Object o) {
         return (o instanceof Integer);
     }

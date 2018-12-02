@@ -142,6 +142,7 @@ public class DefaultSocketConnectorTest {
 
         private Exception lastException;
 
+        @Override
         public void connectionFailed(SocketConnector connector, Exception ex) {
             lastException = ex;
         }

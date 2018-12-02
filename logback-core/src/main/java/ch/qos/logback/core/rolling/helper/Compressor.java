@@ -186,18 +186,20 @@ public class Compressor extends ContextAwareBase {
     static public String computeFileNameStrWithoutCompSuffix(String fileNamePatternStr, CompressionMode compressionMode) {
         int len = fileNamePatternStr.length();
         switch (compressionMode) {
-        case GZ:
-            if (fileNamePatternStr.endsWith(".gz"))
-                return fileNamePatternStr.substring(0, len - 3);
-            else
+            case GZ:
+                if (fileNamePatternStr.endsWith(".gz")) {
+                    return fileNamePatternStr.substring(0, len - 3);
+                } else {
+                    return fileNamePatternStr;
+                }
+            case ZIP:
+                if (fileNamePatternStr.endsWith(".zip")) {
+                    return fileNamePatternStr.substring(0, len - 4);
+                } else {
+                    return fileNamePatternStr;
+                }
+            case NONE:
                 return fileNamePatternStr;
-        case ZIP:
-            if (fileNamePatternStr.endsWith(".zip"))
-                return fileNamePatternStr.substring(0, len - 4);
-            else
-                return fileNamePatternStr;
-        case NONE:
-            return fileNamePatternStr;
         }
         throw new IllegalStateException("Execution should not reach this point");
     }

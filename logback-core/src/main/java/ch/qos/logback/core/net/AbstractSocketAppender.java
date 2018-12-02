@@ -171,8 +171,9 @@ public abstract class AbstractSocketAppender<E> extends AppenderBase<E> implemen
      */
     @Override
     protected void append(E event) {
-        if (event == null || !isStarted())
+        if (event == null || !isStarted()) {
             return;
+        }
 
         try {
             final boolean inserted = deque.offer(event, eventDelayLimit.getMilliseconds(), TimeUnit.MILLISECONDS);
@@ -247,6 +248,7 @@ public abstract class AbstractSocketAppender<E> extends AppenderBase<E> implemen
     /**
      * {@inheritDoc}
      */
+    @Override
     public void connectionFailed(SocketConnector connector, Exception ex) {
         if (ex instanceof InterruptedException) {
             addInfo("connector interrupted");

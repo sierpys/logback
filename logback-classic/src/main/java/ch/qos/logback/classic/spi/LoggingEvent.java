@@ -219,6 +219,7 @@ public class LoggingEvent implements ILoggingEvent {
      * Note that due to performance concerns, this method does NOT extract caller
      * data. It is the responsibility of the caller to extract caller information.
      */
+    @Override
     public void prepareForDeferredProcessing() {
         this.getFormattedMessage();
         this.getThreadName();
@@ -247,6 +248,7 @@ public class LoggingEvent implements ILoggingEvent {
         this.message = message;
     }
 
+    @Override
     public long getTimeStamp() {
         return timeStamp;
     }
@@ -366,6 +368,7 @@ public class LoggingEvent implements ILoggingEvent {
      *
      * @deprecated Replaced by [@link #getMDCPropertyMap}
      */
+    @Override
     public Map<String, String> getMdc() {
         return getMDCPropertyMap();
     }

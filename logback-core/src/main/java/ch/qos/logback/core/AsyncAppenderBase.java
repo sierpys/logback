@@ -89,8 +89,9 @@ public class AsyncAppenderBase<E> extends UnsynchronizedAppenderBase<E> implemen
 
     @Override
     public void start() {
-        if (isStarted())
+        if (isStarted()) {
             return;
+        }
         if (appenderCount == 0) {
             addError("No attached appenders found.");
             return;
@@ -101,8 +102,9 @@ public class AsyncAppenderBase<E> extends UnsynchronizedAppenderBase<E> implemen
         }
         blockingQueue = new ArrayBlockingQueue<E>(queueSize);
 
-        if (discardingThreshold == UNDEFINED)
+        if (discardingThreshold == UNDEFINED) {
             discardingThreshold = queueSize / 5;
+        }
         addInfo("Setting discardingThreshold to " + discardingThreshold);
         worker.setDaemon(true);
         worker.setName("AsyncAppender-Worker-" + getName());
@@ -113,8 +115,9 @@ public class AsyncAppenderBase<E> extends UnsynchronizedAppenderBase<E> implemen
 
     @Override
     public void stop() {
-        if (!isStarted())
+        if (!isStarted()) {
             return;
+        }
 
         // mark this appender as stopped so that Worker can also processPriorToRemoval if it is invoking
         // aii.appendLoopOnAppenders
@@ -288,6 +291,7 @@ public class AsyncAppenderBase<E> extends UnsynchronizedAppenderBase<E> implemen
 
     class Worker extends Thread {
 
+        @Override
         public void run() {
             AsyncAppenderBase<E> parent = AsyncAppenderBase.this;
             AppenderAttachableImpl<E> aai = parent.aai;

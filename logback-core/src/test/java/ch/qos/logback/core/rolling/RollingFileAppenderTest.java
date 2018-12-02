@@ -90,6 +90,7 @@ public class RollingFileAppenderTest extends AbstractAppenderTest<Object> {
         assertTrue(rfa.isAppend());
         assertNull(rfa.rawFileProperty());
         assertTrue(rfa.isStarted());
+
     }
 
     @Test

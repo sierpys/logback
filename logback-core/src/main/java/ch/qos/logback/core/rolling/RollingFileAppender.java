@@ -48,6 +48,7 @@ public class RollingFileAppender<E> extends FileAppender<E> {
     static private String COLLISION_URL = CODES_URL + "#rfa_collision";
     static private String RFA_LATE_FILE_URL = CODES_URL + "#rfa_file_after";
 
+    @Override
     public void start() {
         if (triggeringPolicy == null) {
             addWarn("No TriggeringPolicy was set for the RollingFileAppender named " + getName());

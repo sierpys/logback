@@ -43,6 +43,7 @@ public class DateTokenConverter<E> extends DynamicConverter<E> implements MonoTy
     // determines the rolling period
     private boolean primary = true;
 
+    @Override
     public void start() {
         this.datePattern = getFirstOption();
         if (this.datePattern == null) {
@@ -93,6 +94,7 @@ public class DateTokenConverter<E> extends DynamicConverter<E> implements MonoTy
         return timeZone;
     }
 
+    @Override
     public boolean isApplicable(Object o) {
         return (o instanceof Date);
     }

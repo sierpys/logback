@@ -239,13 +239,16 @@ public class SocketReceiverTest {
             this.socket = socket;
         }
 
+        @Override
         public Socket call() throws InterruptedException {
             return socket;
         }
 
+        @Override
         public void setExceptionHandler(ExceptionHandler exceptionHandler) {
         }
 
+        @Override
         public void setSocketFactory(SocketFactory socketFactory) {
         }
 

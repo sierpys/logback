@@ -54,6 +54,7 @@ public class SimpleKeywordNode extends FormattingNode {
         return super.hashCode();
     }
 
+    @Override
     public String toString() {
         StringBuilder buf = new StringBuilder();
         if (optionList == null) {

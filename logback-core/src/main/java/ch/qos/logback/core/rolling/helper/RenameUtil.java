@@ -61,7 +61,6 @@ public class RenameUtil extends ContextAwareBase {
                 if (Boolean.TRUE.equals(areOnDifferentVolumes)) {
                     addWarn("Detected different file systems for source [" + src + "] and target [" + target + "]. Attempting rename by copying.");
                     renameByCopying(src, target);
-                    return;
                 } else {
                     addWarn("Please consider leaving the [file] option of " + RollingFileAppender.class.getSimpleName() + " empty.");
                     addWarn("See also " + RENAMING_ERROR_URL);
@@ -83,8 +82,9 @@ public class RenameUtil extends ContextAwareBase {
      * @return true if on different volumes, false otherwise or if an error occurred
      */
     Boolean areOnDifferentVolumes(File srcFile, File targetFile) throws RolloverFailure {
-        if (!EnvUtil.isJDK7OrHigher())
+        if (!EnvUtil.isJDK7OrHigher()) {
             return false;
+        }
 
         // target file is not certain to exist but its parent has to exist given the call hierarchy of this method
         File parentOfTarget = targetFile.getAbsoluteFile().getParentFile();

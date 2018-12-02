@@ -32,7 +32,7 @@ public interface SocketConnector extends Callable<Socket> {
      * An exception handler that is notified of all exceptions that occur
      * during the (re)connection process.
      */
-    public interface ExceptionHandler {
+    interface ExceptionHandler {
         void connectionFailed(SocketConnector connector, Exception ex);
     }
 
@@ -42,6 +42,7 @@ public interface SocketConnector extends Callable<Socket> {
      * @return the connected socket
      * @throws InterruptedException
      */
+    @Override
     Socket call() throws InterruptedException;
 
     /**

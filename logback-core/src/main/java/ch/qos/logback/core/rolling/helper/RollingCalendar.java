@@ -105,22 +105,27 @@ public class RollingCalendar extends GregorianCalendar {
 
         case TOP_OF_DAY:
             // EE or uu
-            if (collision(7 * MILLIS_IN_ONE_DAY))
+            if (collision(7 * MILLIS_IN_ONE_DAY)) {
                 return false;
+            }
             // isolated dd
-            if (collision(31 * MILLIS_IN_ONE_DAY))
+            if (collision(31 * MILLIS_IN_ONE_DAY)) {
                 return false;
+            }
             // DD
-            if (collision(365 * MILLIS_IN_ONE_DAY))
+            if (collision(365 * MILLIS_IN_ONE_DAY)) {
                 return false;
+            }
             return true;
         case TOP_OF_WEEK:
             // WW
-            if (collision(34 * MILLIS_IN_ONE_DAY))
+            if (collision(34 * MILLIS_IN_ONE_DAY)) {
                 return false;
+            }
             // isolated ww
-            if (collision(366 * MILLIS_IN_ONE_DAY))
+            if (collision(366 * MILLIS_IN_ONE_DAY)) {
                 return false;
+            }
             return true;
         default:
             return true;
@@ -209,8 +214,9 @@ public class RollingCalendar extends GregorianCalendar {
     }
 
     public static int diffInMonths(long startTime, long endTime) {
-        if (startTime > endTime)
+        if (startTime > endTime) {
             throw new IllegalArgumentException("startTime cannot be larger than endTime");
+        }
         Calendar startCal = Calendar.getInstance();
         startCal.setTimeInMillis(startTime);
         Calendar endCal = Calendar.getInstance();

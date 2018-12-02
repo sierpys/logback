@@ -60,6 +60,7 @@ public class TimeBasedRollingPolicy<E> extends RollingPolicyBase implements Trig
 
     boolean cleanHistoryOnStart = false;
 
+    @Override
     public void start() {
         // set the LR for our utility object
         renameUtil.setContext(this.context);
@@ -124,8 +125,9 @@ public class TimeBasedRollingPolicy<E> extends RollingPolicyBase implements Trig
 
     @Override
     public void stop() {
-        if (!isStarted())
+        if (!isStarted()) {
             return;
+        }
         waitForAsynchronousJobToStop(compressionFuture, "compression");
         waitForAsynchronousJobToStop(cleanUpFuture, "clean-up");
         super.stop();

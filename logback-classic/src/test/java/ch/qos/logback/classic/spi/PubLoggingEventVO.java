@@ -119,10 +119,12 @@ public class PubLoggingEventVO implements ILoggingEvent, Serializable {
         return marker;
     }
 
+    @Override
     public long getTimeStamp() {
         return timeStamp;
     }
 
+    @Override
     public long getSequenceNumber() {
         return sequenceNumber;
     }
@@ -144,10 +146,12 @@ public class PubLoggingEventVO implements ILoggingEvent, Serializable {
         return mdcPropertyMap;
     }
 
+    @Override
     public Map<String, String> getMdc() {
         return mdcPropertyMap;
     }
 
+    @Override
     public void prepareForDeferredProcessing() {
     }
 

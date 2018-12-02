@@ -47,6 +47,7 @@ abstract public class TimeBasedFileNamingAndTriggeringPolicyBase<E> extends Cont
         return started;
     }
 
+    @Override
     public void start() {
         DateTokenConverter<Object> dtc = tbrp.fileNamePattern.getPrimaryDateTokenConverter();
         if (dtc == null) {
@@ -79,6 +80,7 @@ abstract public class TimeBasedFileNamingAndTriggeringPolicyBase<E> extends Cont
         computeNextCheck();
     }
 
+    @Override
     public void stop() {
         started = false;
     }
@@ -97,18 +99,22 @@ abstract public class TimeBasedFileNamingAndTriggeringPolicyBase<E> extends Cont
         this.dateInCurrentPeriod = _dateInCurrentPeriod;
     }
 
+    @Override
     public String getElapsedPeriodsFileName() {
         return elapsedPeriodsFileName;
     }
 
+    @Override
     public String getCurrentPeriodsFileNameWithoutCompressionSuffix() {
         return tbrp.fileNamePatternWithoutCompSuffix.convert(dateInCurrentPeriod);
     }
 
+    @Override
     public void setCurrentTime(long timeInMillis) {
         artificialCurrentTime = timeInMillis;
     }
 
+    @Override
     public long getCurrentTime() {
         // if time is forced return the time set by user
         if (artificialCurrentTime >= 0) {
@@ -118,11 +124,13 @@ abstract public class TimeBasedFileNamingAndTriggeringPolicyBase<E> extends Cont
         }
     }
 
+    @Override
     public void setTimeBasedRollingPolicy(TimeBasedRollingPolicy<E> _tbrp) {
         this.tbrp = _tbrp;
 
     }
 
+    @Override
     public ArchiveRemover getArchiveRemover() {
         return archiveRemover;
     }

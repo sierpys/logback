@@ -184,6 +184,7 @@ public class SocketReceiver extends ReceiverBase implements Runnable, SocketConn
     /**
      * {@inheritDoc}
      */
+    @Override
     public void connectionFailed(SocketConnector connector, Exception ex) {
         if (ex instanceof InterruptedException) {
             addInfo("connector interrupted");

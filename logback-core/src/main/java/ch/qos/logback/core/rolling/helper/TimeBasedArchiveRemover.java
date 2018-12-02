@@ -213,6 +213,7 @@ public class TimeBasedArchiveRemover extends ContextAwareBase implements Archive
         this.totalSizeCap = totalSizeCap;
     }
 
+    @Override
     public String toString() {
         return "c.q.l.core.rolling.helper.TimeBasedArchiveRemover";
     }
