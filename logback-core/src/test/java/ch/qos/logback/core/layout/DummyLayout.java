@@ -28,6 +28,7 @@ public class DummyLayout<E> extends LayoutBase<E> {
         this.val = val;
     }
 
+    @Override
     public String doLayout(E event) {
         return val;
     }

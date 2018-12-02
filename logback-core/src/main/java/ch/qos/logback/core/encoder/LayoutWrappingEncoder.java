@@ -75,8 +75,9 @@ public class LayoutWrappingEncoder<E> extends EncoderBase<E> {
 
     @Override
     public byte[] headerBytes() {
-        if (layout == null)
+        if (layout == null) {
             return null;
+        }
 
         StringBuilder sb = new StringBuilder();
         appendIfNotNull(sb, layout.getFileHeader());
@@ -92,8 +93,9 @@ public class LayoutWrappingEncoder<E> extends EncoderBase<E> {
 
     @Override
     public byte[] footerBytes() {
-        if (layout == null)
+        if (layout == null) {
             return null;
+        }
 
         StringBuilder sb = new StringBuilder();
         appendIfNotNull(sb, layout.getPresentationFooter());
@@ -109,6 +111,7 @@ public class LayoutWrappingEncoder<E> extends EncoderBase<E> {
         }
     }
 
+    @Override
     public byte[] encode(E event) {
         String txt = layout.doLayout(event);
         return convertToBytes(txt);
@@ -119,6 +122,7 @@ public class LayoutWrappingEncoder<E> extends EncoderBase<E> {
         return false;
     }
 
+    @Override
     public void start() {
         if (immediateFlush != null) {
             if (parent instanceof OutputStreamAppender) {
@@ -133,6 +137,7 @@ public class LayoutWrappingEncoder<E> extends EncoderBase<E> {
         started = true;
     }
 
+    @Override
     public void stop() {
         started = false;
     }

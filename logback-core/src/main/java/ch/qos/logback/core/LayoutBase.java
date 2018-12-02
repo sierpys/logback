@@ -34,10 +34,12 @@ abstract public class LayoutBase<E> extends ContextAwareBase implements Layout<E
         return this.context;
     }
 
+    @Override
     public void start() {
         started = true;
     }
 
+    @Override
     public void stop() {
         started = false;
     }
@@ -47,22 +49,27 @@ abstract public class LayoutBase<E> extends ContextAwareBase implements Layout<E
         return started;
     }
 
+    @Override
     public String getFileHeader() {
         return fileHeader;
     }
 
+    @Override
     public String getPresentationHeader() {
         return presentationHeader;
     }
 
+    @Override
     public String getPresentationFooter() {
         return presentationFooter;
     }
 
+    @Override
     public String getFileFooter() {
         return fileFooter;
     }
 
+    @Override
     public String getContentType() {
         return "text/plain";
     }

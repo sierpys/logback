@@ -193,8 +193,9 @@ public class OutputStreamAppender<E> extends UnsynchronizedAppenderBase<E> {
     }
 
     private void writeBytes(byte[] byteArray) throws IOException {
-        if(byteArray == null || byteArray.length == 0)
+        if(byteArray == null || byteArray.length == 0) {
             return;
+        }
         
         lock.lock();
         try {

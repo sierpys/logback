@@ -73,6 +73,7 @@ public class HTMLLayout extends HTMLLayoutBase<ILoggingEvent> {
         return PatternLayout.defaultConverterMap;
     }
 
+    @Override
     public String doLayout(ILoggingEvent event) {
         StringBuilder buf = new StringBuilder();
         startNewTableIfLimitReached(buf);

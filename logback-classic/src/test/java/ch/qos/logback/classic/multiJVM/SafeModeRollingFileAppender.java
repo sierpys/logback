@@ -37,13 +37,13 @@ public class SafeModeRollingFileAppender {
     static final String DATE_PATTERN = "yyyy-MM-dd_HH_mm_ss";
 
     static public void main(String[] argv) throws Exception {
-        if (argv.length != 3) {
-            usage("Wrong number of arguments.");
-        }
+//        if (argv.length != 3) {
+//            usage("Wrong number of arguments.");
+//        }
 
-        STAMP = argv[0];
-        LEN = Integer.parseInt(argv[1]);
-        FILENAME = argv[2];
+        STAMP = "yyyy-MM-dd";
+        LEN = 100;
+        FILENAME = "sier";
         writeContinously(STAMP, FILENAME, true);
     }
 

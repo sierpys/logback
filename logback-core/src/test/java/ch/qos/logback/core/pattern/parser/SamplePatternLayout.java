@@ -34,6 +34,7 @@ public class SamplePatternLayout<E> extends PatternLayoutBase<E> {
         return converterMap;
     }
 
+    @Override
     public String doLayout(E event) {
         return writeLoopOnConverters(event);
     }

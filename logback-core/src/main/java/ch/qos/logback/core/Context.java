@@ -77,6 +77,7 @@ public interface Context extends PropertyContainer {
      * @return
      * @since 0.9.20
      */
+    @Override
     Map<String, String> getCopyOfPropertyMap();
 
     /**

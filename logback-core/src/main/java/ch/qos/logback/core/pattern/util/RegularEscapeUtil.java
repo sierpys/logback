@@ -1,13 +1,13 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
@@ -15,7 +15,7 @@ package ch.qos.logback.core.pattern.util;
 
 /**
  * This implementation is intended for use in PatternLayout.
- * 
+ *
  * @author Ceki G&uuml;lc&uuml;
  */
 public class RegularEscapeUtil implements IEscapeUtil {
@@ -24,28 +24,29 @@ public class RegularEscapeUtil implements IEscapeUtil {
     public void escape(String escapeChars, StringBuffer buf, char next, int pointer) {
         if (escapeChars.indexOf(next) >= 0) {
             buf.append(next);
-        } else
+        } else {
             switch (next) {
-            case '_':
-                // the \_ sequence is swallowed
-                break;
-            case '\\':
-                buf.append(next);
-                break;
-            case 't':
-                buf.append('\t');
-                break;
-            case 'r':
-                buf.append('\r');
-                break;
-            case 'n':
-                buf.append('\n');
-                break;
-            default:
-                String commaSeperatedEscapeChars = formatEscapeCharsForListing(escapeChars);
-                throw new IllegalArgumentException("Illegal char '" + next + " at column " + pointer + ". Only \\\\, \\_" + commaSeperatedEscapeChars
-                                + ", \\t, \\n, \\r combinations are allowed as escape characters.");
+                case '_':
+                    // the \_ sequence is swallowed
+                    break;
+                case '\\':
+                    buf.append(next);
+                    break;
+                case 't':
+                    buf.append('\t');
+                    break;
+                case 'r':
+                    buf.append('\r');
+                    break;
+                case 'n':
+                    buf.append('\n');
+                    break;
+                default:
+                    String commaSeperatedEscapeChars = formatEscapeCharsForListing(escapeChars);
+                    throw new IllegalArgumentException("Illegal char '" + next + " at column " + pointer + ". Only \\\\, \\_" + commaSeperatedEscapeChars
+                            + ", \\t, \\n, \\r combinations are allowed as escape characters.");
             }
+        }
     }
 
     String formatEscapeCharsForListing(String escapeChars) {

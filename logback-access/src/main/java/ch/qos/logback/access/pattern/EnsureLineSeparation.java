@@ -27,8 +27,9 @@ public class EnsureLineSeparation implements PostCompileProcessor<IAccessEvent> 
      */
     @Override
     public void process(Context context, Converter<IAccessEvent> head) {
-        if (head == null)
+        if (head == null) {
             throw new IllegalArgumentException("Empty converter chain");
+        }
 
         // if head != null, then tail != null as well
         Converter<IAccessEvent> tail = ConverterUtil.findTail(head);

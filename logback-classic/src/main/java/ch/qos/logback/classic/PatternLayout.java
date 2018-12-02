@@ -135,6 +135,7 @@ public class PatternLayout extends PatternLayoutBase<ILoggingEvent> {
         return defaultConverterMap;
     }
 
+    @Override
     public String doLayout(ILoggingEvent event) {
         if (!isStarted()) {
             return CoreConstants.EMPTY_STRING;

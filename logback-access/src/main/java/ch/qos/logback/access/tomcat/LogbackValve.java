@@ -461,10 +461,12 @@ public class LogbackValve extends ValveBase implements Lifecycle, Context, Appen
         throw new UnsupportedOperationException();
     }
     
+    @Override
     public SequenceNumberGenerator getSequenceNumberGenerator() {
         return sequenceNumberGenerator;
     }
 
+    @Override
     public void setSequenceNumberGenerator(SequenceNumberGenerator sequenceNumberGenerator) {
         this.sequenceNumberGenerator = sequenceNumberGenerator;
     }

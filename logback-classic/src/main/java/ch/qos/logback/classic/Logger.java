@@ -117,6 +117,7 @@ public final class Logger implements org.slf4j.Logger, LocationAwareLogger, Appe
         return level;
     }
 
+    @Override
     public String getName() {
         return name;
     }

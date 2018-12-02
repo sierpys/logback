@@ -36,8 +36,9 @@ public class Node {
     }
 
     void append(Node newNode) {
-        if (newNode == null)
+        if (newNode == null) {
             return;
+        }
         Node n = this;
         while (true) {
             if (n.next == null) {

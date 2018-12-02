@@ -26,6 +26,7 @@ import ch.qos.logback.core.LayoutBase;
  */
 public class TrivialLogbackLayout extends LayoutBase<ILoggingEvent> {
 
+    @Override
     public String doLayout(ILoggingEvent loggingEvent) {
         return loggingEvent.getMessage();
     }

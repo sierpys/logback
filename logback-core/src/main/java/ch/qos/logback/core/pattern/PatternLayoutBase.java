@@ -150,9 +150,10 @@ abstract public class PatternLayoutBase<E> extends LayoutBase<E> {
 
     @Override
     public String getPresentationHeader() {
-        if (outputPatternAsHeader)
+        if (outputPatternAsHeader) {
             return getPresentationHeaderPrefix() + pattern;
-        else
+        } else {
             return super.getPresentationHeader();
+        }
     }
 }

@@ -145,8 +145,9 @@ public class FileAppender<E> extends OutputStreamAppender<E> {
         super.stop();
 
         Map<String, String> map = ContextUtil.getFilenameCollisionMap(context);
-        if (map == null || getName() == null)
+        if (map == null || getName() == null) {
             return;
+        }
 
         map.remove(getName());
     }
