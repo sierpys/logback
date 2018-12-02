@@ -43,6 +43,7 @@ public class CounterBasedEvaluator extends ContextAwareBase implements EventEval
         }
     }
 
+    @Override
     public String getName() {
         return name;
     }
