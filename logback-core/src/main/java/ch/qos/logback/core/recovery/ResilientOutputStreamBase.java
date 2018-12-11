@@ -40,6 +40,15 @@ abstract public class ResilientOutputStreamBase extends OutputStream {
         return (recoveryCoordinator != null && !presumedClean);
     }
 
+
+    /**
+     * Graceful recovery from I/O failures
+     * Logback's FileAppender and all its sub-classes, including RollingFileAppender,
+     * can gracefully recover from I/O failures. Thus, if a file server fails temporarily,
+     * you no longer need to restart your application just to get logging working again.
+     * As soon as the file server comes back up, the relevant logback appender will
+     * transparently and quickly recover from the previous error condition.
+     */
     @Override
     public void write(byte b[], int off, int len) {
         if (isPresumedInError()) {
