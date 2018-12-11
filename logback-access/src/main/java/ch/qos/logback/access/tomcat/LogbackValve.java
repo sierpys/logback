@@ -145,10 +145,11 @@ public class LogbackValve extends ValveBase implements Lifecycle, Context, Appen
         }
 
         URL resourceURL;
-        if (configFile != null)
+        if (configFile != null) {
             resourceURL = fileToUrl(configFile);
-        else
+        } else {
             resourceURL = searchAsResource(filename);
+        }
 
         if (resourceURL != null) {
             configureAsResource(resourceURL);
@@ -174,10 +175,11 @@ public class LogbackValve extends ValveBase implements Lifecycle, Context, Appen
 
     private URL searchAsResource(String filename) {
         URL result = Loader.getResource(filename, getClass().getClassLoader());
-        if (result != null)
+        if (result != null) {
             addInfo("Found [" + filename + "] as a resource.");
-        else
+        } else {
             addInfo("Could NOT find [" + filename + "] as a resource.");
+        }
         return result;
     }
 

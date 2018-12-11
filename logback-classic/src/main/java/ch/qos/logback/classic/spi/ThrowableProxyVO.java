@@ -67,31 +67,40 @@ public class ThrowableProxyVO implements IThrowableProxy, Serializable {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         final ThrowableProxyVO other = (ThrowableProxyVO) obj;
 
         if (className == null) {
-            if (other.className != null)
+            if (other.className != null) {
                 return false;
-        } else if (!className.equals(other.className))
+            }
+        } else if (!className.equals(other.className)) {
             return false;
+        }
 
-        if (!Arrays.equals(stackTraceElementProxyArray, other.stackTraceElementProxyArray))
+        if (!Arrays.equals(stackTraceElementProxyArray, other.stackTraceElementProxyArray)) {
             return false;
+        }
 
-        if (!Arrays.equals(suppressed, other.suppressed))
+        if (!Arrays.equals(suppressed, other.suppressed)) {
             return false;
+        }
 
         if (cause == null) {
-            if (other.cause != null)
+            if (other.cause != null) {
                 return false;
-        } else if (!cause.equals(other.cause))
+            }
+        } else if (!cause.equals(other.cause)) {
             return false;
+        }
 
         return true;
     }

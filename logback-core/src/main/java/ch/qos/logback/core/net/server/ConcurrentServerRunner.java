@@ -84,9 +84,11 @@ public abstract class ConcurrentServerRunner<T extends Client> extends ContextAw
     /**
      * {@inheritDoc}
      */
+    @Override
     public void stop() throws IOException {
         listener.close();
         accept(new ClientVisitor<T>() {
+            @Override
             public void visit(T client) {
                 client.close();
             }
@@ -126,6 +128,7 @@ public abstract class ConcurrentServerRunner<T extends Client> extends ContextAw
     /**
      * {@inheritDoc}
      */
+    @Override
     public void run() {
         setRunning(true);
         try {
@@ -205,6 +208,7 @@ public abstract class ConcurrentServerRunner<T extends Client> extends ContextAw
             this.delegate = client;
         }
 
+        @Override
         public void run() {
             addClient(delegate);
             try {
@@ -214,6 +218,7 @@ public abstract class ConcurrentServerRunner<T extends Client> extends ContextAw
             }
         }
 
+        @Override
         public void close() {
             delegate.close();
         }

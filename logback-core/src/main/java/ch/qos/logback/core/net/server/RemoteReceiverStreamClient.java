@@ -87,15 +87,18 @@ class RemoteReceiverStreamClient extends ContextAwareBase implements RemoteRecei
     /**
      * {@inheritDoc}
      */
+    @Override
     public void close() {
-        if (socket == null)
+        if (socket == null) {
             return;
+        }
         CloseUtil.closeQuietly(socket);
     }
 
     /**
      * {@inheritDoc}
      */
+    @Override
     public void run() {
         addInfo(clientId + "connected");
 

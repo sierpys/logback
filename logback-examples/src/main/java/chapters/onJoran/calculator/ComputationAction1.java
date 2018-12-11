@@ -35,6 +35,7 @@ public class ComputationAction1 extends Action {
     /**
      * Store the value of the name attribute for future use.
      */
+    @Override
     public void begin(InterpretationContext ec, String name, Attributes attributes) {
         nameStr = attributes.getValue(NAME_ATR);
     }
@@ -46,6 +47,7 @@ public class ComputationAction1 extends Action {
      * This value will be printed on the console but only if the action is 
      * named. Anonymous computation will not print their result.
      */
+    @Override
     public void end(InterpretationContext ec, String name) {
         if (OptionHelper.isEmpty(nameStr)) {
             // nothing to do

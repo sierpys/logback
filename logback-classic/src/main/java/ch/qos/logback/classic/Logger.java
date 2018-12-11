@@ -469,6 +469,7 @@ public final class Logger implements org.slf4j.Logger, LocationAwareLogger, Appe
         filterAndLog_2(FQCN, marker, Level.TRACE, format, arg1, arg2, null);
     }
 
+    @Override
     public void trace(Marker marker, String format, Object... argArray) {
         filterAndLog_0_Or3Plus(FQCN, marker, Level.TRACE, format, argArray, null);
     }

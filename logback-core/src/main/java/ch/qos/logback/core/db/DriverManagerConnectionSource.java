@@ -31,6 +31,7 @@ public class DriverManagerConnectionSource extends ConnectionSourceBase {
     private String driverClass = null;
     private String url = null;
 
+    @Override
     public void start() {
         try {
             if (driverClass != null) {
@@ -47,6 +48,7 @@ public class DriverManagerConnectionSource extends ConnectionSourceBase {
     /**
      * @see ch.qos.logback.core.db.ConnectionSource#getConnection()
      */
+    @Override
     public Connection getConnection() throws SQLException {
         if (getUser() == null) {
             return DriverManager.getConnection(url);

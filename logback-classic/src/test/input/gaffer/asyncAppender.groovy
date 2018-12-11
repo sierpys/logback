@@ -27,4 +27,3 @@ appender("STDOUT-ASYNC", AsyncAppender) {
   appenderRef('STDOUT')
 }
 root(DEBUG, ["STDOUT-ASYNC"])
-

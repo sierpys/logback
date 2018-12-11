@@ -62,6 +62,7 @@ public class ComputationAction2 extends Action {
 
     Stack<String> nameStrStack = new Stack<String>();
 
+    @Override
     public void begin(InterpretationContext ec, String name, Attributes attributes) {
         String nameStr = attributes.getValue(NAME_ATR);
         // save nameStr value in a special stack. Note that the value is saved
@@ -69,6 +70,7 @@ public class ComputationAction2 extends Action {
         nameStrStack.push(nameStr);
     }
 
+    @Override
     public void end(InterpretationContext ec, String name) {
         // pop nameStr value from the special stack
         String nameStr = (String) nameStrStack.pop();

@@ -49,6 +49,7 @@ public class SocketAppender extends AbstractSocketAppender<ILoggingEvent> {
         this.includeCallerData = includeCallerData;
     }
 
+    @Override
     public PreSerializationTransformer<ILoggingEvent> getPST() {
         return pst;
     }

@@ -132,8 +132,9 @@ public class StatusPrinter {
     }
 
     private static void buildStrFromStatusList(StringBuilder sb, List<Status> statusList) {
-        if (statusList == null)
+        if (statusList == null) {
             return;
+        }
         for (Status s : statusList) {
             buildStr(sb, "", s);
         }

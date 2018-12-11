@@ -98,8 +98,9 @@ public class DefaultInvocationGate implements InvocationGate {
     }
     
     private void increaseMask() {
-        if (mask >= MAX_MASK)
+        if (mask >= MAX_MASK) {
             return;
+        }
         mask = (mask << 1) | 1;
     }
 

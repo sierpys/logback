@@ -43,10 +43,12 @@ public class SiftingAppender extends SiftingAppenderBase<ILoggingEvent> {
         super.setDiscriminator(discriminator);
     }
 
+    @Override
     protected boolean eventMarksEndOfLife(ILoggingEvent event) {
         Marker marker = event.getMarker();
-        if (marker == null)
+        if (marker == null) {
             return false;
+        }
 
         return marker.contains(ClassicConstants.FINALIZE_SESSION_MARKER);
     }

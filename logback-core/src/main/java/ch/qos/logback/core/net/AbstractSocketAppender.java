@@ -107,9 +107,11 @@ public abstract class AbstractSocketAppender<E> extends AppenderBase<E> implemen
     /**
      * {@inheritDoc}
      */
+    @Override
     public void start() {
-        if (isStarted())
+        if (isStarted()) {
             return;
+        }
         int errorCount = 0;
         if (port <= 0) {
             errorCount++;
@@ -159,8 +161,9 @@ public abstract class AbstractSocketAppender<E> extends AppenderBase<E> implemen
      */
     @Override
     public void stop() {
-        if (!isStarted())
+        if (!isStarted()) {
             return;
+        }
         CloseUtil.closeQuietly(socket);
         task.cancel(true);
         super.stop();

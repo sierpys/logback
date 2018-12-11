@@ -55,12 +55,14 @@ public class HardenedObjectInputStream extends ObjectInputStream {
 
     private boolean isWhitelisted(String incomingClassName) {
         for (int i = 0; i < JAVA_PACKAGES.length; i++) {
-            if (incomingClassName.startsWith(JAVA_PACKAGES[i]))
+            if (incomingClassName.startsWith(JAVA_PACKAGES[i])) {
                 return true;
+            }
         }
         for (String whiteListed : whitelistedClassNames) {
-            if (incomingClassName.equals(whiteListed))
+            if (incomingClassName.equals(whiteListed)) {
                 return true;
+            }
         }
         return false;
     }

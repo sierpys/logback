@@ -43,6 +43,7 @@ public class JNDIConnectionSource extends ConnectionSourceBase {
     private String jndiLocation = null;
     private DataSource dataSource = null;
 
+    @Override
     public void start() {
         if (jndiLocation == null) {
             addError("No JNDI location specified for JNDIConnectionSource.");
@@ -50,6 +51,7 @@ public class JNDIConnectionSource extends ConnectionSourceBase {
         discoverConnectionProperties();
     }
 
+    @Override
     public Connection getConnection() throws SQLException {
         Connection conn = null;
         try {

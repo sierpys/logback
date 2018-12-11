@@ -29,9 +29,11 @@ public abstract class ReceiverBase extends ContextAwareBase implements LifeCycle
     /**
      * {@inheritDoc}
      */
+    @Override
     public final void start() {
-        if (isStarted())
+        if (isStarted()) {
             return;
+        }
         if (getContext() == null) {
             throw new IllegalStateException("context not set");
         }
@@ -44,9 +46,11 @@ public abstract class ReceiverBase extends ContextAwareBase implements LifeCycle
     /**
      * {@inheritDoc}
      */
+    @Override
     public final void stop() {
-        if (!isStarted())
+        if (!isStarted()) {
             return;
+        }
         try {
             onStop();
         } catch (RuntimeException ex) {

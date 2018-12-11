@@ -120,8 +120,9 @@ public class RollingFileAppender<E> extends FileAppender<E> {
             final RollingPolicyBase base = (RollingPolicyBase) triggeringPolicy;
             final FileNamePattern fileNamePattern = base.fileNamePattern;
             boolean collisionsDetected = innerCheckForFileNamePatternCollisionInPreviousRFA(fileNamePattern);
-            if (collisionsDetected)
+            if (collisionsDetected) {
                 collisionResult = true;
+            }
         }
         return collisionResult;
     }
@@ -149,14 +150,17 @@ public class RollingFileAppender<E> extends FileAppender<E> {
     public void stop() {
         super.stop();
         
-        if (rollingPolicy != null)
+        if (rollingPolicy != null) {
             rollingPolicy.stop();
-        if (triggeringPolicy != null)
+        }
+        if (triggeringPolicy != null) {
             triggeringPolicy.stop();
+        }
 
         Map<String, FileNamePattern> map = ContextUtil.getFilenamePatternCollisionMap(context);
-        if (map != null && getName() != null)
+        if (map != null && getName() != null) {
             map.remove(getName());
+        }
 
     }
 

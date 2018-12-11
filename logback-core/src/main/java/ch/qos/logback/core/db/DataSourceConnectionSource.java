@@ -52,6 +52,7 @@ public class DataSourceConnectionSource extends ConnectionSourceBase {
     /**
      * @see ch.qos.logback.core.db.ConnectionSource#getConnection()
      */
+    @Override
     public Connection getConnection() throws SQLException {
         if (dataSource == null) {
             addError("WARNING: No data source specified");

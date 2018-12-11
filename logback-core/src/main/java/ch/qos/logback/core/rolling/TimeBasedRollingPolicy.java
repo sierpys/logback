@@ -213,6 +213,7 @@ public class TimeBasedRollingPolicy<E> extends RollingPolicyBase implements Trig
      * the change of the file name.
      * 
      */
+    @Override
     public String getActiveFileName() {
         String parentsRawFileProperty = getParentsRawFileProperty();
         if (parentsRawFileProperty != null) {

@@ -28,6 +28,7 @@ import ch.qos.logback.core.joran.spi.InterpretationContext;
  */
 public class AddAction extends Action {
 
+    @Override
     public void begin(InterpretationContext ic, String name, Attributes attributes) {
         int first = fetchInteger(ic);
         int second = fetchInteger(ic);
@@ -60,6 +61,7 @@ public class AddAction extends Action {
         return result;
     }
 
+    @Override
     public void end(InterpretationContext ic, String name) {
         // Nothing to do here.
     }

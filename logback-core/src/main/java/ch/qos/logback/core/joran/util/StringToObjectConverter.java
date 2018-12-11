@@ -108,8 +108,9 @@ public class StringToObjectConverter {
 
     static private boolean followsTheValueOfConvention(Class<?> parameterClass) {
         Method valueOfMethod = getValueOfMethod(parameterClass);
-        if (valueOfMethod == null)
+        if (valueOfMethod == null) {
             return false;
+        }
 
         int mod = valueOfMethod.getModifiers();
         return Modifier.isStatic(mod);

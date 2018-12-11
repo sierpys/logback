@@ -82,6 +82,7 @@ public class NestedBasicPropertyIA extends ImplicitAction {
         }
     }
 
+    @Override
     public void begin(InterpretationContext ec, String localName, Attributes attributes) {
         // NOP
     }
@@ -104,6 +105,7 @@ public class NestedBasicPropertyIA extends ImplicitAction {
         }
     }
 
+    @Override
     public void end(InterpretationContext ec, String tagName) {
         // pop the action data object pushed in isApplicable() method call
         actionDataStack.pop();

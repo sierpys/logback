@@ -167,8 +167,9 @@ public class RequestLogImpl extends ContextBase implements RequestLog, AppenderA
         if (fileName != null) {
             addInfo("Will use configuration file [" + fileName + "]");
             File file = new File(fileName);
-            if (!file.exists())
+            if (!file.exists()) {
                 return null;
+            }
             return FileUtil.fileToURL(file);
         }
         if (resource != null) {
@@ -185,8 +186,9 @@ public class RequestLogImpl extends ContextBase implements RequestLog, AppenderA
         }
         File file = new File(defaultConfigFile);
         addInfo("Assuming default configuration file [" + defaultConfigFile + "]");
-        if (!file.exists())
+        if (!file.exists()) {
             return null;
+        }
         return FileUtil.fileToURL(file);
     }
 

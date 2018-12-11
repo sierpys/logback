@@ -65,6 +65,7 @@ public interface Context extends PropertyContainer {
     /**
      * Get the property of this context.
      */
+    @Override
     String getProperty(String key);
 
     /**

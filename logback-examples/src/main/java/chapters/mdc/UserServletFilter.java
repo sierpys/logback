@@ -39,9 +39,11 @@ public class UserServletFilter implements Filter {
 
     private final String USER_KEY = "username";
 
+    @Override
     public void destroy() {
     }
 
+    @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
         boolean successfulRegistration = false;
@@ -64,6 +66,7 @@ public class UserServletFilter implements Filter {
         }
     }
 
+    @Override
     public void init(FilterConfig arg0) throws ServletException {
     }
 

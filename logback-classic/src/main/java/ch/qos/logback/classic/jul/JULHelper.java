@@ -19,20 +19,23 @@ import ch.qos.logback.classic.Logger;
 public class JULHelper {
 
     static public final boolean isRegularNonRootLogger(java.util.logging.Logger julLogger) {
-        if (julLogger == null)
+        if (julLogger == null) {
             return false;
+        }
         return !julLogger.getName().equals("");
     }
 
     static public final boolean isRoot(java.util.logging.Logger julLogger) {
-        if (julLogger == null)
+        if (julLogger == null) {
             return false;
+        }
         return julLogger.getName().equals("");
     }
 
     static public java.util.logging.Level asJULLevel(Level lbLevel) {
-        if (lbLevel == null)
+        if (lbLevel == null) {
             throw new IllegalArgumentException("Unexpected level [null]");
+        }
 
         switch (lbLevel.levelInt) {
         case Level.ALL_INT:
@@ -55,10 +58,11 @@ public class JULHelper {
     }
 
     static public String asJULLoggerName(String loggerName) {
-        if (Logger.ROOT_LOGGER_NAME.equals(loggerName))
+        if (Logger.ROOT_LOGGER_NAME.equals(loggerName)) {
             return "";
-        else
+        } else {
             return loggerName;
+        }
     }
 
     static public java.util.logging.Logger asJULLogger(String loggerName) {

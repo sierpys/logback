@@ -81,8 +81,9 @@ public abstract class AbstractServerSocketAppender<E> extends AppenderBase<E> {
 
     @Override
     public void stop() {
-        if (!isStarted())
+        if (!isStarted()) {
             return;
+        }
         try {
             runner.stop();
             super.stop();
@@ -93,11 +94,13 @@ public abstract class AbstractServerSocketAppender<E> extends AppenderBase<E> {
 
     @Override
     protected void append(E event) {
-        if (event == null)
+        if (event == null) {
             return;
+        }
         postProcessEvent(event);
         final Serializable serEvent = getPST().transform(event);
         runner.accept(new ClientVisitor<RemoteReceiverClient>() {
+            @Override
             public void visit(RemoteReceiverClient client) {
                 client.offer(serEvent);
             }
@@ -136,8 +139,9 @@ public abstract class AbstractServerSocketAppender<E> extends AppenderBase<E> {
      * @throws UnknownHostException
      */
     protected InetAddress getInetAddress() throws UnknownHostException {
-        if (getAddress() == null)
+        if (getAddress() == null) {
             return null;
+        }
         return InetAddress.getByName(getAddress());
     }
 

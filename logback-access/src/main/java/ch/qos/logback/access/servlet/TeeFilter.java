@@ -77,10 +77,11 @@ public class TeeFilter implements Filter {
         String localhostName = getLocalhostName();
 
         active = computeActivation(localhostName, includeListAsStr, excludeListAsStr);
-        if (active)
+        if (active) {
             System.out.println("TeeFilter will be ACTIVE on this host [" + localhostName + "]");
-        else
+        } else {
             System.out.println("TeeFilter will be DISABLED on this host [" + localhostName + "]");
+        }
 
     }
 
@@ -123,14 +124,16 @@ public class TeeFilter implements Filter {
     }
 
     static boolean mathesIncludesList(String hostname, List<String> includeList) {
-        if (includeList.isEmpty())
+        if (includeList.isEmpty()) {
             return true;
+        }
         return includeList.contains(hostname);
     }
 
     static boolean mathesExcludesList(String hostname, List<String> excludesList) {
-        if (excludesList.isEmpty())
+        if (excludesList.isEmpty()) {
             return false;
+        }
         return excludesList.contains(hostname);
     }
 

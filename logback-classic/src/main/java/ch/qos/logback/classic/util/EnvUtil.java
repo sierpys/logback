@@ -47,8 +47,9 @@ public class EnvUtil {
     public static <T> T loadFromServiceLoader(Class<T> c) {
         ServiceLoader<T> loader = ServiceLoader.load(c, getServiceLoaderClassLoader());
         Iterator<T> it = loader.iterator();
-        if (it.hasNext())
+        if (it.hasNext()) {
             return it.next();
+        }
         return null;
     }
 

@@ -36,6 +36,7 @@ public class InsertFromJNDIAction extends Action {
     public static final String ENV_ENTRY_NAME_ATTR = "env-entry-name";
     public static final String AS_ATTR = "as";
 
+    @Override
     public void begin(InterpretationContext ec, String name, Attributes attributes) {
 
         int errorCount = 0;
@@ -78,6 +79,7 @@ public class InsertFromJNDIAction extends Action {
 
     }
 
+    @Override
     public void end(InterpretationContext ec, String name) {
     }
 }

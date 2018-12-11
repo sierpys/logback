@@ -22,6 +22,7 @@ public class ReplacingCompositeConverter<E> extends CompositeConverter<E> {
     String regex;
     String replacement;
 
+    @Override
     public void start() {
         final List<String> optionList = getOptionList();
         if (optionList == null) {
@@ -43,8 +44,9 @@ public class ReplacingCompositeConverter<E> extends CompositeConverter<E> {
 
     @Override
     protected String transform(E event, String in) {
-        if (!started)
+        if (!started) {
             return in;
+        }
         return pattern.matcher(in).replaceAll(replacement);
     }
 }

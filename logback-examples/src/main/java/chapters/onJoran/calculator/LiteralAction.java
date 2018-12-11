@@ -31,6 +31,7 @@ import ch.qos.logback.core.util.OptionHelper;
 public class LiteralAction extends Action {
     public static final String VALUE_ATR = "value";
 
+    @Override
     public void begin(InterpretationContext ic, String name, Attributes attributes) {
         String valueStr = attributes.getValue(VALUE_ATR);
 
@@ -48,6 +49,7 @@ public class LiteralAction extends Action {
         }
     }
 
+    @Override
     public void end(InterpretationContext ic, String name) {
         // Nothing to do here.
         // In general, the end() method of actions associated with elements

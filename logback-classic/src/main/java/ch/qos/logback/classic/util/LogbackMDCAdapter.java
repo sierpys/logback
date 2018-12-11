@@ -95,6 +95,7 @@ public class LogbackMDCAdapter implements MDCAdapter {
      *
      * @throws IllegalArgumentException in case the "key" parameter is null
      */
+    @Override
     public void put(String key, String val) throws IllegalArgumentException {
         if (key == null) {
             throw new IllegalArgumentException("key cannot be null");

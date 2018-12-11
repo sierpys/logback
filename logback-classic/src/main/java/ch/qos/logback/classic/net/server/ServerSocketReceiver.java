@@ -51,6 +51,7 @@ public class ServerSocketReceiver extends ReceiverBase {
     /**
      * Starts the server.
      */
+    @Override
     protected boolean shouldStart() {
         try {
             ServerSocket serverSocket = getServerSocketFactory().createServerSocket(getPort(), getBacklog(), getInetAddress());
@@ -84,10 +85,12 @@ public class ServerSocketReceiver extends ReceiverBase {
     /**
      * {@inheritDoc}
      */
+    @Override
     protected void onStop() {
         try {
-            if (runner == null)
+            if (runner == null) {
                 return;
+            }
             runner.stop();
         } catch (IOException ex) {
             addError("server shutdown error: " + ex, ex);
@@ -111,8 +114,9 @@ public class ServerSocketReceiver extends ReceiverBase {
      * @throws UnknownHostException
      */
     protected InetAddress getInetAddress() throws UnknownHostException {
-        if (getAddress() == null)
+        if (getAddress() == null) {
             return null;
+        }
         return InetAddress.getByName(getAddress());
     }
 

@@ -72,19 +72,24 @@ public class LoggerContextVO implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o)
+        if (this == o) {
             return true;
-        if (!(o instanceof LoggerContextVO))
+        }
+        if (!(o instanceof LoggerContextVO)) {
             return false;
+        }
 
         LoggerContextVO that = (LoggerContextVO) o;
 
-        if (birthTime != that.birthTime)
+        if (birthTime != that.birthTime) {
             return false;
-        if (name != null ? !name.equals(that.name) : that.name != null)
+        }
+        if (name != null ? !name.equals(that.name) : that.name != null) {
             return false;
-        if (propertyMap != null ? !propertyMap.equals(that.propertyMap) : that.propertyMap != null)
+        }
+        if (propertyMap != null ? !propertyMap.equals(that.propertyMap) : that.propertyMap != null) {
             return false;
+        }
 
         return true;
     }

@@ -43,8 +43,9 @@ abstract public class CompositeConverter<E> extends DynamicConverter<E> {
         StringBuilder buf = new StringBuilder();
         buf.append("CompositeConverter<");
 
-        if (formattingInfo != null)
+        if (formattingInfo != null) {
             buf.append(formattingInfo);
+        }
 
         if (childConverter != null) {
             buf.append(", children: ").append(childConverter);

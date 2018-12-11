@@ -79,13 +79,15 @@ public class CyclicBuffer<E> {
      */
     public void add(E event) {
         ea[last] = event;
-        if (++last == maxSize)
+        if (++last == maxSize) {
             last = 0;
+        }
 
-        if (numElems < maxSize)
+        if (numElems < maxSize) {
             numElems++;
-        else if (++first == maxSize)
+        } else if (++first == maxSize) {
             first = 0;
+        }
     }
 
     /**
@@ -94,8 +96,9 @@ public class CyclicBuffer<E> {
      * then <code>null</code> is returned.
      */
     public E get(int i) {
-        if (i < 0 || i >= numElems)
+        if (i < 0 || i >= numElems) {
             return null;
+        }
 
         return ea[(first + i) % maxSize];
     }
@@ -114,8 +117,9 @@ public class CyclicBuffer<E> {
             numElems--;
             r = ea[first];
             ea[first] = null;
-            if (++first == maxSize)
+            if (++first == maxSize) {
                 first = 0;
+            }
         }
         return r;
     }
@@ -147,8 +151,9 @@ public class CyclicBuffer<E> {
         if (newSize < 0) {
             throw new IllegalArgumentException("Negative array size [" + newSize + "] not allowed.");
         }
-        if (newSize == numElems)
+        if (newSize == numElems) {
             return; // nothing to do
+        }
 
         //
         E[] temp = (E[]) new Object[newSize];
@@ -158,8 +163,9 @@ public class CyclicBuffer<E> {
         for (int i = 0; i < loopLen; i++) {
             temp[i] = ea[first];
             ea[first] = null;
-            if (++first == numElems)
+            if (++first == numElems) {
                 first = 0;
+            }
         }
         ea = temp;
         first = 0;

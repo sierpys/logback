@@ -43,6 +43,7 @@ public class ConfigurationAction extends Action {
     
     long threshold = 0;
 
+    @Override
     public void begin(InterpretationContext ic, String name, Attributes attributes) {
         threshold = System.currentTimeMillis();
 
@@ -138,6 +139,7 @@ public class ConfigurationAction extends Action {
         return duration;
     }
 
+    @Override
     public void end(InterpretationContext ec, String name) {
         addInfo("End of configuration.");
         ec.popObject();

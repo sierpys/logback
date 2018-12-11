@@ -86,9 +86,9 @@ abstract public class AbstractComponentTracker<C> implements ComponentTracker<C>
      */
     private Entry<C> getFromEitherMap(String key) {
         Entry<C> entry = liveMap.get(key);
-        if (entry != null)
+        if (entry != null) {
             return entry;
-        else {
+        } else {
             return lingerersMap.get(key);
         }
     }
@@ -105,10 +105,11 @@ abstract public class AbstractComponentTracker<C> implements ComponentTracker<C>
     @Override
     public synchronized C find(String key) {
         Entry<C> entry = getFromEitherMap(key);
-        if (entry == null)
+        if (entry == null) {
             return null;
-        else
+        } else {
             return entry.component;
+        }
     }
 
     /**
@@ -142,8 +143,9 @@ abstract public class AbstractComponentTracker<C> implements ComponentTracker<C>
     @Override
     public void endOfLife(String key) {
         Entry<C> entry = liveMap.remove(key);
-        if (entry == null)
+        if (entry == null) {
             return;
+        }
         lingerersMap.put(key, entry);
     }
 
@@ -155,8 +157,9 @@ abstract public class AbstractComponentTracker<C> implements ComponentTracker<C>
      */
     @Override
     public synchronized void removeStaleComponents(long now) {
-        if (isTooSoonForRemovalIteration(now))
+        if (isTooSoonForRemovalIteration(now)) {
             return;
+        }
         removeExcedentComponents();
         removeStaleComponentsFromMainMap(now);
         removeStaleComponentsFromLingerersMap(now);
@@ -190,17 +193,20 @@ abstract public class AbstractComponentTracker<C> implements ComponentTracker<C>
     }
 
     private RemovalPredicator<C> byExcedent = new RemovalPredicator<C>() {
+        @Override
         public boolean isSlatedForRemoval(Entry<C> entry, long timestamp) {
             return (liveMap.size() > maxComponents);
         }
     };
 
     private RemovalPredicator<C> byTimeout = new RemovalPredicator<C>() {
+        @Override
         public boolean isSlatedForRemoval(Entry<C> entry, long timestamp) {
             return isEntryStale(entry, timestamp);
         }
     };
     private RemovalPredicator<C> byLingering = new RemovalPredicator<C>() {
+        @Override
         public boolean isSlatedForRemoval(Entry<C> entry, long timestamp) {
             return isEntryDoneLingering(entry, timestamp);
         }
@@ -218,8 +224,9 @@ abstract public class AbstractComponentTracker<C> implements ComponentTracker<C>
         // stopped or improperly started appenders are considered stale
         // see also http://jira.qos.ch/browse/LBCLASSIC-316
         C c = entry.component;
-        if (isComponentStale(c))
+        if (isComponentStale(c)) {
             return true;
+        }
 
         return ((entry.timestamp + timeout) < now);
     }
@@ -238,10 +245,12 @@ abstract public class AbstractComponentTracker<C> implements ComponentTracker<C>
     @Override
     public Collection<C> allComponents() {
         List<C> allComponents = new ArrayList<C>();
-        for (Entry<C> e : liveMap.values())
+        for (Entry<C> e : liveMap.values()) {
             allComponents.add(e.component);
-        for (Entry<C> e : lingerersMap.values())
+        }
+        for (Entry<C> e : lingerersMap.values()) {
             allComponents.add(e.component);
+        }
 
         return allComponents;
     }
@@ -290,24 +299,31 @@ abstract public class AbstractComponentTracker<C> implements ComponentTracker<C>
 
         @Override
         public boolean equals(Object obj) {
-            if (this == obj)
+            if (this == obj) {
                 return true;
-            if (obj == null)
+            }
+            if (obj == null) {
                 return false;
-            if (getClass() != obj.getClass())
+            }
+            if (getClass() != obj.getClass()) {
                 return false;
+            }
             @SuppressWarnings("unchecked")
             final Entry<C> other = (Entry<C>) obj;
             if (key == null) {
-                if (other.key != null)
+                if (other.key != null) {
                     return false;
-            } else if (!key.equals(other.key))
+                }
+            } else if (!key.equals(other.key)) {
                 return false;
+            }
             if (component == null) {
-                if (other.component != null)
+                if (other.component != null) {
                     return false;
-            } else if (!component.equals(other.component))
+                }
+            } else if (!component.equals(other.component)) {
                 return false;
+            }
             return true;
         }
 

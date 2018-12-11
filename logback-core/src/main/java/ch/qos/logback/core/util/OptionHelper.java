@@ -220,8 +220,9 @@ public class OptionHelper {
      */
     static public String[] extractDefaultReplacement(String key) {
         String[] result = new String[2];
-        if (key == null)
+        if (key == null) {
             return result;
+        }
 
         result[0] = key;
         int d = key.indexOf(DELIM_DEFAULT);

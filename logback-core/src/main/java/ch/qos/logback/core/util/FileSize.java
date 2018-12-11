@@ -83,8 +83,9 @@ public class FileSize {
     public String toString() {
         long inKB = size / KB_COEFFICIENT;
         
-        if(inKB == 0) 
+        if(inKB == 0) {
             return size + " Bytes";
+        }
         
         long inMB = size / MB_COEFFICIENT;
         if(inMB == 0) {

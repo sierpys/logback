@@ -35,10 +35,12 @@ public class PrintMeImplicitAction extends ImplicitAction {
         return Boolean.valueOf(printmeStr).booleanValue();
     }
 
+    @Override
     public void begin(InterpretationContext ec, String name, Attributes attributes) {
         System.out.println("Element [" + name + "] asked to be printed.");
     }
 
+    @Override
     public void end(InterpretationContext ec, String name) {
     }
 }

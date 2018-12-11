@@ -31,6 +31,7 @@ abstract public class AbstractEventEvaluatorAction extends Action {
     /**
      * Instantiates an evaluator of the given class and sets its name.
      */
+    @Override
     public void begin(InterpretationContext ec, String name, Attributes attributes) {
         // Let us forget about previous errors (in this instance)
         inError = false;
@@ -81,6 +82,7 @@ abstract public class AbstractEventEvaluatorAction extends Action {
      * Once the children elements are also parsed, now is the time to activate the
      * evaluator options.
      */
+    @Override
     @SuppressWarnings("unchecked")
     public void end(InterpretationContext ec, String e) {
         if (inError) {

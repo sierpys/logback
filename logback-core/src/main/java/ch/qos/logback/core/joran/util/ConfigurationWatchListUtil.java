@@ -92,8 +92,9 @@ public class ConfigurationWatchListUtil {
             return;
         }
         StatusManager sm = context.getStatusManager();
-        if (sm == null)
+        if (sm == null) {
             return;
+        }
         sm.add(s);
     }
 

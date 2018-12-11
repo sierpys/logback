@@ -42,6 +42,7 @@ public class SocketAppender extends AbstractSocketAppender<IAccessEvent> {
         event.prepareForDeferredProcessing();
     }
 
+    @Override
     public PreSerializationTransformer<IAccessEvent> getPST() {
         return pst;
     }

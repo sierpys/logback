@@ -68,6 +68,7 @@ class RemoteAppenderStreamClient implements RemoteAppenderClient {
     /**
      * {@inheritDoc}
      */
+    @Override
     public void setLoggerContext(LoggerContext lc) {
         this.lc = lc;
         this.logger = lc.getLogger(getClass().getPackage().getName());
@@ -76,15 +77,18 @@ class RemoteAppenderStreamClient implements RemoteAppenderClient {
     /**
      * {@inheritDoc}
      */
+    @Override
     public void close() {
-        if (socket == null)
+        if (socket == null) {
             return;
+        }
         CloseUtil.closeQuietly(socket);
     }
 
     /**
      * {@inheritDoc}
      */
+    @Override
     public void run() {
         logger.info(this + ": connected");
         HardenedObjectInputStream ois = null;

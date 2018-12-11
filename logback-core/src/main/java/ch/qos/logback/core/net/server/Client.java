@@ -52,6 +52,7 @@ public interface Client extends Runnable, Closeable {
      * permitted to propagate any {@link IOException} that occurs when closing
      * the underlying resource(s).
      */
+    @Override
     void close();
 
 }

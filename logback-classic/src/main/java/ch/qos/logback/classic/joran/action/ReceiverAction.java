@@ -59,8 +59,9 @@ public class ReceiverAction extends Action {
     @Override
     public void end(InterpretationContext ic, String name) throws ActionException {
 
-        if (inError)
+        if (inError) {
             return;
+        }
 
         ic.getContext().register(receiver);
         receiver.start();

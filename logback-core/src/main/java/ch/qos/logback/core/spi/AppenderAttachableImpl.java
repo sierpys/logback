@@ -97,8 +97,9 @@ public class AppenderAttachableImpl<E> implements AppenderAttachable<E> {
             return false;
         }
         for (Appender<E> a : appenderList) {
-            if (a == appender)
+            if (a == appender) {
                 return true;
+            }
         }
         return false;
     }

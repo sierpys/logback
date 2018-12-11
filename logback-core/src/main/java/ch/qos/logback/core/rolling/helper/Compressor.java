@@ -234,6 +234,7 @@ public class Compressor extends ContextAwareBase {
             this.innerEntryName = innerEntryName;
         }
 
+        @Override
         public void run() {
 
             Compressor.this.compress(nameOfFile2Compress, nameOfCompressedFile, innerEntryName);

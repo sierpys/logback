@@ -69,6 +69,7 @@ public class HTMLLayout extends HTMLLayoutBase<ILoggingEvent> {
         }
     }
 
+    @Override
     protected Map<String, String> getDefaultConverterMap() {
         return PatternLayout.defaultConverterMap;
     }

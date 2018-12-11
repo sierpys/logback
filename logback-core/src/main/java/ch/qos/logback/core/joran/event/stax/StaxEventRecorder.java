@@ -108,8 +108,9 @@ public class StaxEventRecorder extends ContextAwareBase {
             return null;
         }
         int size = eventList.size();
-        if (size == 0)
+        if (size == 0) {
             return null;
+        }
         return eventList.get(size - 1);
     }
 

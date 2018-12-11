@@ -95,6 +95,7 @@ public final class Level implements java.io.Serializable {
     /**
      * Returns the string representation of this Level.
      */
+    @Override
     public String toString() {
         return levelStr;
     }
@@ -278,8 +279,9 @@ public final class Level implements java.io.Serializable {
      * @since 1.0.1
      */
     public static int toLocationAwareLoggerInteger(Level level) {
-        if (level == null)
+        if (level == null) {
             throw new IllegalArgumentException("null level parameter is not admitted");
+        }
         switch (level.toInt()) {
         case Level.TRACE_INT:
             return LocationAwareLogger.TRACE_INT;

@@ -50,6 +50,7 @@ public class DefaultShutdownHook extends ShutdownHookBase {
         this.delay = delay;
     }
 
+    @Override
     public void run() {
         if (delay.getMilliseconds() > 0) {
             addInfo("Sleeping for " + delay);

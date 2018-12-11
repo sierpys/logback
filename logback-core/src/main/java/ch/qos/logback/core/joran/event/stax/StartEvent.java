@@ -50,12 +50,14 @@ public class StartEvent extends StaxEvent {
     }
 
     Attribute getAttributeByName(String name) {
-        if (attributes == null)
+        if (attributes == null) {
             return null;
+        }
 
         for (Attribute attr : attributes) {
-            if (name.equals(attr.getName().getLocalPart()))
+            if (name.equals(attr.getName().getLocalPart())) {
                 return attr;
+            }
         }
         return null;
     }

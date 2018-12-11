@@ -118,8 +118,9 @@ public class BasicStatusManager implements StatusManager {
         synchronized (statusListenerListLock) {
             if (listener instanceof OnConsoleStatusListener) {
                 boolean alreadyPresent = checkForPresence(statusListenerList, listener.getClass());
-                if (alreadyPresent)
+                if (alreadyPresent) {
                     return false;
+                }
             }
             statusListenerList.add(listener);
         }
@@ -128,8 +129,9 @@ public class BasicStatusManager implements StatusManager {
 
     private boolean checkForPresence(List<StatusListener> statusListenerList, Class<?> aClass) {
         for (StatusListener e : statusListenerList) {
-            if (e.getClass() == aClass)
+            if (e.getClass() == aClass) {
                 return true;
+            }
         }
         return false;
     }

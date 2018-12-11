@@ -136,8 +136,9 @@ public class IncludeAction extends Action {
         if (url == null) {
             optionalWarning("Could not find resource corresponding to [" + resourceAttribute + "]");
             return null;
-        } else
+        } else {
             return url;
+        }
     }
 
     private void optionalWarning(String msg) {

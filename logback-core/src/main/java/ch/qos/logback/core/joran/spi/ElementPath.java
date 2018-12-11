@@ -44,8 +44,9 @@ public class ElementPath {
         }
 
         String[] partArray = pathStr.split("/");
-        if (partArray == null)
+        if (partArray == null) {
             return;
+        }
 
         for (String part : partArray) {
             if (part.length() > 0) {

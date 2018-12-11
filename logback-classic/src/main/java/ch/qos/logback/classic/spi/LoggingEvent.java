@@ -118,8 +118,9 @@ public class LoggingEvent implements ILoggingEvent {
        
         if(loggerContext != null) {
             SequenceNumberGenerator sequenceNumberGenerator = loggerContext.getSequenceNumberGenerator();
-            if(sequenceNumberGenerator != null)
+            if(sequenceNumberGenerator != null) {
                 sequenceNumber = sequenceNumberGenerator.nextSequenceNumber();
+            }
         }
        
         
@@ -337,14 +338,16 @@ public class LoggingEvent implements ILoggingEvent {
         // populate mdcPropertyMap if null
         if (mdcPropertyMap == null) {
             MDCAdapter mdc = MDC.getMDCAdapter();
-            if (mdc instanceof LogbackMDCAdapter)
+            if (mdc instanceof LogbackMDCAdapter) {
                 mdcPropertyMap = ((LogbackMDCAdapter) mdc).getPropertyMap();
-            else
+            } else {
                 mdcPropertyMap = mdc.getCopyOfContextMap();
+            }
         }
         // mdcPropertyMap still null, use emptyMap()
-        if (mdcPropertyMap == null)
+        if (mdcPropertyMap == null) {
             mdcPropertyMap = Collections.emptyMap();
+        }
 
         return mdcPropertyMap;
     }

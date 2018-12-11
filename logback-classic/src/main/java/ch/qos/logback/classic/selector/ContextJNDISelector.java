@@ -113,8 +113,9 @@ public class ContextJNDISelector implements ContextSelector {
                     }
                 }
                 // logback-292
-                if (!StatusUtil.contextHasStatusListener(loggerContext))
+                if (!StatusUtil.contextHasStatusListener(loggerContext)) {
                     StatusPrinter.printInCaseOfErrorsOrWarnings(loggerContext);
+                }
             }
             return loggerContext;
         }

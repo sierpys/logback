@@ -101,8 +101,9 @@ public class SimpleRuleStore extends ContextAwareBase implements RuleStore {
 
     List<Action> fullPathMatch(ElementPath elementPath) {
         for (ElementSelector selector : rules.keySet()) {
-            if (selector.fullPathMatch(elementPath))
+            if (selector.fullPathMatch(elementPath)) {
                 return rules.get(selector);
+            }
         }
         return null;
     }
@@ -197,6 +198,7 @@ public class SimpleRuleStore extends ContextAwareBase implements RuleStore {
         }
     }
 
+    @Override
     public String toString() {
         final String TAB = "  ";
 

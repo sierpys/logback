@@ -100,8 +100,9 @@ public class SSLContextFactoryBean {
     private KeyManager[] createKeyManagers(ContextAware context) throws NoSuchProviderException, NoSuchAlgorithmException, UnrecoverableKeyException,
                     KeyStoreException {
 
-        if (getKeyStore() == null)
+        if (getKeyStore() == null) {
             return null;
+        }
 
         KeyStore keyStore = getKeyStore().createKeyStore();
         context.addInfo("key store of type '" + keyStore.getType() + "' provider '" + keyStore.getProvider() + "': " + getKeyStore().getLocation());
@@ -129,8 +130,9 @@ public class SSLContextFactoryBean {
      */
     private TrustManager[] createTrustManagers(ContextAware context) throws NoSuchProviderException, NoSuchAlgorithmException, KeyStoreException {
 
-        if (getTrustStore() == null)
+        if (getTrustStore() == null) {
             return null;
+        }
 
         KeyStore trustStore = getTrustStore().createKeyStore();
         context.addInfo("trust store of type '" + trustStore.getType() + "' provider '" + trustStore.getProvider() + "': " + getTrustStore().getLocation());
@@ -197,8 +199,9 @@ public class SSLContextFactoryBean {
      *    base system property name
      */
     private KeyStoreFactoryBean keyStoreFromSystemProperties(String property) {
-        if (System.getProperty(property) == null)
+        if (System.getProperty(property) == null) {
             return null;
+        }
         KeyStoreFactoryBean keyStore = new KeyStoreFactoryBean();
         keyStore.setLocation(locationFromSystemProperty(property));
         keyStore.setProvider(System.getProperty(property + "Provider"));

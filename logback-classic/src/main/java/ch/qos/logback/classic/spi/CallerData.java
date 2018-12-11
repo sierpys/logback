@@ -102,12 +102,14 @@ public class CallerData {
      * Is currentClass present in the list of packages considered part of the logging framework?
      */
     private static boolean isInFrameworkSpaceList(String currentClass, List<String> frameworkPackageList) {
-        if (frameworkPackageList == null)
+        if (frameworkPackageList == null) {
             return false;
+        }
 
         for (String s : frameworkPackageList) {
-            if (currentClass.startsWith(s))
+            if (currentClass.startsWith(s)) {
                 return true;
+            }
         }
         return false;
     }

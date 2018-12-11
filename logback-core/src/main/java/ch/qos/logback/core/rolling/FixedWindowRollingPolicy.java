@@ -51,6 +51,7 @@ public class FixedWindowRollingPolicy extends RollingPolicyBase {
         maxIndex = 7;
     }
 
+    @Override
     public void start() {
         util.setContext(this.context);
 
@@ -162,6 +163,7 @@ public class FixedWindowRollingPolicy extends RollingPolicyBase {
     /**
      * Return the value of the parent's RawFile property.
      */
+    @Override
     public String getActiveFileName() {
         return getParentsRawFileProperty();
     }

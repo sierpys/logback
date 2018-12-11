@@ -87,6 +87,7 @@ public class NestedComplexPropertyIA extends ImplicitAction {
         }
     }
 
+    @Override
     public void begin(InterpretationContext ec, String localName, Attributes attributes) {
         // LogLog.debug("in NestComponentIA begin method");
         // get the action data object pushed in isApplicable() method call
@@ -137,6 +138,7 @@ public class NestedComplexPropertyIA extends ImplicitAction {
 
     }
 
+    @Override
     public void end(InterpretationContext ec, String tagName) {
 
         // pop the action data object pushed in isApplicable() method call

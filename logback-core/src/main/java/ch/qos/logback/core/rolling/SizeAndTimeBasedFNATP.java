@@ -62,8 +62,9 @@ public class SizeAndTimeBasedFNATP<E> extends TimeBasedFileNamingAndTriggeringPo
           addWarn("For more information see "+MANUAL_URL_PREFIX+"appenders.html#SizeAndTimeBasedRollingPolicy");
         }
         
-        if (!super.isErrorFree())
+        if (!super.isErrorFree()) {
             return;
+        }
 
         
         if (maxFileSize == null) {

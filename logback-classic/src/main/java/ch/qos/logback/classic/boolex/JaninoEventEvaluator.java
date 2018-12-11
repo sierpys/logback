@@ -84,6 +84,7 @@ public class JaninoEventEvaluator extends JaninoEventEvaluatorBase<ILoggingEvent
         return IMPORT_LEVEL + expression;
     }
 
+    @Override
     protected String[] getParameterNames() {
         List<String> fullNameList = new ArrayList<String>();
         fullNameList.addAll(DEFAULT_PARAM_NAME_LIST);
@@ -96,6 +97,7 @@ public class JaninoEventEvaluator extends JaninoEventEvaluatorBase<ILoggingEvent
         return (String[]) fullNameList.toArray(CoreConstants.EMPTY_STRING_ARRAY);
     }
 
+    @Override
     protected Class<?>[] getParameterTypes() {
         List<Class<?>> fullTypeList = new ArrayList<>();
         fullTypeList.addAll(DEFAULT_PARAM_TYPE_LIST);
@@ -105,6 +107,7 @@ public class JaninoEventEvaluator extends JaninoEventEvaluatorBase<ILoggingEvent
         return (Class[]) fullTypeList.toArray(CoreConstants.EMPTY_CLASS_ARRAY);
     }
 
+    @Override
     protected Object[] getParameterValues(ILoggingEvent loggingEvent) {
         final int matcherListSize = matcherList.size();
 

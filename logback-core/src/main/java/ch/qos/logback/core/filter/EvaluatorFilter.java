@@ -55,6 +55,7 @@ public class EvaluatorFilter<E> extends AbstractMatcherFilter<E> {
         this.evaluator = evaluator;
     }
 
+    @Override
     public FilterReply decide(E event) {
         // let us not throw an exception
         // see also bug #17.

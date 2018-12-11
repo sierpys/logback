@@ -84,8 +84,9 @@ public class DBAppender extends DBAppenderBase<ILoggingEvent> {
 
     @Override
     public void start() {
-        if (dbNameResolver == null)
+        if (dbNameResolver == null) {
             dbNameResolver = new DefaultDBNameResolver();
+        }
         insertExceptionSQL = SQLBuilder.buildInsertExceptionSQL(dbNameResolver);
         insertPropertiesSQL = SQLBuilder.buildInsertPropertiesSQL(dbNameResolver);
         insertSQL = SQLBuilder.buildInsertSQL(dbNameResolver);
@@ -168,8 +169,9 @@ public class DBAppender extends DBAppenderBase<ILoggingEvent> {
 
     private StackTraceElement extractFirstCaller(StackTraceElement[] callerDataArray) {
         StackTraceElement caller = EMPTY_CALLER_DATA;
-        if (hasAtLeastOneNonNullElement(callerDataArray))
+        if (hasAtLeastOneNonNullElement(callerDataArray)) {
             caller = callerDataArray[0];
+        }
         return caller;
     }
 

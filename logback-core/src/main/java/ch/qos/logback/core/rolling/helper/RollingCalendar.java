@@ -183,8 +183,9 @@ public class RollingCalendar extends GregorianCalendar {
     }
 
     public long periodBarriersCrossed(long start, long end) {
-        if (start > end)
+        if (start > end) {
             throw new IllegalArgumentException("Start cannot come before end");
+        }
 
         long startFloored = getStartOfCurrentPeriodWithGMTOffsetCorrection(start, getTimeZone());
         long endFloored = getStartOfCurrentPeriodWithGMTOffsetCorrection(end, getTimeZone());

@@ -82,8 +82,9 @@ public class ThrowableProxyUtil {
     }
 
     private static void recursiveAppend(StringBuilder sb, String prefix, int indent, IThrowableProxy tp) {
-        if (tp == null)
+        if (tp == null) {
             return;
+        }
         subjoinFirstLine(sb, prefix, indent, tp);
         sb.append(CoreConstants.LINE_SEPARATOR);
         subjoinSTEPArray(sb, indent, tp);

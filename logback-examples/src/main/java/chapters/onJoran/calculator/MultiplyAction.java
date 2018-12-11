@@ -29,6 +29,7 @@ import java.util.EmptyStackException;
  */
 public class MultiplyAction extends Action {
 
+    @Override
     public void begin(InterpretationContext ic, String name, Attributes attributes) {
         int first = fetchInteger(ic);
         int second = fetchInteger(ic);
@@ -59,6 +60,7 @@ public class MultiplyAction extends Action {
         return result;
     }
 
+    @Override
     public void end(InterpretationContext ic, String name) {
         // Nothing to do here.
     }

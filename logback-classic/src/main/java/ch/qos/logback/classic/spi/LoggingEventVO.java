@@ -226,44 +226,58 @@ public class LoggingEventVO implements ILoggingEvent, Serializable {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         final LoggingEventVO other = (LoggingEventVO) obj;
         if (message == null) {
-            if (other.message != null)
+            if (other.message != null) {
                 return false;
-        } else if (!message.equals(other.message))
+            }
+        } else if (!message.equals(other.message)) {
             return false;
+        }
 
         if (loggerName == null) {
-            if (other.loggerName != null)
+            if (other.loggerName != null) {
                 return false;
-        } else if (!loggerName.equals(other.loggerName))
+            }
+        } else if (!loggerName.equals(other.loggerName)) {
             return false;
+        }
 
         if (threadName == null) {
-            if (other.threadName != null)
+            if (other.threadName != null) {
                 return false;
-        } else if (!threadName.equals(other.threadName))
+            }
+        } else if (!threadName.equals(other.threadName)) {
             return false;
-        if (timeStamp != other.timeStamp)
+        }
+        if (timeStamp != other.timeStamp) {
             return false;
+        }
 
         if (marker == null) {
-            if (other.marker != null)
+            if (other.marker != null) {
                 return false;
-        } else if (!marker.equals(other.marker))
+            }
+        } else if (!marker.equals(other.marker)) {
             return false;
+        }
 
         if (mdcPropertyMap == null) {
-            if (other.mdcPropertyMap != null)
+            if (other.mdcPropertyMap != null) {
                 return false;
-        } else if (!mdcPropertyMap.equals(other.mdcPropertyMap))
+            }
+        } else if (!mdcPropertyMap.equals(other.mdcPropertyMap)) {
             return false;
+        }
         return true;
     }
 }

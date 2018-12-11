@@ -26,10 +26,12 @@ abstract public class TriggeringPolicyBase<E> extends ContextAwareBase implement
 
     private boolean start;
 
+    @Override
     public void start() {
         start = true;
     }
 
+    @Override
     public void stop() {
         start = false;
     }

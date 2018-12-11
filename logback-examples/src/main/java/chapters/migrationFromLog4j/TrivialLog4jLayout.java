@@ -26,10 +26,12 @@ import org.apache.log4j.spi.LoggingEvent;
  */
 public class TrivialLog4jLayout extends Layout {
 
+    @Override
     public void activateOptions() {
         // there are no options to activate
     }
 
+    @Override
     public String format(LoggingEvent loggingEvent) {
         return loggingEvent.getRenderedMessage();
     }

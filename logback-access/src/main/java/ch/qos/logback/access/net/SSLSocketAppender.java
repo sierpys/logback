@@ -37,6 +37,7 @@ public class SSLSocketAppender extends AbstractSSLSocketAppender<IAccessEvent> {
         event.prepareForDeferredProcessing();
     }
 
+    @Override
     public PreSerializationTransformer<IAccessEvent> getPST() {
         return pst;
     }

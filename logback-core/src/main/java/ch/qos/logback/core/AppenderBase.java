@@ -102,10 +102,12 @@ abstract public class AppenderBase<E> extends ContextAwareBase implements Append
         this.name = name;
     }
 
+    @Override
     public void start() {
         started = true;
     }
 
+    @Override
     public void stop() {
         started = false;
     }
@@ -115,14 +117,17 @@ abstract public class AppenderBase<E> extends ContextAwareBase implements Append
         return started;
     }
 
+    @Override
     public String toString() {
         return this.getClass().getName() + "[" + name + "]";
     }
 
+    @Override
     public void addFilter(Filter<E> newFilter) {
         fai.addFilter(newFilter);
     }
 
+    @Override
     public void clearAllFilters() {
         fai.clearAllFilters();
     }
@@ -132,6 +137,7 @@ abstract public class AppenderBase<E> extends ContextAwareBase implements Append
         return fai.getCopyOfAttachedFiltersList();
     }
 
+    @Override
     public FilterReply getFilterChainDecision(E event) {
         return fai.getFilterChainDecision(event);
     }
