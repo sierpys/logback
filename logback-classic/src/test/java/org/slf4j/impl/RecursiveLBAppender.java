@@ -47,6 +47,7 @@ public class RecursiveLBAppender extends AppenderBase<ILoggingEvent> {
         super.start();
     }
 
+    @Override
     protected void append(ILoggingEvent e) {
         list.add(e);
         if (layout != null) {

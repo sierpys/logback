@@ -1,20 +1,17 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.util;
-
-import java.lang.reflect.Constructor;
-import java.util.Properties;
 
 import ch.qos.logback.core.Context;
 import ch.qos.logback.core.CoreConstants;
@@ -23,30 +20,33 @@ import ch.qos.logback.core.spi.PropertyContainer;
 import ch.qos.logback.core.spi.ScanException;
 import ch.qos.logback.core.subst.NodeToStringTransformer;
 
+import java.lang.reflect.Constructor;
+import java.util.Properties;
+
 /**
  * @author Ceki Gulcu
  */
 public class OptionHelper {
 
     public static Object instantiateByClassName(String className, Class<?> superClass, Context context) throws IncompatibleClassException,
-                    DynamicClassLoadingException {
+            DynamicClassLoadingException {
         ClassLoader classLoader = Loader.getClassLoaderOfObject(context);
         return instantiateByClassName(className, superClass, classLoader);
     }
 
     public static Object instantiateByClassNameAndParameter(String className, Class<?> superClass, Context context, Class<?> type, Object param)
-                    throws IncompatibleClassException, DynamicClassLoadingException {
+            throws IncompatibleClassException, DynamicClassLoadingException {
         ClassLoader classLoader = Loader.getClassLoaderOfObject(context);
         return instantiateByClassNameAndParameter(className, superClass, classLoader, type, param);
     }
 
     public static Object instantiateByClassName(String className, Class<?> superClass, ClassLoader classLoader) throws IncompatibleClassException,
-                    DynamicClassLoadingException {
+            DynamicClassLoadingException {
         return instantiateByClassNameAndParameter(className, superClass, classLoader, null, null);
     }
 
     public static Object instantiateByClassNameAndParameter(String className, Class<?> superClass, ClassLoader classLoader, Class<?> type, Object parameter)
-                    throws IncompatibleClassException, DynamicClassLoadingException {
+            throws IncompatibleClassException, DynamicClassLoadingException {
 
         if (className == null) {
             throw new NullPointerException();

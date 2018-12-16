@@ -1,28 +1,28 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.boolex;
 
+import org.codehaus.janino.ScriptEvaluator;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import org.codehaus.janino.ScriptEvaluator;
-
 /**
  * Abstract class which sets the groundwork for janino based evaluations.
- * 
+ *
  * @author Ceki G&uuml;lc&uuml;
- * 
+ *
  * @param <E> event type
  */
 abstract public class JaninoEventEvaluatorBase<E> extends EventEvaluatorBase<E> {
@@ -31,6 +31,7 @@ abstract public class JaninoEventEvaluatorBase<E> extends EventEvaluatorBase<E> 
     static Class<?>[] THROWN_EXCEPTIONS = new Class[1];
 
     static public final int ERROR_THRESHOLD = 4;
+
     static {
         THROWN_EXCEPTIONS[0] = EvaluationException.class;
     }

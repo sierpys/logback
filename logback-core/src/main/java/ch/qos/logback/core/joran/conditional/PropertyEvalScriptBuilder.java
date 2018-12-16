@@ -1,28 +1,27 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.joran.conditional;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.Map;
-
+import ch.qos.logback.core.spi.ContextAwareBase;
 import ch.qos.logback.core.spi.PropertyContainer;
 import org.codehaus.commons.compiler.CompileException;
 import org.codehaus.janino.ClassBodyEvaluator;
 
-import ch.qos.logback.core.spi.ContextAwareBase;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PropertyEvalScriptBuilder extends ContextAwareBase {
 
@@ -38,10 +37,10 @@ public class PropertyEvalScriptBuilder extends ContextAwareBase {
     Map<String, String> map = new HashMap<String, String>();
 
     public Condition build(String script) throws IllegalAccessException, CompileException, InstantiationException, SecurityException, NoSuchMethodException,
-                    IllegalArgumentException, InvocationTargetException {
+            IllegalArgumentException, InvocationTargetException {
 
         ClassBodyEvaluator cbe = new ClassBodyEvaluator();
-        cbe.setImplementedInterfaces(new Class[] { Condition.class });
+        cbe.setImplementedInterfaces(new Class[]{Condition.class});
         cbe.setExtendedClass(PropertyWrapperForScripts.class);
         cbe.setParentClassLoader(ClassBodyEvaluator.class.getClassLoader());
         cbe.cook(SCRIPT_PREFIX + script + SCRIPT_SUFFIX);

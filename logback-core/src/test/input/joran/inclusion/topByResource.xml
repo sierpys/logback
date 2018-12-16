@@ -3,6 +3,6 @@
 
 <x>
 
-  <include resource="${includeKey}" />
+    <include resource="${includeKey}"/>
 
 </x>

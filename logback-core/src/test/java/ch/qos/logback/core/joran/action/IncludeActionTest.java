@@ -1,34 +1,17 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.joran.action;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Stack;
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.xml.sax.SAXParseException;
 
 import ch.qos.logback.core.Context;
 import ch.qos.logback.core.ContextBase;
@@ -42,6 +25,22 @@ import ch.qos.logback.core.testUtil.FileTestUtil;
 import ch.qos.logback.core.testUtil.RandomUtil;
 import ch.qos.logback.core.testUtil.StatusChecker;
 import ch.qos.logback.core.util.StatusPrinter;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.xml.sax.SAXParseException;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Stack;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class IncludeActionTest {
 
@@ -112,20 +111,20 @@ public class IncludeActionTest {
     public void basicFile() throws JoranException {
         System.setProperty(INCLUDE_KEY, INCLUDED_FILE);
         tc.doConfigure(TOP_BY_FILE);
-        verifyConfig(new String[] { "IA", "IB" });
+        verifyConfig(new String[]{"IA", "IB"});
     }
 
     @Test
     public void optionalFile() throws JoranException {
         tc.doConfigure(TOP_OPTIONAL);
-        verifyConfig(new String[] { "IA", "IB" });
+        verifyConfig(new String[]{"IA", "IB"});
         StatusPrinter.print(context);
     }
 
     @Test
     public void optionalResource() throws JoranException {
         tc.doConfigure(TOP_OPTIONAL_RESOURCE);
-        verifyConfig(new String[] { "IA", "IB" });
+        verifyConfig(new String[]{"IA", "IB"});
         StatusPrinter.print(context);
         assertEquals(Status.INFO, statusChecker.getHighestLevel(0));
     }
@@ -134,14 +133,14 @@ public class IncludeActionTest {
     public void basicResource() throws JoranException {
         System.setProperty(INCLUDE_KEY, INCLUDED_AS_RESOURCE);
         tc.doConfigure(INCLUDE_BY_RESOURCE);
-        verifyConfig(new String[] { "AR_A", "AR_B" });
+        verifyConfig(new String[]{"AR_A", "AR_B"});
     }
 
     @Test
     public void basicURL() throws JoranException {
         System.setProperty(INCLUDE_KEY, URL_TO_INCLUDE);
         tc.doConfigure(TOP_BY_URL);
-        verifyConfig(new String[] { "IA", "IB" });
+        verifyConfig(new String[]{"IA", "IB"});
     }
 
     @Test
@@ -213,15 +212,15 @@ public class IncludeActionTest {
         System.setProperty(INCLUDE_KEY, INCLUDED_FILE);
         System.setProperty(SECOND_FILE_KEY, SECOND_FILE);
         tc.doConfigure(MULTI_INCLUDE_BY_FILE);
-        verifyConfig(new String[] { "IA", "IB", "SECOND" });
+        verifyConfig(new String[]{"IA", "IB", "SECOND"});
     }
-    
+
     @Test
     public void includeAsEntity() throws JoranException {
         tc.doConfigure(TOP_BY_ENTITY);
-        verifyConfig(new String[] { "EA", "EB" });  
+        verifyConfig(new String[]{"EA", "EB"});
     }
-    
+
     void verifyConfig(String[] expected) {
         Stack<String> witness = new Stack<String>();
         witness.addAll(Arrays.asList(expected));
@@ -229,5 +228,4 @@ public class IncludeActionTest {
     }
 
 
-    
 }

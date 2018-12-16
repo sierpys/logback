@@ -1,22 +1,18 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 // Contributors:  Georg Lundesgaard
 package ch.qos.logback.core.joran.util;
-
-import java.lang.annotation.Annotation;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
 import ch.qos.logback.core.joran.spi.DefaultClass;
 import ch.qos.logback.core.joran.spi.DefaultNestedComponentRegistry;
@@ -26,6 +22,10 @@ import ch.qos.logback.core.joran.util.beans.BeanUtil;
 import ch.qos.logback.core.spi.ContextAwareBase;
 import ch.qos.logback.core.util.AggregationType;
 import ch.qos.logback.core.util.PropertySetterException;
+
+import java.lang.annotation.Annotation;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 /**
  * General purpose Object property setter. Clients repeatedly invokes
@@ -143,16 +143,16 @@ public class PropertySetter extends ContextAwareBase {
         if (addMethod != null) {
             AggregationType type = computeRawAggregationType(addMethod);
             switch (type) {
-            case NOT_FOUND:
-                return AggregationType.NOT_FOUND;
-            case AS_BASIC_PROPERTY:
-                return AggregationType.AS_BASIC_PROPERTY_COLLECTION;
+                case NOT_FOUND:
+                    return AggregationType.NOT_FOUND;
+                case AS_BASIC_PROPERTY:
+                    return AggregationType.AS_BASIC_PROPERTY_COLLECTION;
 
-            case AS_COMPLEX_PROPERTY:
-                return AggregationType.AS_COMPLEX_PROPERTY_COLLECTION;
-            case AS_BASIC_PROPERTY_COLLECTION:
-            case AS_COMPLEX_PROPERTY_COLLECTION:
-                addError("Unexpected AggregationType " + type);
+                case AS_COMPLEX_PROPERTY:
+                    return AggregationType.AS_COMPLEX_PROPERTY_COLLECTION;
+                case AS_BASIC_PROPERTY_COLLECTION:
+                case AS_COMPLEX_PROPERTY_COLLECTION:
+                    addError("Unexpected AggregationType " + type);
             }
         }
 
@@ -221,9 +221,9 @@ public class PropertySetter extends ContextAwareBase {
             } else {
                 return false;
             }
-        } catch (InstantiationException|IllegalAccessException | InvocationTargetException | NoSuchMethodException  e) {
+        } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             return false;
-        }  
+        }
     }
 
     public Class<?> getObjClass() {

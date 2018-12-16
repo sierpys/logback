@@ -1,20 +1,17 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.sift;
-
-import java.util.List;
-import java.util.Map;
 
 import ch.qos.logback.core.Appender;
 import ch.qos.logback.core.CoreConstants;
@@ -26,6 +23,9 @@ import ch.qos.logback.core.joran.spi.Interpreter;
 import ch.qos.logback.core.joran.spi.JoranException;
 import ch.qos.logback.core.joran.spi.RuleStore;
 
+import java.util.List;
+import java.util.Map;
+
 public abstract class SiftingJoranConfiguratorBase<E> extends GenericConfigurator {
 
     protected final String key;
@@ -34,7 +34,7 @@ public abstract class SiftingJoranConfiguratorBase<E> extends GenericConfigurato
     protected final Map<String, String> parentPropertyMap;
 
     protected SiftingJoranConfiguratorBase(String key, String value, Map<String, String> parentPropertyMap) {
-		this.key = key;
+        this.key = key;
         this.value = value;
         this.parentPropertyMap = parentPropertyMap;
     }

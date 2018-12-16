@@ -1,13 +1,13 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
@@ -19,15 +19,15 @@ import java.util.regex.Pattern;
 /**
  * Instances of this class represent the size of a file. Internally, the size is
  * stored as long.
- * 
+ *
  * <p>The {@link #valueOf} method can convert strings such as "3 kb", "5 mb", into
  * FileSize instances. The recognized unit specifications for file size are the
  * "kb", "mb", and "gb". The unit name may be followed by an "s". Thus, "2 kbs"
  * and "2 kb" are equivalent. In the absence of a time unit specification, byte
  * is assumed.
- *  
+ *
  * @author Ceki G&uuml;lc&uuml;
- * 
+ *
  */
 public class FileSize {
 
@@ -78,26 +78,26 @@ public class FileSize {
             throw new IllegalArgumentException("String value [" + fileSizeStr + "] is not in the expected format.");
         }
     }
-    
+
     @Override
     public String toString() {
         long inKB = size / KB_COEFFICIENT;
-        
-        if(inKB == 0) {
+
+        if (inKB == 0) {
             return size + " Bytes";
         }
-        
+
         long inMB = size / MB_COEFFICIENT;
-        if(inMB == 0) {
+        if (inMB == 0) {
             return inKB + " KB";
         }
-        
+
         long inGB = size / GB_COEFFICIENT;
-        if(inGB == 0) {
+        if (inGB == 0) {
             return inMB + " MB";
         }
-        
+
         return inGB + " GB";
-        
+
     }
 }

@@ -1,28 +1,17 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.rolling;
-
-import static org.junit.Assert.assertFalse;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.Date;
-import java.util.List;
-import java.util.concurrent.ExecutionException;
-
-import org.junit.Before;
-import org.junit.Test;
 
 import ch.qos.logback.core.encoder.EchoEncoder;
 import ch.qos.logback.core.rolling.testUtil.ScaffoldingForRollingTests;
@@ -30,6 +19,16 @@ import ch.qos.logback.core.status.InfoStatus;
 import ch.qos.logback.core.status.StatusManager;
 import ch.qos.logback.core.testUtil.StatusChecker;
 import ch.qos.logback.core.util.FileSize;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Date;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+
+import static org.junit.Assert.assertFalse;
 
 public class SizeAndTimeBasedFNATP_Test extends ScaffoldingForRollingTests {
     private SizeAndTimeBasedFNATP<Object> sizeAndTimeBasedFNATP = null;
@@ -57,7 +56,7 @@ public class SizeAndTimeBasedFNATP_Test extends ScaffoldingForRollingTests {
     }
 
     private void initPolicies(RollingFileAppender<Object> rfa, TimeBasedRollingPolicy<Object> tbrp, String filenamePattern, int sizeThreshold, long givenTime,
-                    long lastCheck) {
+                              long lastCheck) {
         sizeAndTimeBasedFNATP = new SizeAndTimeBasedFNATP<Object>();
         tbrp.setContext(context);
         sizeAndTimeBasedFNATP.setMaxFileSize(new FileSize(sizeThreshold));
@@ -167,7 +166,7 @@ public class SizeAndTimeBasedFNATP_Test extends ScaffoldingForRollingTests {
 
     @Test
     public void noCompression_FileBlank_WithStopStart_3() throws Exception {
-        generic("test3", null, WITH_SECOND_PHASE, DEFAULT_COMPRESSION_SUFFIX); 
+        generic("test3", null, WITH_SECOND_PHASE, DEFAULT_COMPRESSION_SUFFIX);
     }
 
     @Test

@@ -1,25 +1,25 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.joran.util;
 
+import ch.qos.logback.core.CoreConstants;
+import ch.qos.logback.core.spi.ContextAware;
+
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.nio.charset.Charset;
 import java.nio.charset.UnsupportedCharsetException;
-
-import ch.qos.logback.core.CoreConstants;
-import ch.qos.logback.core.spi.ContextAware;
 
 /**
  * Utility class which can convert string into objects.
@@ -28,7 +28,7 @@ import ch.qos.logback.core.spi.ContextAware;
  */
 public class StringToObjectConverter {
 
-    private static final Class<?>[] STING_CLASS_PARAMETER = new Class[] { String.class };
+    private static final Class<?>[] STING_CLASS_PARAMETER = new Class[]{String.class};
 
     static public boolean canBeBuiltFromSimpleString(Class<?> parameterClass) {
         Package p = parameterClass.getPackage();
@@ -126,7 +126,7 @@ public class StringToObjectConverter {
         }
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
+    @SuppressWarnings({"unchecked", "rawtypes"})
     private static Object convertToEnum(ContextAware ca, String val, Class<? extends Enum> enumType) {
         return Enum.valueOf(enumType, val);
     }

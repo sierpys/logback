@@ -1,7 +1,8 @@
 
 <configuration>
 
-  <appender name="LIST" class="ch.qos.logback.core.read.ListAppender"/>
+    <appender name="LIST" class="ch.qos.logback.core.read.ListAppender">
+    </appender>
   <root level="DEBUG">
 		<appender-ref ref="LIST" />
 	</root>

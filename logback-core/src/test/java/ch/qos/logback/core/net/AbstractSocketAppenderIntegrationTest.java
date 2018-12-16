@@ -1,27 +1,25 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.net;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Matchers.anyInt;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.timeout;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import ch.qos.logback.core.net.mock.MockContext;
+import ch.qos.logback.core.net.server.test.ServerSocketUtil;
+import ch.qos.logback.core.spi.PreSerializationTransformer;
+import ch.qos.logback.core.util.ExecutorServiceUtil;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -33,14 +31,9 @@ import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-
-import ch.qos.logback.core.net.mock.MockContext;
-import ch.qos.logback.core.net.server.test.ServerSocketUtil;
-import ch.qos.logback.core.spi.PreSerializationTransformer;
-import ch.qos.logback.core.util.ExecutorServiceUtil;
+import static org.junit.Assert.*;
+import static org.mockito.Matchers.anyInt;
+import static org.mockito.Mockito.*;
 
 /**
  * Integration tests for {@link ch.qos.logback.core.net.AbstractSocketAppender}.
@@ -62,7 +55,7 @@ public class AbstractSocketAppenderIntegrationTest {
 
     @Before
     public void setUp() throws Exception {
-        when(queueFactory.<String> newLinkedBlockingDeque(anyInt())).thenReturn(deque);
+        when(queueFactory.<String>newLinkedBlockingDeque(anyInt())).thenReturn(deque);
         instrumentedAppender.setContext(mockContext);
     }
 

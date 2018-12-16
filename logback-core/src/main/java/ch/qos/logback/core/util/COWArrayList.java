@@ -9,30 +9,30 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * A GC-free lock-free thread-safe implementation of the {@link List} interface for use cases where iterations over the list vastly out-number modifications on the list.
- * 
+ *
  * <p>Underneath, it wraps an instance of {@link CopyOnWriteArrayList} and exposes a copy of the array used by that instance.
- * 
+ *
  * <p>Typical use:</p>
- * 
+ *
  * <pre>
  *   COWArrayList&lt;Integer&gt; list = new COWArrayList(new Integer[0]);
- *   
+ *
  *   // modify the list
  *   list.add(1);
  *   list.add(2);
- *   
+ *
  *   Integer[] intArray = list.asTypedArray();
  *   int sum = 0;
  *   // iteration over the array is thread-safe
  *   for(int i = 0; i &lt; intArray.length; i++) {
  *     sum != intArray[i];
  *   }
- * </pre>  
- *   
- *  <p>If the list is not modified, then repetitive calls to {@link #asTypedArray()}, {@link #toArray()} and 
- *  {@link #toArray(Object[])} are guaranteed to be GC-free. Note that iterating over the list using 
- *  {@link COWArrayList#iterator()} and {@link COWArrayList#listIterator()} are <b>not</b> GC-free.</p>
- *   
+ * </pre>
+ *
+ * <p>If the list is not modified, then repetitive calls to {@link #asTypedArray()}, {@link #toArray()} and
+ * {@link #toArray(Object[])} are guaranteed to be GC-free. Note that iterating over the list using
+ * {@link COWArrayList#iterator()} and {@link COWArrayList#listIterator()} are <b>not</b> GC-free.</p>
+ *
  * @author Ceki Gulcu
  * @since 1.1.10
  */
@@ -41,7 +41,7 @@ public class COWArrayList<E> implements List<E> {
     // Implementation note: markAsStale() should always be invoked *after* list-modifying actions.
     // If not, readers might get a stale array until the next write. The potential problem is nicely
     // explained by Rob Eden. See https://github.com/qos-ch/logback/commit/32a2047a1adfc#commitcomment-20791176
-    
+
     AtomicBoolean fresh = new AtomicBoolean(false);
     CopyOnWriteArrayList<E> underlyingList = new CopyOnWriteArrayList<E>();
     E[] ourCopy;
@@ -100,21 +100,21 @@ public class COWArrayList<E> implements List<E> {
     }
 
     /**
-     * Return an array of type E[]. The returned array is intended to be iterated over. 
-     * If the list is modified, subsequent calls to this method will return different/modified 
+     * Return an array of type E[]. The returned array is intended to be iterated over.
+     * If the list is modified, subsequent calls to this method will return different/modified
      * array instances.
-     * 
+     *
      * @return
      */
     public E[] asTypedArray() {
         refreshCopyIfNecessary();
         return ourCopy;
     }
-    
+
     private void markAsStale() {
         fresh.set(false);
     }
-    
+
     public void addIfAbsent(E e) {
         underlyingList.addIfAbsent(e);
         markAsStale();

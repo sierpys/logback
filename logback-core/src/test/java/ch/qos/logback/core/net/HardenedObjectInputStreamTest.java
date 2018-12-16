@@ -1,22 +1,22 @@
 package ch.qos.logback.core.net;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 public class HardenedObjectInputStreamTest {
 
     ByteArrayOutputStream bos;
     ObjectOutputStream oos;
     HardenedObjectInputStream inputStream;
-    String[] whitelist = new String[] { Innocent.class.getName() };
+    String[] whitelist = new String[]{Innocent.class.getName()};
 
     @Before
     public void setUp() throws Exception {

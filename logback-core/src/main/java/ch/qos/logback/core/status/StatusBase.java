@@ -1,13 +1,13 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
@@ -124,15 +124,15 @@ abstract public class StatusBase implements Status {
     public String toString() {
         StringBuilder buf = new StringBuilder();
         switch (getEffectiveLevel()) {
-        case INFO:
-            buf.append("INFO");
-            break;
-        case WARN:
-            buf.append("WARN");
-            break;
-        case ERROR:
-            buf.append("ERROR");
-            break;
+            case INFO:
+                buf.append("INFO");
+                break;
+            case WARN:
+                buf.append("WARN");
+                break;
+            case ERROR:
+                buf.append("ERROR");
+                break;
         }
         if (origin != null) {
             buf.append(" in ");

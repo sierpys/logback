@@ -1,13 +1,13 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
@@ -19,7 +19,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Example code illustrating locking policies in the JDK.
  * See http://jira.qos.ch/browse/LBCORE-97 for a discussion.
- * 
+ *
  * @author Joern Huxhorn
  */
 public class LBCORE97 {
@@ -126,7 +126,7 @@ public class LBCORE97 {
 
         public void run() {
             running = true;
-            for (;;) {
+            for (; ; ) {
                 synchronized (lockObject) {
                     counter++;
                     try {
@@ -157,7 +157,7 @@ public class LBCORE97 {
 
         public void run() {
             running = true;
-            for (;;) {
+            for (; ; ) {
                 lock.lock();
                 try {
                     counter++;

@@ -2,6 +2,6 @@
 <!DOCTYPE included>
 
 <included>
-  <stack name="IncludedA0"/>
-  <stack name="IncludedA1"/>
+    <stack name="IncludedA0"/>
+    <stack name="IncludedA1"/>
 </included>

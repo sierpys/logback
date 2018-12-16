@@ -1,30 +1,17 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.joran;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-
-import java.util.HashMap;
-import java.util.List;
-
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-
-import ch.qos.logback.core.joran.spi.ElementSelector;
-import org.junit.Test;
 
 import ch.qos.logback.core.Context;
 import ch.qos.logback.core.ContextBase;
@@ -35,14 +22,23 @@ import ch.qos.logback.core.joran.action.ext.BadEndAction;
 import ch.qos.logback.core.joran.action.ext.HelloAction;
 import ch.qos.logback.core.joran.action.ext.TouchAction;
 import ch.qos.logback.core.joran.spi.ActionException;
+import ch.qos.logback.core.joran.spi.ElementSelector;
 import ch.qos.logback.core.status.Status;
 import ch.qos.logback.core.status.StatusManager;
 import ch.qos.logback.core.testUtil.CoreTestConstants;
+import org.junit.Test;
+
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+import java.util.HashMap;
+import java.util.List;
+
+import static org.junit.Assert.*;
 
 /**
  * Test the way Interpreter skips child elements in case of exceptions thrown by
  * Actions. It also tests addition of status messages in case of exceptions.
- * 
+ *
  * @author Ceki Gulcu
  */
 public class SkippingInInterpreterTest {

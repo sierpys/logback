@@ -1,13 +1,13 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
@@ -24,7 +24,7 @@ import java.sql.SQLException;
  * <p>
  * For more information about this component, please refer to the online manual at
  * http://logback.qos.ch/manual/appenders.html#DBAppender
- * 
+ *
  * @author <a href="mailto:rdecampo@twcny.rr.com">Ray DeCampo</a>
  */
 public class DriverManagerConnectionSource extends ConnectionSourceBase {
@@ -59,7 +59,7 @@ public class DriverManagerConnectionSource extends ConnectionSourceBase {
 
     /**
      * Returns the url.
-     * 
+     *
      * @return String
      */
     public String getUrl() {
@@ -68,7 +68,7 @@ public class DriverManagerConnectionSource extends ConnectionSourceBase {
 
     /**
      * Sets the url.
-     * 
+     *
      * @param url
      *          The url to set
      */
@@ -78,7 +78,7 @@ public class DriverManagerConnectionSource extends ConnectionSourceBase {
 
     /**
      * Returns the name of the driver class.
-     * 
+     *
      * @return String
      */
     public String getDriverClass() {
@@ -87,7 +87,7 @@ public class DriverManagerConnectionSource extends ConnectionSourceBase {
 
     /**
      * Sets the driver class.
-     * 
+     *
      * @param driverClass
      *          The driver class to set
      */

@@ -1,24 +1,19 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.joran.action;
 
-import java.util.Stack;
-
 import ch.qos.logback.core.joran.spi.ElementPath;
-
-import org.xml.sax.Attributes;
-
 import ch.qos.logback.core.joran.spi.InterpretationContext;
 import ch.qos.logback.core.joran.spi.NoAutoStartUtil;
 import ch.qos.logback.core.joran.util.PropertySetter;
@@ -28,6 +23,9 @@ import ch.qos.logback.core.spi.LifeCycle;
 import ch.qos.logback.core.util.AggregationType;
 import ch.qos.logback.core.util.Loader;
 import ch.qos.logback.core.util.OptionHelper;
+import org.xml.sax.Attributes;
+
+import java.util.Stack;
 
 /**
  * This action is responsible for tying together a parent object with a child
@@ -69,21 +67,21 @@ public class NestedComplexPropertyIA extends ImplicitAction {
         AggregationType aggregationType = parentBean.computeAggregationType(nestedElementTagName);
 
         switch (aggregationType) {
-        case NOT_FOUND:
-        case AS_BASIC_PROPERTY:
-        case AS_BASIC_PROPERTY_COLLECTION:
-            return false;
+            case NOT_FOUND:
+            case AS_BASIC_PROPERTY:
+            case AS_BASIC_PROPERTY_COLLECTION:
+                return false;
 
             // we only push action data if NestComponentIA is applicable
-        case AS_COMPLEX_PROPERTY_COLLECTION:
-        case AS_COMPLEX_PROPERTY:
-            IADataForComplexProperty ad = new IADataForComplexProperty(parentBean, aggregationType, nestedElementTagName);
-            actionDataStack.push(ad);
+            case AS_COMPLEX_PROPERTY_COLLECTION:
+            case AS_COMPLEX_PROPERTY:
+                IADataForComplexProperty ad = new IADataForComplexProperty(parentBean, aggregationType, nestedElementTagName);
+                actionDataStack.push(ad);
 
-            return true;
-        default:
-            addError("PropertySetter.computeAggregationType returned " + aggregationType);
-            return false;
+                return true;
+            default:
+                addError("PropertySetter.computeAggregationType returned " + aggregationType);
+                return false;
         }
     }
 
@@ -106,7 +104,7 @@ public class NestedComplexPropertyIA extends ImplicitAction {
                 // guess class name via implicit rules
                 PropertySetter parentBean = actionData.parentBean;
                 componentClass = parentBean.getClassNameViaImplicitRules(actionData.getComplexPropertyName(), actionData.getAggregationType(),
-                                ec.getDefaultNestedComponentRegistry());
+                        ec.getDefaultNestedComponentRegistry());
             }
 
             if (componentClass == null) {
@@ -172,15 +170,15 @@ public class NestedComplexPropertyIA extends ImplicitAction {
             ec.popObject();
             // Now let us attach the component
             switch (actionData.aggregationType) {
-            case AS_COMPLEX_PROPERTY:
-                actionData.parentBean.setComplexProperty(tagName, actionData.getNestedComplexProperty());
+                case AS_COMPLEX_PROPERTY:
+                    actionData.parentBean.setComplexProperty(tagName, actionData.getNestedComplexProperty());
 
-                break;
-            case AS_COMPLEX_PROPERTY_COLLECTION:
-                actionData.parentBean.addComplexProperty(tagName, actionData.getNestedComplexProperty());
-                break;
-            default:
-                addError("Unexpected aggregationType " + actionData.aggregationType);
+                    break;
+                case AS_COMPLEX_PROPERTY_COLLECTION:
+                    actionData.parentBean.addComplexProperty(tagName, actionData.getNestedComplexProperty());
+                    break;
+                default:
+                    addError("Unexpected aggregationType " + actionData.aggregationType);
             }
         }
     }

@@ -26,6 +26,7 @@ public class InstanceCountingAppender extends AppenderBase<ILoggingEvent> {
         INSTANCE_COUNT.getAndIncrement();
     }
 
+    @Override
     protected void append(ILoggingEvent e) {
     }
 

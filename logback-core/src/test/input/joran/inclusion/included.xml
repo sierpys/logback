@@ -3,7 +3,7 @@
 
 <included>
 
-  <stack name="IA"/>
-  <stack name="IB"/>
-  
+    <stack name="IA"/>
+    <stack name="IB"/>
+
 </included>

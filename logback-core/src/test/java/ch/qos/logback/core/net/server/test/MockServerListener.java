@@ -1,24 +1,24 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.net.server.test;
 
+import ch.qos.logback.core.net.server.Client;
+import ch.qos.logback.core.net.server.ServerListener;
+
 import java.io.IOException;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-
-import ch.qos.logback.core.net.server.Client;
-import ch.qos.logback.core.net.server.ServerListener;
 
 /**
  * A mock {@link ServerListener} that has a blocking queue to pass a client

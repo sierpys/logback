@@ -1,34 +1,34 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.rolling;
 
-import java.io.File;
-
-import ch.qos.logback.core.util.FileSize;
 import ch.qos.logback.core.util.DefaultInvocationGate;
+import ch.qos.logback.core.util.FileSize;
 import ch.qos.logback.core.util.InvocationGate;
+
+import java.io.File;
 
 /**
  * SizeBasedTriggeringPolicy looks at size of the file being currently written
  * to. If it grows bigger than the specified size, the FileAppender using the
  * SizeBasedTriggeringPolicy rolls the file and creates a new one.
- * 
+ *
  * For more information about this policy, please refer to the online manual at
  * http://logback.qos.ch/manual/appenders.html#SizeBasedTriggeringPolicy
- * 
+ *
  * @author Ceki G&uuml;lc&uuml;
- * 
+ *
  */
 public class SizeBasedTriggeringPolicy<E> extends TriggeringPolicyBase<E> {
 
@@ -60,7 +60,7 @@ public class SizeBasedTriggeringPolicy<E> extends TriggeringPolicyBase<E> {
         return this.maxFileSize;
     }
 
-    
+
     public void setMaxFileSize(FileSize aMaxFileSize) {
         this.maxFileSize = aMaxFileSize;
     }

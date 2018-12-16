@@ -1,13 +1,13 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
@@ -138,7 +138,7 @@ public class AsyncAppenderBase<E> extends UnsynchronizedAppenderBase<E> implemen
             // check to see if the thread ended and if not add a warning message
             if (worker.isAlive()) {
                 addWarn("Max queue flush timeout (" + maxFlushTime + " ms) exceeded. Approximately " + blockingQueue.size()
-                                + " queued events were possibly discarded.");
+                        + " queued events were possibly discarded.");
             } else {
                 addInfo("Queue flush finished successfully within timeout.");
             }
@@ -150,9 +150,6 @@ public class AsyncAppenderBase<E> extends UnsynchronizedAppenderBase<E> implemen
             interruptUtil.unmaskInterruptFlag();
         }
     }
-
-
-
 
 
     @Override
@@ -241,7 +238,7 @@ public class AsyncAppenderBase<E> extends UnsynchronizedAppenderBase<E> implemen
      * See also {@link java.util.concurrent.BlockingQueue#remainingCapacity() BlockingQueue#remainingCapacity()}
      *
      * @return the remaining capacity
-     * 
+     *
      */
     public int getRemainingCapacity() {
         return blockingQueue.remainingCapacity();

@@ -1,19 +1,20 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.pattern.color;
 
 import ch.qos.logback.core.pattern.CompositeConverter;
+
 import static ch.qos.logback.core.pattern.color.ANSIConstants.*;
 
 /**
@@ -39,7 +40,7 @@ abstract public class ForegroundCompositeConverterBase<E> extends CompositeConve
 
     /**
      * Derived classes return the foreground color specific to the derived class instance.
-     * @return  the foreground color for this instance
+     * @return the foreground color for this instance
      */
     abstract protected String getForegroundColorCode(E event);
 }

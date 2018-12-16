@@ -1,13 +1,13 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
@@ -49,11 +49,11 @@ class Token {
     public Token(int type, String value) {
         this(type, value, null);
     }
-    
+
     public Token(int type, List<String> optionsList) {
         this(type, null, optionsList);
     }
-    
+
     public Token(int type, String value, List<String> optionsList) {
         this.type = type;
         this.value = value;
@@ -67,39 +67,39 @@ class Token {
     public String getValue() {
         return value;
     }
-    
+
     public List<String> getOptionsList() {
         return optionsList;
     }
-    
+
     @Override
     public String toString() {
         String typeStr = null;
         switch (type) {
 
-        case PERCENT:
-            typeStr = "%";
-            break;
-        case FORMAT_MODIFIER:
-            typeStr = "FormatModifier";
-            break;
-        case LITERAL:
-            typeStr = "LITERAL";
-            break;
-        case OPTION:
-            typeStr = "OPTION";
-            break;
-        case SIMPLE_KEYWORD:
-            typeStr = "SIMPLE_KEYWORD";
-            break;
-        case COMPOSITE_KEYWORD:
-            typeStr = "COMPOSITE_KEYWORD";
-            break;
-        case RIGHT_PARENTHESIS:
-            typeStr = "RIGHT_PARENTHESIS";
-            break;
-        default:
-            typeStr = "UNKNOWN";
+            case PERCENT:
+                typeStr = "%";
+                break;
+            case FORMAT_MODIFIER:
+                typeStr = "FormatModifier";
+                break;
+            case LITERAL:
+                typeStr = "LITERAL";
+                break;
+            case OPTION:
+                typeStr = "OPTION";
+                break;
+            case SIMPLE_KEYWORD:
+                typeStr = "SIMPLE_KEYWORD";
+                break;
+            case COMPOSITE_KEYWORD:
+                typeStr = "COMPOSITE_KEYWORD";
+                break;
+            case RIGHT_PARENTHESIS:
+                typeStr = "RIGHT_PARENTHESIS";
+                break;
+            default:
+                typeStr = "UNKNOWN";
         }
         if (value == null) {
             return "Token(" + typeStr + ")";

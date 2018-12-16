@@ -1,13 +1,13 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
@@ -30,13 +30,13 @@ abstract public class OnPrintStreamStatusListenerBase extends ContextAwareBase i
 
     static final long DEFAULT_RETROSPECTIVE = 300;
     long retrospectiveThresold = DEFAULT_RETROSPECTIVE;
-    
+
     /**
      * The prefix to place before each status message
      * @since 1.1.10
      */
     String prefix;
-    
+
     /**
      * The PrintStream used by derived classes
      * @return
@@ -45,10 +45,10 @@ abstract public class OnPrintStreamStatusListenerBase extends ContextAwareBase i
 
     private void print(Status status) {
         StringBuilder sb = new StringBuilder();
-        if(prefix != null) {
+        if (prefix != null) {
             sb.append(prefix);
         }
-        
+
         StatusPrinter.buildStr(sb, "", status);
         getPrintStream().print(sb);
     }
@@ -103,7 +103,7 @@ abstract public class OnPrintStreamStatusListenerBase extends ContextAwareBase i
     public void setPrefix(String prefix) {
         this.prefix = prefix;
     }
-    
+
     public void setRetrospective(long retrospective) {
         this.retrospectiveThresold = retrospective;
     }

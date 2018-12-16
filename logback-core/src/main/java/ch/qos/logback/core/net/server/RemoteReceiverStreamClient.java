@@ -1,17 +1,21 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.net.server;
+
+import ch.qos.logback.core.CoreConstants;
+import ch.qos.logback.core.spi.ContextAwareBase;
+import ch.qos.logback.core.util.CloseUtil;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -20,10 +24,6 @@ import java.io.Serializable;
 import java.net.Socket;
 import java.net.SocketException;
 import java.util.concurrent.BlockingQueue;
-
-import ch.qos.logback.core.CoreConstants;
-import ch.qos.logback.core.spi.ContextAwareBase;
-import ch.qos.logback.core.util.CloseUtil;
 
 /**
  * A {@link RemoteReceiverClient} that writes serialized logging events to an
@@ -55,7 +55,7 @@ class RemoteReceiverStreamClient extends ContextAwareBase implements RemoteRecei
      * <p> 
      * This constructor exists primarily to support unit tests where it
      * is inconvenient to have to create a socket for the test.
-     * 
+     *
      * @param id identifier string for the client
      * @param outputStream output stream to which logging Events will be written
      */

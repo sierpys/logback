@@ -158,6 +158,10 @@
       <artifactId>mockito-core</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>com.taobao.eagleeye</groupId>
+      <artifactId>eagleeye-core</artifactId>
+    </dependency>
 
   </dependencies>
 
@@ -211,7 +215,7 @@
             <artifactId>hamcrest-core</artifactId>
             <version>${hamcrest.version}</version>
           </dependency>
-          
+
         </dependencies>
 
         <executions>

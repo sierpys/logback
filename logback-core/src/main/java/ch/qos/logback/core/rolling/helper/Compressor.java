@@ -1,17 +1,23 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.rolling.helper;
+
+import ch.qos.logback.core.rolling.RolloverFailure;
+import ch.qos.logback.core.spi.ContextAwareBase;
+import ch.qos.logback.core.status.ErrorStatus;
+import ch.qos.logback.core.status.WarnStatus;
+import ch.qos.logback.core.util.FileUtil;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -22,12 +28,6 @@ import java.util.concurrent.Future;
 import java.util.zip.GZIPOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-
-import ch.qos.logback.core.rolling.RolloverFailure;
-import ch.qos.logback.core.spi.ContextAwareBase;
-import ch.qos.logback.core.status.ErrorStatus;
-import ch.qos.logback.core.status.WarnStatus;
-import ch.qos.logback.core.util.FileUtil;
 
 /**
  * The <code>Compression</code> class implements ZIP and GZ file
@@ -48,19 +48,19 @@ public class Compressor extends ContextAwareBase {
     /**
      * @param nameOfFile2Compress
      * @param nameOfCompressedFile
-     * @param innerEntryName 
+     * @param innerEntryName
      *            The name of the file within the zip file. Use for ZIP compression.
      */
     public void compress(String nameOfFile2Compress, String nameOfCompressedFile, String innerEntryName) {
         switch (compressionMode) {
-        case GZ:
-            gzCompress(nameOfFile2Compress, nameOfCompressedFile);
-            break;
-        case ZIP:
-            zipCompress(nameOfFile2Compress, nameOfCompressedFile, innerEntryName);
-            break;
-        case NONE:
-            throw new UnsupportedOperationException("compress method called in NONE compression mode");
+            case GZ:
+                gzCompress(nameOfFile2Compress, nameOfCompressedFile);
+                break;
+            case ZIP:
+                zipCompress(nameOfFile2Compress, nameOfCompressedFile, innerEntryName);
+                break;
+            case NONE:
+                throw new UnsupportedOperationException("compress method called in NONE compression mode");
         }
     }
 
@@ -94,7 +94,7 @@ public class Compressor extends ContextAwareBase {
         createMissingTargetDirsIfNecessary(zippedFile);
 
         try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(nameOfFile2zip));
-                        ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(nameOfZippedFile))) {
+             ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(nameOfZippedFile))) {
 
             ZipEntry zipEntry = computeZipEntry(innerEntryName);
             zos.putNextEntry(zipEntry);
@@ -163,7 +163,7 @@ public class Compressor extends ContextAwareBase {
         createMissingTargetDirsIfNecessary(gzedFile);
 
         try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(nameOfFile2gz));
-                        GZIPOutputStream gzos = new GZIPOutputStream(new FileOutputStream(nameOfgzedFile))) {
+             GZIPOutputStream gzos = new GZIPOutputStream(new FileOutputStream(nameOfgzedFile))) {
 
             byte[] inbuf = new byte[BUFFER_SIZE];
             int n;

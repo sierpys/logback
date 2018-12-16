@@ -1,25 +1,17 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.rolling;
-
-import static ch.qos.logback.core.CoreConstants.CODES_URL;
-import static ch.qos.logback.core.CoreConstants.MORE_INFO_PREFIX;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.Map;
-import java.util.Map.Entry;
 
 import ch.qos.logback.core.CoreConstants;
 import ch.qos.logback.core.FileAppender;
@@ -27,10 +19,18 @@ import ch.qos.logback.core.rolling.helper.CompressionMode;
 import ch.qos.logback.core.rolling.helper.FileNamePattern;
 import ch.qos.logback.core.util.ContextUtil;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import static ch.qos.logback.core.CoreConstants.CODES_URL;
+import static ch.qos.logback.core.CoreConstants.MORE_INFO_PREFIX;
+
 /**
  * <code>RollingFileAppender</code> extends {@link FileAppender} to backup the
  * log files depending on {@link RollingPolicy} and {@link TriggeringPolicy}.
- * 
+ *
  * <p>
  * For more information about this appender, please refer to the online manual
  * at http://logback.qos.ch/manual/appenders.html#RollingFileAppender
@@ -149,7 +149,7 @@ public class RollingFileAppender<E> extends FileAppender<E> {
     @Override
     public void stop() {
         super.stop();
-        
+
         if (rollingPolicy != null) {
             rollingPolicy.stop();
         }
@@ -222,8 +222,8 @@ public class RollingFileAppender<E> extends FileAppender<E> {
     }
 
     /**
-    * This method differentiates RollingFileAppender from its super class.
-    */
+     * This method differentiates RollingFileAppender from its super class.
+     */
     @Override
     protected void subAppend(E event) {
         // The roll-over check must precede actual writing. This is the

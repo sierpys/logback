@@ -1,11 +1,11 @@
 package ch.qos.logback.core.joran.util.beans;
 
+import ch.qos.logback.core.Context;
+import ch.qos.logback.core.spi.ContextAwareBase;
+
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-
-import ch.qos.logback.core.Context;
-import ch.qos.logback.core.spi.ContextAwareBase;
 
 /**
  * Encapsulates creation of {@link BeanDescription} instances.
@@ -13,7 +13,6 @@ import ch.qos.logback.core.spi.ContextAwareBase;
  * The given class is only analyzed for its public getters, setters and adders methods.
  * Implementations of the BeanInfo interface are not taken into account for analysis.
  * Therefore this class is only partially compatible with the Java Beans API specification.
- *
  *
  * @author urechm
  */
@@ -24,7 +23,6 @@ public class BeanDescriptionFactory extends ContextAwareBase {
     }
 
     /**
-     *
      * @param clazz to create a {@link BeanDescription} for.
      * @return a {@link BeanDescription} for the given class.
      */
@@ -34,7 +32,7 @@ public class BeanDescriptionFactory extends ContextAwareBase {
         Map<String, Method> propertyNameToAdder = new HashMap<String, Method>();
         Method[] methods = clazz.getMethods();
         for (Method method : methods) {
-            if(method.isBridge()) {
+            if (method.isBridge()) {
                 // we can safely ignore bridge methods
                 continue;
             }

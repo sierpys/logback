@@ -1,18 +1,23 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.net.server;
 
+import ch.qos.logback.core.AppenderBase;
+import ch.qos.logback.core.net.AbstractSocketAppender;
+import ch.qos.logback.core.spi.PreSerializationTransformer;
+
+import javax.net.ServerSocketFactory;
 import java.io.IOException;
 import java.io.Serializable;
 import java.net.InetAddress;
@@ -20,17 +25,11 @@ import java.net.ServerSocket;
 import java.net.UnknownHostException;
 import java.util.concurrent.Executor;
 
-import javax.net.ServerSocketFactory;
-
-import ch.qos.logback.core.AppenderBase;
-import ch.qos.logback.core.net.AbstractSocketAppender;
-import ch.qos.logback.core.spi.PreSerializationTransformer;
-
 /**
- * 
+ *
  * This is the super class for module specific ServerSocketAppender
  * implementations can derive from.
- * 
+ *
  * @author Carl Harris
  */
 public abstract class AbstractServerSocketAppender<E> extends AppenderBase<E> {
@@ -40,7 +39,7 @@ public abstract class AbstractServerSocketAppender<E> extends AppenderBase<E> {
      */
     public static final int DEFAULT_BACKLOG = 50;
 
-    /** 
+    /**
      * Default queue size used for each client
      */
     public static final int DEFAULT_CLIENT_QUEUE_SIZE = 100;
@@ -126,7 +125,7 @@ public abstract class AbstractServerSocketAppender<E> extends AppenderBase<E> {
      * The default implementation delegates to 
      * {@link ServerSocketFactory#getDefault()}.  Subclasses may override to
      * private a different socket factory implementation.
-     * 
+     *
      * @return socket factory.
      */
     protected ServerSocketFactory getServerSocketFactory() throws Exception {

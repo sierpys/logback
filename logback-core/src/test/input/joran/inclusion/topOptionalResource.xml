@@ -2,8 +2,8 @@
 <!DOCTYPE x>
 
 <x>
-  <include optional="true" resource="nonExistentResource.xml" />
+    <include optional="true" resource="nonExistentResource.xml"/>
 
-  <stack name="IA"/>
-  <stack name="IB"/>
+    <stack name="IA"/>
+    <stack name="IB"/>
 </x>

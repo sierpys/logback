@@ -1,28 +1,27 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.db;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 // PortableRemoteObject was introduced in JDK 1.3. We won't use it.
 // import javax.rmi.PortableRemoteObject;
-import javax.sql.DataSource;
 
 /**
  * The JNDIConnectionSource is an implementation of
@@ -36,7 +35,7 @@ import javax.sql.DataSource;
  * <p>
  * For more information about this component, please refer to the online manual at
  * http://logback.qos.ch/manual/appenders.html#DBAppender
- * 
+ *
  * @author <a href="mailto:rdecampo@twcny.rr.com">Ray DeCampo</a>
  */
 public class JNDIConnectionSource extends ConnectionSourceBase {
@@ -75,7 +74,7 @@ public class JNDIConnectionSource extends ConnectionSourceBase {
 
     /**
      * Returns the jndiLocation.
-     * 
+     *
      * @return String
      */
     public String getJndiLocation() {
@@ -84,7 +83,7 @@ public class JNDIConnectionSource extends ConnectionSourceBase {
 
     /**
      * Sets the jndiLocation.
-     * 
+     *
      * @param jndiLocation
      *          The jndiLocation to set
      */

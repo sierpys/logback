@@ -2,8 +2,8 @@
 
 <context>
     <fruit class="ch.qos.logback.core.joran.implicitAction.Fruit">
-      <name>blue</name>
-      <text>hello</text>
-      <text>world</text>
-    </fruit> 
+        <name>blue</name>
+        <text>hello</text>
+        <text>world</text>
+    </fruit>
 </context>

@@ -2,6 +2,6 @@
 <!DOCTYPE x>
 
 <x>
-  <include file="${includeKey}" />
-  <include file="${secondFileKey}" />
+    <include file="${includeKey}"/>
+    <include file="${secondFileKey}"/>
 </x>

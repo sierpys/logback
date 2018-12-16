@@ -1,21 +1,17 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.rolling.helper;
-
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 import ch.qos.logback.core.Context;
 import ch.qos.logback.core.pattern.Converter;
@@ -23,21 +19,26 @@ import ch.qos.logback.core.pattern.ConverterUtil;
 import ch.qos.logback.core.pattern.LiteralConverter;
 import ch.qos.logback.core.pattern.parser.Node;
 import ch.qos.logback.core.pattern.parser.Parser;
-import ch.qos.logback.core.spi.ScanException;
 import ch.qos.logback.core.pattern.util.AlmostAsIsEscapeUtil;
 import ch.qos.logback.core.spi.ContextAwareBase;
+import ch.qos.logback.core.spi.ScanException;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * After parsing file name patterns, given a number or a date, instances of this
  * class can be used to compute a file name according to the file name pattern
  * and the current date or integer.
- * 
+ *
  * @author Ceki G&uuml;lc&uuml;
- * 
+ *
  */
 public class FileNamePattern extends ContextAwareBase {
 
     static final Map<String, String> CONVERTER_MAP = new HashMap<String, String>();
+
     static {
         CONVERTER_MAP.put(IntegerTokenConverter.CONVERTER_KEY, IntegerTokenConverter.class.getName());
         CONVERTER_MAP.put(DateTokenConverter.CONVERTER_KEY, DateTokenConverter.class.getName());
@@ -54,7 +55,7 @@ public class FileNamePattern extends ContextAwareBase {
         ConverterUtil.startConverters(this.headTokenConverter);
     }
 
-    
+
     void parse() {
         try {
             // http://jira.qos.ch/browse/LOGBACK-197
@@ -148,7 +149,7 @@ public class FileNamePattern extends ContextAwareBase {
         IntegerTokenConverter itc = getIntegerTokenConverter();
         return itc != null;
     }
-    
+
     public String convertMultipleArguments(Object... objectList) {
         StringBuilder buf = new StringBuilder();
         Converter<Object> c = headTokenConverter;
@@ -193,13 +194,13 @@ public class FileNamePattern extends ContextAwareBase {
         return pattern;
     }
 
-    
+
     /**
      * Given date, convert this instance to a regular expression.
      *
      * Used to compute sub-regex when the pattern has both %d and %i, and the
      * date is known.
-     * 
+     *
      * @param date - known date
      */
     public String toRegexForFixedDate(Date date) {

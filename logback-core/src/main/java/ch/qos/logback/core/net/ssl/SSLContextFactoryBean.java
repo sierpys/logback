@@ -1,34 +1,23 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.net.ssl;
 
-import java.security.KeyManagementException;
-import java.security.KeyStore;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
-import java.security.SecureRandom;
-import java.security.UnrecoverableKeyException;
-import java.security.cert.CertificateException;
-
-import javax.net.ssl.KeyManager;
-import javax.net.ssl.KeyManagerFactory;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.TrustManagerFactory;
-
 import ch.qos.logback.core.spi.ContextAware;
+
+import javax.net.ssl.*;
+import java.security.*;
+import java.security.cert.CertificateException;
 
 /**
  * A factory bean for a JSSE {@link SSLContext}.
@@ -72,7 +61,7 @@ public class SSLContextFactoryBean {
      *    contents of a certificate
      */
     public SSLContext createContext(ContextAware context) throws NoSuchProviderException, NoSuchAlgorithmException, KeyManagementException,
-                    UnrecoverableKeyException, KeyStoreException, CertificateException {
+            UnrecoverableKeyException, KeyStoreException, CertificateException {
 
         SSLContext sslContext = getProvider() != null ? SSLContext.getInstance(getProtocol(), getProvider()) : SSLContext.getInstance(getProtocol());
 
@@ -98,7 +87,7 @@ public class SSLContextFactoryBean {
      * @throws KeyStoreException if an error occurs in reading a key store
      */
     private KeyManager[] createKeyManagers(ContextAware context) throws NoSuchProviderException, NoSuchAlgorithmException, UnrecoverableKeyException,
-                    KeyStoreException {
+            KeyStoreException {
 
         if (getKeyStore() == null) {
             return null;

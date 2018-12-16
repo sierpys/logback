@@ -1,22 +1,17 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.rolling;
-
-import static ch.qos.logback.core.CoreConstants.MANUAL_URL_PREFIX;
-
-import java.io.File;
-import java.util.Date;
 
 import ch.qos.logback.core.CoreConstants;
 import ch.qos.logback.core.joran.spi.NoAutoStart;
@@ -24,16 +19,23 @@ import ch.qos.logback.core.rolling.helper.ArchiveRemover;
 import ch.qos.logback.core.rolling.helper.CompressionMode;
 import ch.qos.logback.core.rolling.helper.FileFilterUtil;
 import ch.qos.logback.core.rolling.helper.SizeAndTimeBasedArchiveRemover;
-import ch.qos.logback.core.util.FileSize;
 import ch.qos.logback.core.util.DefaultInvocationGate;
+import ch.qos.logback.core.util.FileSize;
 import ch.qos.logback.core.util.InvocationGate;
+
+import java.io.File;
+import java.util.Date;
+
+import static ch.qos.logback.core.CoreConstants.MANUAL_URL_PREFIX;
 
 @NoAutoStart
 public class SizeAndTimeBasedFNATP<E> extends TimeBasedFileNamingAndTriggeringPolicyBase<E> {
 
-    enum Usage {EMBEDDED, DIRECT};
+    enum Usage {EMBEDDED, DIRECT}
 
-    
+    ;
+
+
     int currentPeriodsCounter = 0;
     FileSize maxFileSize;
     // String maxFileSizeAsString;
@@ -43,30 +45,30 @@ public class SizeAndTimeBasedFNATP<E> extends TimeBasedFileNamingAndTriggeringPo
     static String MISSING_DATE_TOKEN = "Missing date token, that is %d, in FileNamePattern [";
 
     private final Usage usage;
-    
+
     public SizeAndTimeBasedFNATP() {
         this(Usage.DIRECT);
     }
-    
+
     public SizeAndTimeBasedFNATP(Usage usage) {
         this.usage = usage;
     }
-    
+
     @Override
     public void start() {
         // we depend on certain fields having been initialized in super class
         super.start();
-        
-        if(usage == Usage.DIRECT) {
-          addWarn(CoreConstants.SIZE_AND_TIME_BASED_FNATP_IS_DEPRECATED);
-          addWarn("For more information see "+MANUAL_URL_PREFIX+"appenders.html#SizeAndTimeBasedRollingPolicy");
+
+        if (usage == Usage.DIRECT) {
+            addWarn(CoreConstants.SIZE_AND_TIME_BASED_FNATP_IS_DEPRECATED);
+            addWarn("For more information see " + MANUAL_URL_PREFIX + "appenders.html#SizeAndTimeBasedRollingPolicy");
         }
-        
+
         if (!super.isErrorFree()) {
             return;
         }
 
-        
+
         if (maxFileSize == null) {
             addError("maxFileSize property is mandatory.");
             withErrors();

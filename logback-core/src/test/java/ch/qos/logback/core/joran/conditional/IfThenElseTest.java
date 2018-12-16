@@ -1,39 +1,38 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.joran.conditional;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Stack;
-
-import ch.qos.logback.core.joran.action.PropertyAction;
-import ch.qos.logback.core.joran.spi.ElementSelector;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 
 import ch.qos.logback.core.Context;
 import ch.qos.logback.core.ContextBase;
 import ch.qos.logback.core.joran.TrivialConfigurator;
 import ch.qos.logback.core.joran.action.Action;
 import ch.qos.logback.core.joran.action.NOPAction;
+import ch.qos.logback.core.joran.action.PropertyAction;
 import ch.qos.logback.core.joran.action.ext.StackAction;
+import ch.qos.logback.core.joran.spi.ElementSelector;
 import ch.qos.logback.core.joran.spi.JoranException;
 import ch.qos.logback.core.testUtil.CoreTestConstants;
 import ch.qos.logback.core.testUtil.RandomUtil;
 import ch.qos.logback.core.testUtil.StatusChecker;
 import ch.qos.logback.core.util.StatusPrinter;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Stack;
 
 import static org.junit.Assert.*;
 
@@ -78,39 +77,39 @@ public class IfThenElseTest {
     public void whenContextPropertyIsSet_IfThenBranchIsEvaluated() throws JoranException {
         context.putProperty(ki1, val1);
         tc.doConfigure(CONDITIONAL_DIR_PREFIX + "if0.xml");
-        verifyConfig(new String[] { "BEGIN", "a", "END" });
+        verifyConfig(new String[]{"BEGIN", "a", "END"});
     }
 
     @Test
     public void whenLocalPropertyIsSet_IfThenBranchIsEvaluated() throws JoranException {
         tc.doConfigure(CONDITIONAL_DIR_PREFIX + "if_localProperty.xml");
-        verifyConfig(new String[] { "BEGIN", "a", "END" });
+        verifyConfig(new String[]{"BEGIN", "a", "END"});
     }
 
     @Test
     public void whenNoPropertyIsDefined_ElseBranchIsEvaluated() throws JoranException {
         tc.doConfigure(CONDITIONAL_DIR_PREFIX + "if0.xml");
-        verifyConfig(new String[] { "BEGIN", "b", "END" });
+        verifyConfig(new String[]{"BEGIN", "b", "END"});
     }
 
     @Test
     public void whenContextPropertyIsSet_IfThenBranchIsEvaluated_NO_ELSE_DEFINED() throws JoranException {
         context.putProperty(ki1, val1);
         tc.doConfigure(CONDITIONAL_DIR_PREFIX + "ifWithoutElse.xml");
-        verifyConfig(new String[] { "BEGIN", "a", "END" });
+        verifyConfig(new String[]{"BEGIN", "a", "END"});
     }
 
     @Test
     public void whenNoPropertyIsDefined_IfThenBranchIsNotEvaluated_NO_ELSE_DEFINED() throws JoranException {
         tc.doConfigure(CONDITIONAL_DIR_PREFIX + "ifWithoutElse.xml");
-        verifyConfig(new String[] { "BEGIN", "END" });
+        verifyConfig(new String[]{"BEGIN", "END"});
         assertTrue(checker.isErrorFree(0));
     }
 
     @Test
     public void nestedIf() throws JoranException {
         tc.doConfigure(CONDITIONAL_DIR_PREFIX + "nestedIf.xml");
-        verifyConfig(new String[] { "BEGIN", "a", "c", "END" });
+        verifyConfig(new String[]{"BEGIN", "a", "c", "END"});
         assertTrue(checker.isErrorFree(0));
     }
 

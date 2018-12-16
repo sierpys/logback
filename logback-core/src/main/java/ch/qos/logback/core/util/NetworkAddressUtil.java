@@ -1,14 +1,14 @@
 package ch.qos.logback.core.util;
 
+import ch.qos.logback.core.Context;
+import ch.qos.logback.core.CoreConstants;
+import ch.qos.logback.core.spi.ContextAwareBase;
+
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.Enumeration;
-
-import ch.qos.logback.core.Context;
-import ch.qos.logback.core.CoreConstants;
-import ch.qos.logback.core.spi.ContextAwareBase;
 
 public class NetworkAddressUtil extends ContextAwareBase {
 

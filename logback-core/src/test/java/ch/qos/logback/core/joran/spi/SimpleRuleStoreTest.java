@@ -1,37 +1,32 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.joran.spi;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.util.List;
-
+import ch.qos.logback.core.ContextBase;
+import ch.qos.logback.core.joran.action.Action;
 import org.junit.Test;
 import org.xml.sax.Attributes;
 
-import ch.qos.logback.core.ContextBase;
-import ch.qos.logback.core.joran.action.Action;
+import java.util.List;
+
+import static org.junit.Assert.*;
 
 /**
  * Test SimpleRuleStore for various explicit rule combinations.
- * 
+ *
  * We also test that explicit patterns are case sensitive.
- * 
+ *
  * @author Ceki G&uuml;lc&uuml;
  */
 public class SimpleRuleStoreTest {
@@ -224,24 +219,29 @@ public class SimpleRuleStoreTest {
             this.id = id;
         }
 
+        @Override
         public void begin(InterpretationContext ec, String name, Attributes attributes) {
         }
 
+        @Override
         public void end(InterpretationContext ec, String name) {
         }
 
         public void finish(InterpretationContext ec) {
         }
 
+        @Override
         public String toString() {
             return "XAction(" + id + ")";
         }
     }
 
     class YAction extends Action {
+        @Override
         public void begin(InterpretationContext ec, String name, Attributes attributes) {
         }
 
+        @Override
         public void end(InterpretationContext ec, String name) {
         }
 
@@ -250,9 +250,11 @@ public class SimpleRuleStoreTest {
     }
 
     class ZAction extends Action {
+        @Override
         public void begin(InterpretationContext ec, String name, Attributes attributes) {
         }
 
+        @Override
         public void end(InterpretationContext ec, String name) {
         }
 

@@ -1,17 +1,19 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.net.server;
+
+import ch.qos.logback.core.spi.ContextAwareBase;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,8 +22,6 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-
-import ch.qos.logback.core.spi.ContextAwareBase;
 
 /**
  * A concurrent {@link ServerRunner}.
@@ -32,11 +32,11 @@ import ch.qos.logback.core.spi.ContextAwareBase;
  * invocation of its {@link #run()} method by the {@link Executor} it begins 
  * accepting client connections via its {@code ServerListener}.  As each
  * new {@link Client} is accepted, the client is configured with the 
- * runner's LoggingContext and is then passed to the {@code 
+ * runner's LoggingContext and is then passed to the {@code
  * Executor} for concurrent execution of the client's service loop.     
  * <p>
  * On invocation of the {@link #stop()} method, the runner closes the listener
- * and each of the connected clients (by invoking {@link Client#close()} 
+ * and each of the connected clients (by invoking {@link Client#close()}
  * effectively interrupting any blocked I/O calls and causing these concurrent
  * subtasks to exit gracefully).  This ensures that before the {@link #stop()}
  * method returns (1) all I/O resources have been released and (2) all 
@@ -163,7 +163,7 @@ public abstract class ConcurrentServerRunner<T extends Client> extends ContextAw
      * <p>
      * A subclass implements this method to perform any necessary configuration
      * of the client object before its {@link Client#run()} method is invoked.
-     * 
+     *
      * @param client the subject client
      * @return {@code true} if configuration was successful; if the return
      *    value is {@code false} the client connection will be dropped

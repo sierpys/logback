@@ -1,27 +1,26 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.joran.action;
-
-import java.util.HashMap;
-
-import org.xml.sax.Attributes;
 
 import ch.qos.logback.core.Appender;
 import ch.qos.logback.core.joran.spi.ActionException;
 import ch.qos.logback.core.joran.spi.InterpretationContext;
 import ch.qos.logback.core.spi.LifeCycle;
 import ch.qos.logback.core.util.OptionHelper;
+import org.xml.sax.Attributes;
+
+import java.util.HashMap;
 
 public class AppenderAction<E> extends Action {
     Appender<E> appender;
@@ -29,7 +28,7 @@ public class AppenderAction<E> extends Action {
 
     /**
      * Instantiates an appender of the given class and sets its name.
-     * 
+     *
      * The appender thus generated is placed in the {@link InterpretationContext}'s
      * appender bag.
      */

@@ -1,24 +1,24 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.encoder;
 
-import java.nio.charset.Charset;
-
 import ch.qos.logback.core.Appender;
 import ch.qos.logback.core.CoreConstants;
 import ch.qos.logback.core.Layout;
 import ch.qos.logback.core.OutputStreamAppender;
+
+import java.nio.charset.Charset;
 
 public class LayoutWrappingEncoder<E> extends EncoderBase<E> {
 
@@ -151,7 +151,7 @@ public class LayoutWrappingEncoder<E> extends EncoderBase<E> {
     /**
      * This method allows RollingPolicy implementations to be aware of their
      * containing appender.
-     * 
+     *
      * @param parent
      */
     public void setParent(Appender<?> parent) {

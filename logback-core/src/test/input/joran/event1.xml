@@ -3,12 +3,12 @@
 
 <test>
 
-  <!-- this action throws an exception in the Action.begin method -->
-  <badBegin>
-    <touch/>
-    <touch/>
-  </badBegin>  
+    <!-- this action throws an exception in the Action.begin method -->
+    <badBegin>
+        <touch/>
+        <touch/>
+    </badBegin>
 
-  <hello name="John Doe">XXX&amp;</hello>
-  
+    <hello name="John Doe">XXX&amp;</hello>
+
 </test>

@@ -1,20 +1,17 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.pattern;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import ch.qos.logback.core.Context;
 import ch.qos.logback.core.CoreConstants;
@@ -25,20 +22,23 @@ import ch.qos.logback.core.spi.ScanException;
 import ch.qos.logback.core.status.ErrorStatus;
 import ch.qos.logback.core.status.StatusManager;
 
+import java.util.HashMap;
+import java.util.Map;
+
 abstract public class PatternLayoutBase<E> extends LayoutBase<E> {
 
     static final int INTIAL_STRING_BUILDER_SIZE = 256;
     Converter<E> head;
     String pattern;
     protected PostCompileProcessor<E> postCompileProcessor;
-    
+
     Map<String, String> instanceConverterMap = new HashMap<String, String>();
     protected boolean outputPatternAsHeader = false;
-    
+
     /**
      * Concrete implementations of this class are responsible for elaborating the
      * mapping between pattern words and converters.
-     * 
+     *
      * @return A map associating pattern words to the names of converter classes
      */
     abstract public Map<String, String> getDefaultConverterMap();
@@ -102,7 +102,7 @@ abstract public class PatternLayoutBase<E> extends LayoutBase<E> {
     /**
      *
      * @param head
-     * @deprecated  Use {@link ConverterUtil#setContextForConverters} instead. This method will
+     * @deprecated Use {@link ConverterUtil#setContextForConverters} instead. This method will
      *  be removed in future releases.
      */
     protected void setContextForConverters(Converter<E> head) {

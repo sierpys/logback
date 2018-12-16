@@ -1,13 +1,13 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
@@ -44,18 +44,18 @@ public class DefaultInvocationGate implements InvocationGate {
     // then the mask should be decreased
     private static final long MASK_DECREASE_THRESHOLD = MASK_INCREASE_THRESHOLD * 8;
 
-    
+
     public DefaultInvocationGate() {
         this(MASK_INCREASE_THRESHOLD, MASK_DECREASE_THRESHOLD, System.currentTimeMillis());
     }
-    
-    public  DefaultInvocationGate(long minDelayThreshold, long maxDelayThreshold, long currentTime) {
+
+    public DefaultInvocationGate(long minDelayThreshold, long maxDelayThreshold, long currentTime) {
         this.minDelayThreshold = minDelayThreshold;
-        this.maxDelayThreshold = maxDelayThreshold; 
+        this.maxDelayThreshold = maxDelayThreshold;
         this.lowerLimitForMaskMatch = currentTime + minDelayThreshold;
         this.upperLimitForNoMaskMatch = currentTime + maxDelayThreshold;
     }
-    
+
     private long minDelayThreshold;
     private long maxDelayThreshold;
 
@@ -64,7 +64,7 @@ public class DefaultInvocationGate implements InvocationGate {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see ch.qos.logback.core.util.InvocationGate#skipFurtherWork()
      */
     @Override
@@ -96,7 +96,7 @@ public class DefaultInvocationGate implements InvocationGate {
     long getMask() {
         return mask;
     }
-    
+
     private void increaseMask() {
         if (mask >= MAX_MASK) {
             return;

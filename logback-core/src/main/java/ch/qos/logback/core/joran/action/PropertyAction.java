@@ -1,17 +1,24 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.joran.action;
+
+import ch.qos.logback.core.joran.action.ActionUtil.Scope;
+import ch.qos.logback.core.joran.spi.InterpretationContext;
+import ch.qos.logback.core.pattern.util.RegularEscapeUtil;
+import ch.qos.logback.core.util.Loader;
+import ch.qos.logback.core.util.OptionHelper;
+import org.xml.sax.Attributes;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -20,22 +27,14 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.Properties;
 
-import org.xml.sax.Attributes;
-
-import ch.qos.logback.core.joran.action.ActionUtil.Scope;
-import ch.qos.logback.core.joran.spi.InterpretationContext;
-import ch.qos.logback.core.pattern.util.RegularEscapeUtil;
-import ch.qos.logback.core.util.Loader;
-import ch.qos.logback.core.util.OptionHelper;
-
 /**
  * This class serves as a base for other actions, which similar to the ANT
  * &lt;property&gt; task which add/set properties of a given object.
- * 
+ *
  * This action sets new substitution properties in the logging context by name,
  * value pair, or adds all the properties passed in "file" or "resource"
  * attribute.
- * 
+ *
  * @author Ceki G&uuml;lc&uuml;
  */
 public class PropertyAction extends Action {
@@ -43,12 +42,12 @@ public class PropertyAction extends Action {
     static final String RESOURCE_ATTRIBUTE = "resource";
 
     static String INVALID_ATTRIBUTES = "In <property> element, either the \"file\" attribute alone, or "
-                    + "the \"resource\" element alone, or both the \"name\" and \"value\" attributes must be set.";
+            + "the \"resource\" element alone, or both the \"name\" and \"value\" attributes must be set.";
 
     /**
      * Set a new property for the execution context by name, value pair, or adds
      * all the properties found in the given file.
-     * 
+     *
      */
     @Override
     public void begin(InterpretationContext ec, String localName, Attributes attributes) {

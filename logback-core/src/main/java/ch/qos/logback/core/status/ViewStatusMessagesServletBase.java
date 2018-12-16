@@ -1,33 +1,32 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.status;
 
-import static ch.qos.logback.core.CoreConstants.LINE_SEPARATOR;
-
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.util.List;
+import ch.qos.logback.core.CoreConstants;
+import ch.qos.logback.core.helpers.Transform;
+import ch.qos.logback.core.util.CachingDateFormatter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.util.List;
 
-import ch.qos.logback.core.CoreConstants;
-import ch.qos.logback.core.helpers.Transform;
-import ch.qos.logback.core.util.CachingDateFormatter;
+import static ch.qos.logback.core.CoreConstants.LINE_SEPARATOR;
 
 abstract public class ViewStatusMessagesServletBase extends HttpServlet {
 
@@ -129,12 +128,12 @@ abstract public class ViewStatusMessagesServletBase extends HttpServlet {
 
     String statusLevelAsString(Status s) {
         switch (s.getEffectiveLevel()) {
-        case Status.INFO:
-            return "INFO";
-        case Status.WARN:
-            return "<span class=\"warn\">WARN</span>";
-        case Status.ERROR:
-            return "<span class=\"error\">ERROR</span>";
+            case Status.INFO:
+                return "INFO";
+            case Status.WARN:
+                return "<span class=\"warn\">WARN</span>";
+            case Status.ERROR:
+                return "<span class=\"error\">ERROR</span>";
         }
         return null;
     }

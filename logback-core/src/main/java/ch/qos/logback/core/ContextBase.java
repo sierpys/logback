@@ -1,22 +1,25 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core;
 
-import static ch.qos.logback.core.CoreConstants.CONTEXT_NAME_KEY;
-import static ch.qos.logback.core.CoreConstants.FA_FILENAME_COLLISION_MAP;
-import static ch.qos.logback.core.CoreConstants.HOSTNAME_KEY;
-import static ch.qos.logback.core.CoreConstants.RFA_FILENAME_PATTERN_COLLISION_MAP;
+import ch.qos.logback.core.rolling.helper.FileNamePattern;
+import ch.qos.logback.core.spi.LifeCycle;
+import ch.qos.logback.core.spi.LogbackLock;
+import ch.qos.logback.core.spi.SequenceNumberGenerator;
+import ch.qos.logback.core.status.StatusManager;
+import ch.qos.logback.core.util.ExecutorServiceUtil;
+import ch.qos.logback.core.util.NetworkAddressUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,13 +29,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 
-import ch.qos.logback.core.rolling.helper.FileNamePattern;
-import ch.qos.logback.core.spi.LifeCycle;
-import ch.qos.logback.core.spi.LogbackLock;
-import ch.qos.logback.core.spi.SequenceNumberGenerator;
-import ch.qos.logback.core.status.StatusManager;
-import ch.qos.logback.core.util.ExecutorServiceUtil;
-import ch.qos.logback.core.util.NetworkAddressUtil;
+import static ch.qos.logback.core.CoreConstants.*;
 
 public class ContextBase implements Context, LifeCycle {
 
@@ -52,7 +49,7 @@ public class ContextBase implements Context, LifeCycle {
     protected List<ScheduledFuture<?>> scheduledFutures = new ArrayList<ScheduledFuture<?>>(1);
     private LifeCycleManager lifeCycleManager;
     private SequenceNumberGenerator sequenceNumberGenerator;
-  
+
 
     private boolean started;
 
@@ -69,7 +66,7 @@ public class ContextBase implements Context, LifeCycle {
      * Set the {@link StatusManager} for this context. Note that by default this
      * context is initialized with a {@link BasicStatusManager}. A null value for
      * the 'statusManager' argument is not allowed.
-     * 
+     *
      * <p> A malicious attacker can set the status manager to a dummy instance,
      * disabling internal error reporting.
      *
@@ -271,7 +268,7 @@ public class ContextBase implements Context, LifeCycle {
      * object for each call to this method.
      * <p>
      * This is exposed primarily to support instrumentation for unit testing.
-     * 
+     *
      * @return manager object 
      */
     synchronized LifeCycleManager getLifeCycleManager() {
@@ -294,7 +291,7 @@ public class ContextBase implements Context, LifeCycle {
     public List<ScheduledFuture<?>> getScheduledFutures() {
         return new ArrayList<ScheduledFuture<?>>(scheduledFutures);
     }
-    
+
     @Override
     public SequenceNumberGenerator getSequenceNumberGenerator() {
         return sequenceNumberGenerator;

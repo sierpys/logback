@@ -1,13 +1,13 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
@@ -75,28 +75,28 @@ public class Parser {
         Token t = peekAtCurentToken();
 
         switch (t.type) {
-        case LITERAL:
-            advanceTokenPointer();
-            return makeNewLiteralNode(t.payload);
-        case CURLY_LEFT:
-            advanceTokenPointer();
-            Node innerNode = C();
-            Token right = peekAtCurentToken();
-            expectCurlyRight(right);
-            advanceTokenPointer();
-            Node curlyLeft = makeNewLiteralNode(CoreConstants.LEFT_ACCOLADE);
-            curlyLeft.append(innerNode);
-            curlyLeft.append(makeNewLiteralNode(CoreConstants.RIGHT_ACCOLADE));
-            return curlyLeft;
-        case START:
-            advanceTokenPointer();
-            Node v = V();
-            Token w = peekAtCurentToken();
-            expectCurlyRight(w);
-            advanceTokenPointer();
-            return v;
-        default:
-            return null;
+            case LITERAL:
+                advanceTokenPointer();
+                return makeNewLiteralNode(t.payload);
+            case CURLY_LEFT:
+                advanceTokenPointer();
+                Node innerNode = C();
+                Token right = peekAtCurentToken();
+                expectCurlyRight(right);
+                advanceTokenPointer();
+                Node curlyLeft = makeNewLiteralNode(CoreConstants.LEFT_ACCOLADE);
+                curlyLeft.append(innerNode);
+                curlyLeft.append(makeNewLiteralNode(CoreConstants.RIGHT_ACCOLADE));
+                return curlyLeft;
+            case START:
+                advanceTokenPointer();
+                Node v = V();
+                Token w = peekAtCurentToken();
+                expectCurlyRight(w);
+                advanceTokenPointer();
+                return v;
+            default:
+                return null;
         }
     }
 

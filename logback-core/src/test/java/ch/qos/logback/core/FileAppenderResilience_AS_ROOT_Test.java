@@ -1,31 +1,30 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-
+import ch.qos.logback.core.encoder.EchoEncoder;
 import ch.qos.logback.core.testUtil.EnvUtilForTests;
+import ch.qos.logback.core.testUtil.RandomUtil;
+import ch.qos.logback.core.util.ResilienceUtil;
+import ch.qos.logback.core.util.StatusPrinter;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import ch.qos.logback.core.encoder.EchoEncoder;
-import ch.qos.logback.core.testUtil.RandomUtil;
-import ch.qos.logback.core.util.ResilienceUtil;
-import ch.qos.logback.core.util.StatusPrinter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 
 public class FileAppenderResilience_AS_ROOT_Test {
 
@@ -47,7 +46,7 @@ public class FileAppenderResilience_AS_ROOT_Test {
     FileAppender<Object> fa = new FileAppender<Object>();
 
     static boolean isConformingHost() {
-        return EnvUtilForTests.isLocalHostNameInList(new String[] { "haro" });
+        return EnvUtilForTests.isLocalHostNameInList(new String[]{"haro"});
     }
 
     @Before

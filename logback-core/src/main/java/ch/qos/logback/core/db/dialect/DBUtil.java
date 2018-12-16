@@ -1,27 +1,27 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.db.dialect;
 
+import ch.qos.logback.core.spi.ContextAwareBase;
+
 import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
 
-import ch.qos.logback.core.spi.ContextAwareBase;
-
 /**
- * 
+ *
  * @author Ceki Gulcu
- * 
+ *
  */
 public class DBUtil extends ContextAwareBase {
     private static final String POSTGRES_PART = "postgresql";
@@ -71,40 +71,40 @@ public class DBUtil extends ContextAwareBase {
         SQLDialect sqlDialect = null;
 
         switch (sqlDialectType) {
-        case POSTGRES_DIALECT:
-            sqlDialect = new PostgreSQLDialect();
-            break;
+            case POSTGRES_DIALECT:
+                sqlDialect = new PostgreSQLDialect();
+                break;
 
-        case MYSQL_DIALECT:
-            sqlDialect = new MySQLDialect();
-            break;
+            case MYSQL_DIALECT:
+                sqlDialect = new MySQLDialect();
+                break;
 
-        case ORACLE_DIALECT:
-            sqlDialect = new OracleDialect();
-            break;
+            case ORACLE_DIALECT:
+                sqlDialect = new OracleDialect();
+                break;
 
-        case MSSQL_DIALECT:
-            sqlDialect = new MsSQLDialect();
-            break;
+            case MSSQL_DIALECT:
+                sqlDialect = new MsSQLDialect();
+                break;
 
-        case HSQL_DIALECT:
-            sqlDialect = new HSQLDBDialect();
-            break;
+            case HSQL_DIALECT:
+                sqlDialect = new HSQLDBDialect();
+                break;
 
-        case H2_DIALECT:
-            sqlDialect = new H2Dialect();
-            break;
+            case H2_DIALECT:
+                sqlDialect = new H2Dialect();
+                break;
 
-        case SYBASE_SQLANYWHERE_DIALECT:
-            sqlDialect = new SybaseSqlAnywhereDialect();
-            break;
+            case SYBASE_SQLANYWHERE_DIALECT:
+                sqlDialect = new SybaseSqlAnywhereDialect();
+                break;
 
-        case SQLITE_DIALECT:
-            sqlDialect = new SQLiteDialect();
-            break;
-            
-        case UNKNOWN_DIALECT:
-            // nothing to do 
+            case SQLITE_DIALECT:
+                sqlDialect = new SQLiteDialect();
+                break;
+
+            case UNKNOWN_DIALECT:
+                // nothing to do
 
         }
         return sqlDialect;

@@ -1,14 +1,13 @@
 package ch.qos.logback.core.rolling.helper;
 
-import static org.junit.Assert.assertArrayEquals;
+import ch.qos.logback.core.Context;
+import ch.qos.logback.core.ContextBase;
+import org.junit.Test;
 
 import java.io.File;
 import java.util.Date;
 
-import org.junit.Test;
-
-import ch.qos.logback.core.Context;
-import ch.qos.logback.core.ContextBase;
+import static org.junit.Assert.assertArrayEquals;
 
 public class SizeAndTimeBasedArchiveRemoverTest {
 
@@ -28,7 +27,7 @@ public class SizeAndTimeBasedArchiveRemoverTest {
 
         assertArrayEquals(expected, fileArray);
     }
-    
+
     @Test
     public void badFilenames() {
         FileNamePattern fileNamePattern = new FileNamePattern("smoke-%d-%i.gz", context);

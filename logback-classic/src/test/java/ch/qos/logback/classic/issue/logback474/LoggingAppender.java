@@ -29,11 +29,13 @@ public class LoggingAppender extends AppenderBase<ILoggingEvent> {
 
     Logger logger;
 
+    @Override
     public void start() {
         super.start();
         logger = ((LoggerContext) getContext()).getLogger("Ignore");
     }
 
+    @Override
     protected void append(ILoggingEvent eventObject) {
         logger.debug("Ignore this");
     }

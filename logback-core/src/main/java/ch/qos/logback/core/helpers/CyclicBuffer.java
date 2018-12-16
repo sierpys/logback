@@ -1,13 +1,13 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
@@ -18,10 +18,10 @@ import java.util.List;
 
 /**
  * CyclicBuffer holds values in a cyclic array.
- * 
+ *
  * <p>It allows read access to any element in the buffer not just the first or
  * last element.
- * 
+ *
  * @author Ceki G&uuml;lc&uuml;
  */
 public class CyclicBuffer<E> {
@@ -34,9 +34,9 @@ public class CyclicBuffer<E> {
 
     /**
      * Instantiate a new CyclicBuffer of at most <code>maxSize</code> events.
-     * 
+     *
      * The <code>maxSize</code> argument must a positive integer.
-     * 
+     *
      * @param maxSize
      *                The maximum number of elements in the buffer.
      */
@@ -75,7 +75,7 @@ public class CyclicBuffer<E> {
 
     /**
      * Add an <code>event</code> as the last event in the buffer.
-     * 
+     *
      */
     public void add(E event) {
         ea[last] = event;
@@ -142,7 +142,7 @@ public class CyclicBuffer<E> {
 
     /**
      * Resize the cyclic buffer to <code>newSize</code>.
-     * 
+     *
      * @throws IllegalArgumentException
      *                 if <code>newSize</code> is negative.
      */

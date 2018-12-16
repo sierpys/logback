@@ -1,13 +1,13 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
@@ -21,11 +21,11 @@ public interface Layout<E> extends ContextAware, LifeCycle {
     /**
      * Transform an event (of type Object) and return it as a String after 
      * appropriate formatting.
-     * 
+     *
      * <p>Taking in an object and returning a String is the least sophisticated
      * way of formatting events. However, it is remarkably CPU-effective.
      * </p>
-     * 
+     *
      * @param event The event to format
      * @return the event formatted as a String
      */
@@ -40,7 +40,7 @@ public interface Layout<E> extends ContextAware, LifeCycle {
     /**
      * Return the header of the logging event formatting. The returned value
      * may be null.
-     * 
+     *
      * @return The header.
      */
     String getPresentationHeader();
@@ -48,7 +48,7 @@ public interface Layout<E> extends ContextAware, LifeCycle {
     /**
      * Return the footer of the logging event formatting. The returned value
      * may be null.
-     * 
+     *
      * @return The footer.
      */
 
@@ -62,7 +62,7 @@ public interface Layout<E> extends ContextAware, LifeCycle {
 
     /**
      * Returns the content type as appropriate for the implementation.
-     *  
+     *
      * @return
      */
     String getContentType();

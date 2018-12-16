@@ -35,6 +35,7 @@ public class DummyLBAppender extends AppenderBase<ILoggingEvent> {
         this.layout = layout;
     }
 
+    @Override
     protected void append(ILoggingEvent e) {
         list.add(e);
         if (layout != null) {

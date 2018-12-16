@@ -1,19 +1,17 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.rolling.helper;
-
-import java.io.File;
 
 import ch.qos.logback.core.CoreConstants;
 import ch.qos.logback.core.rolling.RollingFileAppender;
@@ -21,6 +19,8 @@ import ch.qos.logback.core.rolling.RolloverFailure;
 import ch.qos.logback.core.spi.ContextAwareBase;
 import ch.qos.logback.core.util.EnvUtil;
 import ch.qos.logback.core.util.FileUtil;
+
+import java.io.File;
 
 /**
  * Utility class to help solving problems encountered while renaming files.
@@ -71,8 +71,7 @@ public class RenameUtil extends ContextAwareBase {
         }
     }
 
-    
-    
+
     /**
      * Attempts to determine whether both files are on different volumes. Returns true if we could determine that
      * the files are on different volumes. Returns false otherwise or if an error occurred while doing the check.
@@ -88,16 +87,16 @@ public class RenameUtil extends ContextAwareBase {
 
         // target file is not certain to exist but its parent has to exist given the call hierarchy of this method
         File parentOfTarget = targetFile.getAbsoluteFile().getParentFile();
-        
-        if(parentOfTarget == null) {
-            addWarn("Parent of target file ["+targetFile+"] is null");
+
+        if (parentOfTarget == null) {
+            addWarn("Parent of target file [" + targetFile + "] is null");
             return null;
         }
-        if(!parentOfTarget.exists()) {
-            addWarn("Parent of target file ["+targetFile+"] does not exist");
+        if (!parentOfTarget.exists()) {
+            addWarn("Parent of target file [" + targetFile + "] does not exist");
             return null;
         }
-        
+
         try {
             boolean onSameFileStore = FileStoreUtil.areOnSameFileStore(srcFile, parentOfTarget);
             return !onSameFileStore;

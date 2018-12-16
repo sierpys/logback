@@ -1,13 +1,13 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
@@ -19,11 +19,11 @@ import ch.qos.logback.core.rolling.helper.FileFilterUtil;
 import ch.qos.logback.core.rolling.helper.FileNamePattern;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-
 import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+
+import static org.junit.Assert.assertEquals;
 
 
 public class FileFilterUtilTest {
@@ -33,11 +33,11 @@ public class FileFilterUtilTest {
     // see also http://jira.qos.ch/browse/LBCORE-164
     @Test
     public void findHighestCounterTest() throws ParseException {
-        String[] sa = new String[] { "c:/log/debug-old-2010-08-10.0.log", "c:/log/debug-old-2010-08-10.1.log", "c:/log/debug-old-2010-08-10.10.log",
+        String[] sa = new String[]{"c:/log/debug-old-2010-08-10.0.log", "c:/log/debug-old-2010-08-10.1.log", "c:/log/debug-old-2010-08-10.10.log",
                 "c:/log/debug-old-2010-08-10.11.log", "c:/log/debug-old-2010-08-10.12.log", "c:/log/debug-old-2010-08-10.2.log",
                 "c:/log/debug-old-2010-08-10.3.log", "c:/log/debug-old-2010-08-10.4.log", "c:/log/debug-old-2010-08-10.5.log",
                 "c:/log/debug-old-2010-08-10.6.log", "c:/log/debug-old-2010-08-10.7.log", "c:/log/debug-old-2010-08-10.8.log",
-                "c:/log/debug-old-2010-08-10.9.log" };
+                "c:/log/debug-old-2010-08-10.9.log"};
 
         File[] matchingFileArray = new File[sa.length];
         for (int i = 0; i < sa.length; i++) {

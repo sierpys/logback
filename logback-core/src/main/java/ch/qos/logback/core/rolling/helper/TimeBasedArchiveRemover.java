@@ -1,30 +1,30 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.rolling.helper;
-
-import static ch.qos.logback.core.CoreConstants.UNBOUNDED_TOTAL_SIZE_CAP;
-
-import java.io.File;
-import java.util.Date;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Future;
 
 import ch.qos.logback.core.CoreConstants;
 import ch.qos.logback.core.pattern.Converter;
 import ch.qos.logback.core.pattern.LiteralConverter;
 import ch.qos.logback.core.spi.ContextAwareBase;
 import ch.qos.logback.core.util.FileSize;
+
+import java.io.File;
+import java.util.Date;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Future;
+
+import static ch.qos.logback.core.CoreConstants.UNBOUNDED_TOTAL_SIZE_CAP;
 
 public class TimeBasedArchiveRemover extends ContextAwareBase implements ArchiveRemover {
 
@@ -47,9 +47,10 @@ public class TimeBasedArchiveRemover extends ContextAwareBase implements Archive
     }
 
     int callCount = 0;
+
     @Override
     public void clean(Date now) {
- 
+
         long nowInMillis = now.getTime();
         // for a live appender periodsElapsed is expected to be 1
         int periodsElapsed = computeElapsedPeriodsSinceLastClean(nowInMillis);
@@ -69,7 +70,7 @@ public class TimeBasedArchiveRemover extends ContextAwareBase implements Archive
         File file2Delete = new File(filenameToDelete);
 
         if (fileExistsAndIsFile(file2Delete)) {
-            return new File[] { file2Delete };
+            return new File[]{file2Delete};
         } else {
             return new File[0];
         }
@@ -113,7 +114,7 @@ public class TimeBasedArchiveRemover extends ContextAwareBase implements Archive
         addInfo("Removed  " + new FileSize(totalRemoved) + " of files");
     }
 
-    
+
     protected void descendingSort(File[] matchingFileArray, Date date) {
         // nothing to do in super class
     }

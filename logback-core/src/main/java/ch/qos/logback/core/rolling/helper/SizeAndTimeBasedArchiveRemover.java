@@ -1,13 +1,13 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
@@ -70,7 +70,7 @@ public class SizeAndTimeBasedArchiveRemover extends TimeBasedArchiveRemover {
                 Matcher matcher = pattern.matcher(f1.getName());
                 if (matcher.find()) {
                     String indexAsStr = matcher.group(1);
-                    
+
                     if (indexAsStr == null || indexAsStr.isEmpty()) {
                         return NO_INDEX; // unreachable code?
                     } else {

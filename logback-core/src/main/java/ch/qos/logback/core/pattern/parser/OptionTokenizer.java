@@ -1,33 +1,27 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.pattern.parser;
 
+import ch.qos.logback.core.pattern.parser.TokenStream.TokenizerState;
+import ch.qos.logback.core.pattern.util.AsIsEscapeUtil;
+import ch.qos.logback.core.pattern.util.IEscapeUtil;
+import ch.qos.logback.core.spi.ScanException;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import ch.qos.logback.core.pattern.util.AsIsEscapeUtil;
-import ch.qos.logback.core.pattern.util.IEscapeUtil;
-
-import static ch.qos.logback.core.CoreConstants.CURLY_RIGHT;
-
-import static ch.qos.logback.core.CoreConstants.ESCAPE_CHAR;
-import static ch.qos.logback.core.CoreConstants.COMMA_CHAR;
-import static ch.qos.logback.core.CoreConstants.SINGLE_QUOTE_CHAR;
-import static ch.qos.logback.core.CoreConstants.DOUBLE_QUOTE_CHAR;
-
-import ch.qos.logback.core.pattern.parser.TokenStream.TokenizerState;
-import ch.qos.logback.core.spi.ScanException;
+import static ch.qos.logback.core.CoreConstants.*;
 
 public class OptionTokenizer {
 
@@ -61,54 +55,54 @@ public class OptionTokenizer {
 
         while (tokenStream.pointer < patternLength) {
             switch (state) {
-            case EXPECTING_STATE:
-                switch (c) {
-                case ' ':
-                case '\t':
-                case '\r':
-                case '\n':
-                case COMMA_CHAR:
+                case EXPECTING_STATE:
+                    switch (c) {
+                        case ' ':
+                        case '\t':
+                        case '\r':
+                        case '\n':
+                        case COMMA_CHAR:
+                            break;
+                        case SINGLE_QUOTE_CHAR:
+                        case DOUBLE_QUOTE_CHAR:
+                            state = QUOTED_COLLECTING_STATE;
+                            quoteChar = c;
+                            break;
+                        case CURLY_RIGHT:
+                            emitOptionToken(tokenList, optionList);
+                            return;
+                        default:
+                            buf.append(c);
+                            state = RAW_COLLECTING_STATE;
+                    }
                     break;
-                case SINGLE_QUOTE_CHAR:
-                case DOUBLE_QUOTE_CHAR:
-                    state = QUOTED_COLLECTING_STATE;
-                    quoteChar = c;
+                case RAW_COLLECTING_STATE:
+                    switch (c) {
+                        case COMMA_CHAR:
+                            optionList.add(buf.toString().trim());
+                            buf.setLength(0);
+                            state = EXPECTING_STATE;
+                            break;
+                        case CURLY_RIGHT:
+                            optionList.add(buf.toString().trim());
+                            emitOptionToken(tokenList, optionList);
+                            return;
+                        default:
+                            buf.append(c);
+                    }
                     break;
-                case CURLY_RIGHT:
-                    emitOptionToken(tokenList, optionList);
-                    return;
-                default:
-                    buf.append(c);
-                    state = RAW_COLLECTING_STATE;
-                }
-                break;
-            case RAW_COLLECTING_STATE:
-                switch (c) {
-                case COMMA_CHAR:
-                    optionList.add(buf.toString().trim());
-                    buf.setLength(0);
-                    state = EXPECTING_STATE;
-                    break;
-                case CURLY_RIGHT:
-                    optionList.add(buf.toString().trim());
-                    emitOptionToken(tokenList, optionList);
-                    return;
-                default:
-                    buf.append(c);
-                }
-                break;
-            case QUOTED_COLLECTING_STATE:
-                if (c == quoteChar) {
-                    optionList.add(buf.toString());
-                    buf.setLength(0);
-                    state = EXPECTING_STATE;
-                } else if (c == ESCAPE_CHAR) {
-                    escape(String.valueOf(quoteChar), buf);
-                } else {
-                    buf.append(c);
-                }
+                case QUOTED_COLLECTING_STATE:
+                    if (c == quoteChar) {
+                        optionList.add(buf.toString());
+                        buf.setLength(0);
+                        state = EXPECTING_STATE;
+                    } else if (c == ESCAPE_CHAR) {
+                        escape(String.valueOf(quoteChar), buf);
+                    } else {
+                        buf.append(c);
+                    }
 
-                break;
+                    break;
             }
 
             c = pattern.charAt(tokenStream.pointer);

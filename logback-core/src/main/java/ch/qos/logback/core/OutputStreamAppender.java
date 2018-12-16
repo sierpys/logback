@@ -1,36 +1,36 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core;
-
-import static ch.qos.logback.core.CoreConstants.CODES_URL;
-
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.concurrent.locks.ReentrantLock;
 
 import ch.qos.logback.core.encoder.Encoder;
 import ch.qos.logback.core.encoder.LayoutWrappingEncoder;
 import ch.qos.logback.core.spi.DeferredProcessingAware;
 import ch.qos.logback.core.status.ErrorStatus;
 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.concurrent.locks.ReentrantLock;
+
+import static ch.qos.logback.core.CoreConstants.CODES_URL;
+
 /**
  * OutputStreamAppender appends events to a {@link OutputStream}. This class
  * provides basic services that other appenders build upon.
- * 
+ *
  * For more information about this appender, please refer to the online manual
  * at http://logback.qos.ch/manual/appenders.html#OutputStreamAppender
- * 
+ *
  * @author Ceki G&uuml;lc&uuml;
  */
 public class OutputStreamAppender<E> extends UnsynchronizedAppenderBase<E> {
@@ -54,10 +54,10 @@ public class OutputStreamAppender<E> extends UnsynchronizedAppenderBase<E> {
     boolean immediateFlush = true;
 
     /**
-    * The underlying output stream used by this appender.
-    * 
-    * @return
-    */
+     * The underlying output stream used by this appender.
+     *
+     * @return
+     */
     public OutputStream getOutputStream() {
         return outputStream;
     }
@@ -106,7 +106,7 @@ public class OutputStreamAppender<E> extends UnsynchronizedAppenderBase<E> {
     /**
      * Stop this appender instance. The underlying stream or writer is also
      * closed.
-     * 
+     *
      * <p>
      * Stopped appenders cannot be reused.
      */
@@ -155,7 +155,7 @@ public class OutputStreamAppender<E> extends UnsynchronizedAppenderBase<E> {
      * <code>OutputStream</code> must be opened by the user and be writable. The
      * <code>OutputStream</code> will be closed when the appender instance is
      * closed.
-     * 
+     *
      * @param outputStream
      *          An already opened OutputStream.
      */
@@ -187,16 +187,17 @@ public class OutputStreamAppender<E> extends UnsynchronizedAppenderBase<E> {
             }
         }
     }
+
     protected void writeOut(E event) throws IOException {
         byte[] byteArray = this.encoder.encode(event);
         writeBytes(byteArray);
     }
 
     private void writeBytes(byte[] byteArray) throws IOException {
-        if(byteArray == null || byteArray.length == 0) {
+        if (byteArray == null || byteArray.length == 0) {
             return;
         }
-        
+
         lock.lock();
         try {
             this.outputStream.write(byteArray);
@@ -213,7 +214,7 @@ public class OutputStreamAppender<E> extends UnsynchronizedAppenderBase<E> {
      * <p>
      * Most subclasses of <code>WriterAppender</code> will need to override this
      * method.
-     * 
+     *
      * @since 0.9.0
      */
     protected void subAppend(E event) {

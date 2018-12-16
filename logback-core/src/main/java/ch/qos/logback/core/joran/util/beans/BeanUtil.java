@@ -4,6 +4,7 @@ import java.lang.reflect.Method;
 
 /**
  * Encapsulates utility methods associated with standard java beans.
+ *
  * @author urechm
  */
 public class BeanUtil {
@@ -16,7 +17,6 @@ public class BeanUtil {
     public static final String PREFIX_ADDER = "add";
 
     /**
-     *
      * @param method to check if it is an 'adder' method.
      * @return true if the given method is an 'adder' method.
      */
@@ -34,7 +34,6 @@ public class BeanUtil {
     }
 
     /**
-     *
      * @param method to check if it is a standard java beans getter.
      * @return true if the given method is a standard java beans getter.
      */
@@ -64,7 +63,6 @@ public class BeanUtil {
     }
 
     /**
-     *
      * @param method to check if it is a standard java beans setter.
      * @return true if the given method is a standard java beans setter.
      */
@@ -105,6 +103,7 @@ public class BeanUtil {
 
     /**
      * Converts the given String into lower camel case form.
+     *
      * @param string to decapitalize.
      * @return null if the given String is null.
      * Emtpy string if the given string is empty.

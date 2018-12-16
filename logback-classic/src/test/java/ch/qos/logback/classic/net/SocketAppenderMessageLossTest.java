@@ -75,6 +75,7 @@ public class SocketAppenderMessageLossTest {
             this.latch = latch;
         }
 
+        @Override
         protected void append(ILoggingEvent e) {
             list.add(e);
             latch.countDown();

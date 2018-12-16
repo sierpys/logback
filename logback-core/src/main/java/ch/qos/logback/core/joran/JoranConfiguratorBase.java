@@ -1,40 +1,27 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.joran;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import ch.qos.logback.core.Appender;
-import ch.qos.logback.core.joran.action.ActionConst;
-import ch.qos.logback.core.joran.action.AppenderAction;
-import ch.qos.logback.core.joran.action.AppenderRefAction;
-import ch.qos.logback.core.joran.action.ContextPropertyAction;
-import ch.qos.logback.core.joran.action.ConversionRuleAction;
-import ch.qos.logback.core.joran.action.DefinePropertyAction;
-import ch.qos.logback.core.joran.action.NestedBasicPropertyIA;
-import ch.qos.logback.core.joran.action.NestedComplexPropertyIA;
-import ch.qos.logback.core.joran.action.NewRuleAction;
-import ch.qos.logback.core.joran.action.ParamAction;
-import ch.qos.logback.core.joran.action.PropertyAction;
-import ch.qos.logback.core.joran.action.ShutdownHookAction;
-import ch.qos.logback.core.joran.action.StatusListenerAction;
-import ch.qos.logback.core.joran.action.TimestampAction;
+import ch.qos.logback.core.joran.action.*;
 import ch.qos.logback.core.joran.spi.ElementSelector;
 import ch.qos.logback.core.joran.spi.InterpretationContext;
 import ch.qos.logback.core.joran.spi.Interpreter;
 import ch.qos.logback.core.joran.spi.RuleStore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 // Based on 310985 revision 310985 as attested by http://tinyurl.com/8njps
 // see also http://tinyurl.com/c2rp5

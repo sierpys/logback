@@ -1,27 +1,26 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.net.ssl;
 
-import static org.junit.Assert.assertTrue;
-
-import java.util.Arrays;
-
+import ch.qos.logback.core.ContextBase;
+import ch.qos.logback.core.net.ssl.mock.MockSSLConfigurable;
 import org.junit.Before;
 import org.junit.Test;
 
-import ch.qos.logback.core.ContextBase;
-import ch.qos.logback.core.net.ssl.mock.MockSSLConfigurable;
+import java.util.Arrays;
+
+import static org.junit.Assert.assertTrue;
 
 /**
  * Unit tests for {@link SSLParametersConfiguration}.
@@ -41,52 +40,52 @@ public class SSLParametersConfigurationTest {
 
     @Test
     public void testSetIncludedProtocols() throws Exception {
-        configurable.setSupportedProtocols(new String[] { "A", "B", "C", "D" });
+        configurable.setSupportedProtocols(new String[]{"A", "B", "C", "D"});
         configuration.setIncludedProtocols("A,B ,C, D");
         configuration.configure(configurable);
-        assertTrue(Arrays.equals(new String[] { "A", "B", "C", "D" }, configurable.getEnabledProtocols()));
+        assertTrue(Arrays.equals(new String[]{"A", "B", "C", "D"}, configurable.getEnabledProtocols()));
     }
 
     @Test
     public void testSetExcludedProtocols() throws Exception {
-        configurable.setSupportedProtocols(new String[] { "A", "B" });
+        configurable.setSupportedProtocols(new String[]{"A", "B"});
         configuration.setExcludedProtocols("A");
         configuration.configure(configurable);
-        assertTrue(Arrays.equals(new String[] { "B" }, configurable.getEnabledProtocols()));
+        assertTrue(Arrays.equals(new String[]{"B"}, configurable.getEnabledProtocols()));
     }
 
     @Test
     public void testSetIncludedAndExcludedProtocols() throws Exception {
-        configurable.setSupportedProtocols(new String[] { "A", "B", "C" });
+        configurable.setSupportedProtocols(new String[]{"A", "B", "C"});
         configuration.setIncludedProtocols("A, B");
         configuration.setExcludedProtocols("B");
         configuration.configure(configurable);
-        assertTrue(Arrays.equals(new String[] { "A" }, configurable.getEnabledProtocols()));
+        assertTrue(Arrays.equals(new String[]{"A"}, configurable.getEnabledProtocols()));
     }
 
     @Test
     public void testSetIncludedCipherSuites() throws Exception {
-        configurable.setSupportedCipherSuites(new String[] { "A", "B", "C", "D" });
+        configurable.setSupportedCipherSuites(new String[]{"A", "B", "C", "D"});
         configuration.setIncludedCipherSuites("A,B ,C, D");
         configuration.configure(configurable);
-        assertTrue(Arrays.equals(new String[] { "A", "B", "C", "D" }, configurable.getEnabledCipherSuites()));
+        assertTrue(Arrays.equals(new String[]{"A", "B", "C", "D"}, configurable.getEnabledCipherSuites()));
     }
 
     @Test
     public void testSetExcludedCipherSuites() throws Exception {
-        configurable.setSupportedCipherSuites(new String[] { "A", "B" });
+        configurable.setSupportedCipherSuites(new String[]{"A", "B"});
         configuration.setExcludedCipherSuites("A");
         configuration.configure(configurable);
-        assertTrue(Arrays.equals(new String[] { "B" }, configurable.getEnabledCipherSuites()));
+        assertTrue(Arrays.equals(new String[]{"B"}, configurable.getEnabledCipherSuites()));
     }
 
     @Test
     public void testSetExcludedAndIncludedCipherSuites() throws Exception {
-        configurable.setSupportedCipherSuites(new String[] { "A", "B", "C" });
+        configurable.setSupportedCipherSuites(new String[]{"A", "B", "C"});
         configuration.setIncludedCipherSuites("A, B");
         configuration.setExcludedCipherSuites("B");
         configuration.configure(configurable);
-        assertTrue(Arrays.equals(new String[] { "A" }, configurable.getEnabledCipherSuites()));
+        assertTrue(Arrays.equals(new String[]{"A"}, configurable.getEnabledCipherSuites()));
     }
 
     @Test
@@ -105,7 +104,7 @@ public class SSLParametersConfigurationTest {
 
     @Test
     public void testPassDefaultProtocols() throws Exception {
-        final String[] protocols = new String[] { "A" };
+        final String[] protocols = new String[]{"A"};
         configurable.setDefaultProtocols(protocols);
         configuration.configure(configurable);
         assertTrue(Arrays.equals(protocols, configurable.getEnabledProtocols()));
@@ -113,7 +112,7 @@ public class SSLParametersConfigurationTest {
 
     @Test
     public void testPassDefaultCipherSuites() throws Exception {
-        final String[] cipherSuites = new String[] { "A" };
+        final String[] cipherSuites = new String[]{"A"};
         configurable.setDefaultCipherSuites(cipherSuites);
         configuration.configure(configurable);
         assertTrue(Arrays.equals(cipherSuites, configurable.getEnabledCipherSuites()));

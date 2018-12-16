@@ -1,13 +1,13 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
@@ -125,7 +125,7 @@ public class TokenizerTest {
         witnessList.add(new Token(Token.Type.LITERAL, "b"));
         witnessList.add(Token.CURLY_RIGHT_TOKEN);
         assertEquals(witnessList, tokenList);
-        
+
     }
 
     @Test
@@ -161,7 +161,7 @@ public class TokenizerTest {
         witnessList.add(new Token(Token.Type.LITERAL, ":"));
         assertEquals(witnessList, tokenList);
     }
-    
+
     @Test
     public void literalEndingWithDollar_LOGBACK_1149() throws ScanException {
         String input = "a$";
@@ -171,18 +171,18 @@ public class TokenizerTest {
         witnessList.add(new Token(Token.Type.LITERAL, "$"));
         assertEquals(witnessList, tokenList);
     }
-    
+
     @Test
     public void LOGBACK_1101() throws ScanException {
         String input = "a:{y}";
         Tokenizer tokenizer = new Tokenizer(input);
         List<Token> tokenList = tokenizer.tokenize();
         witnessList.add(new Token(Token.Type.LITERAL, "a"));
-        
+
         witnessList.add(new Token(Token.Type.LITERAL, ":"));
         witnessList.add(Token.CURLY_LEFT_TOKEN);
         witnessList.add(new Token(Token.Type.LITERAL, "y"));
-        
+
         witnessList.add(Token.CURLY_RIGHT_TOKEN);
         assertEquals(witnessList, tokenList);
     }

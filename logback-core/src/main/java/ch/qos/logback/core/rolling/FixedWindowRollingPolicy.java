@@ -1,39 +1,39 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.rolling;
 
-import static ch.qos.logback.core.CoreConstants.CODES_URL;
+import ch.qos.logback.core.CoreConstants;
+import ch.qos.logback.core.rolling.helper.*;
 
 import java.io.File;
 import java.util.Date;
 
-import ch.qos.logback.core.CoreConstants;
-import ch.qos.logback.core.rolling.helper.*;
+import static ch.qos.logback.core.CoreConstants.CODES_URL;
 
 /**
  * When rolling over, <code>FixedWindowRollingPolicy</code> renames files
  * according to a fixed window algorithm.
- * 
+ *
  * For more information about this policy, please refer to the online manual at
  * http://logback.qos.ch/manual/appenders.html#FixedWindowRollingPolicy
- * 
+ *
  * @author Ceki G&uuml;lc&uuml;
  */
 public class FixedWindowRollingPolicy extends RollingPolicyBase {
     static final String FNP_NOT_SET = "The \"FileNamePattern\" property must be set before using FixedWindowRollingPolicy. ";
-    static final String PRUDENT_MODE_UNSUPPORTED = "See also "+CODES_URL+"#tbr_fnp_prudent_unsupported";
-    static final String SEE_PARENT_FN_NOT_SET = "Please refer to "+CODES_URL+"#fwrp_parentFileName_not_set";
+    static final String PRUDENT_MODE_UNSUPPORTED = "See also " + CODES_URL + "#tbr_fnp_prudent_unsupported";
+    static final String SEE_PARENT_FN_NOT_SET = "Please refer to " + CODES_URL + "#fwrp_parentFileName_not_set";
     int maxIndex;
     int minIndex;
     RenameUtil util = new RenameUtil();
@@ -147,15 +147,15 @@ public class FixedWindowRollingPolicy extends RollingPolicyBase {
 
             // move active file name to min
             switch (compressionMode) {
-            case NONE:
-                util.rename(getActiveFileName(), fileNamePattern.convertInt(minIndex));
-                break;
-            case GZ:
-                compressor.compress(getActiveFileName(), fileNamePattern.convertInt(minIndex), null);
-                break;
-            case ZIP:
-                compressor.compress(getActiveFileName(), fileNamePattern.convertInt(minIndex), zipEntryFileNamePattern.convert(new Date()));
-                break;
+                case NONE:
+                    util.rename(getActiveFileName(), fileNamePattern.convertInt(minIndex));
+                    break;
+                case GZ:
+                    compressor.compress(getActiveFileName(), fileNamePattern.convertInt(minIndex), null);
+                    break;
+                case ZIP:
+                    compressor.compress(getActiveFileName(), fileNamePattern.convertInt(minIndex), zipEntryFileNamePattern.convert(new Date()));
+                    break;
             }
         }
     }

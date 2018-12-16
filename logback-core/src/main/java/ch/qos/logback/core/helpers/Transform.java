@@ -1,13 +1,13 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 
 /**
  * Utility class for transforming strings.
- * 
+ *
  * @author Ceki G&uuml;lc&uuml;
  * @author Michael A. McAngus
  */
@@ -33,7 +33,7 @@ public class Transform {
      * This method takes a string which may contain HTML tags (ie, &lt;b&gt;,
      * &lt;table&gt;, etc) and replaces any '&lt;','&gt;' ... characters with
      * respective predefined entity references.
-     * 
+     *
      * @param input
      *          The text to be converted.
      */
@@ -56,33 +56,33 @@ public class Transform {
         for (int i = 0; i < buf.length(); i++) {
             char ch = buf.charAt(i);
             switch (ch) {
-            case '\t':
-            case '\n':
-            case '\r':
-                // These characters are below '\u0020' but are allowed:
-                break;
-            case '&':
-                buf.replace(i, i + 1, "&amp;");
-                break;
-            case '<':
-                buf.replace(i, i + 1, "&lt;");
-                break;
-            case '>':
-                buf.replace(i, i + 1, "&gt;");
-                break;
-            case '"':
-                buf.replace(i, i + 1, "&quot;");
-                break;
-            case '\'':
-                buf.replace(i, i + 1, "&#39;");
-                break;
-            default:
-                if (ch < '\u0020') {
-                    // These characters are not allowed,
-                    // replace them with "Object replacement character":
-                    buf.replace(i, i + 1, "\uFFFD");
-                }
-                break;
+                case '\t':
+                case '\n':
+                case '\r':
+                    // These characters are below '\u0020' but are allowed:
+                    break;
+                case '&':
+                    buf.replace(i, i + 1, "&amp;");
+                    break;
+                case '<':
+                    buf.replace(i, i + 1, "&lt;");
+                    break;
+                case '>':
+                    buf.replace(i, i + 1, "&gt;");
+                    break;
+                case '"':
+                    buf.replace(i, i + 1, "&quot;");
+                    break;
+                case '\'':
+                    buf.replace(i, i + 1, "&#39;");
+                    break;
+                default:
+                    if (ch < '\u0020') {
+                        // These characters are not allowed,
+                        // replace them with "Object replacement character":
+                        buf.replace(i, i + 1, "\uFFFD");
+                    }
+                    break;
             }
         }
         return buf.toString();
@@ -91,11 +91,11 @@ public class Transform {
     /**
      * Ensures that embedded CDEnd strings (]]&gt;) are handled properly within
      * message, NDC and throwable tag text.
-     * 
+     *
      * @param output
      *          Writer. The initial CDStart (&lt;![CDATA[) and final CDEnd (]]&gt;) of
      *          the CDATA section are the responsibility of the calling method.
-     * 
+     *
      * @param str
      *          The String that is inserted into an existing CDATA Section.
      */

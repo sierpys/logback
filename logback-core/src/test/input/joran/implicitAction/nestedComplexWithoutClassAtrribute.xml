@@ -2,8 +2,8 @@
 
 <context>
     <fruit>
-      <name>blue</name>
-      <text>hello</text>
-      <text>world</text>
-    </fruit> 
+        <name>blue</name>
+        <text>hello</text>
+        <text>world</text>
+    </fruit>
 </context>

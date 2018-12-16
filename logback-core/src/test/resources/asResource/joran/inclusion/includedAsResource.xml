@@ -3,7 +3,7 @@
 
 <included>
 
-  <stack name="AR_A" />
-  <stack name="AR_B" />
+    <stack name="AR_A"/>
+    <stack name="AR_B"/>
 
 </included>

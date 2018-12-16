@@ -1,41 +1,17 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.rolling;
-
-import static ch.qos.logback.core.CoreConstants.DAILY_DATE_PATTERN;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-import java.io.File;
-import java.io.FileFilter;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import org.joda.time.DateTimeZone;
-import org.joda.time.Days;
-import org.joda.time.LocalDate;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
 
 import ch.qos.logback.core.CoreConstants;
 import ch.qos.logback.core.pattern.SpacePadder;
@@ -45,6 +21,22 @@ import ch.qos.logback.core.testUtil.StatusChecker;
 import ch.qos.logback.core.util.FileSize;
 import ch.qos.logback.core.util.FixedRateInvocationGate;
 import ch.qos.logback.core.util.StatusPrinter;
+import org.joda.time.DateTimeZone;
+import org.joda.time.Days;
+import org.joda.time.LocalDate;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
+
+import java.io.File;
+import java.io.FileFilter;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static ch.qos.logback.core.CoreConstants.DAILY_DATE_PATTERN;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class TimeBasedRollingWithArchiveRemoval_Test extends ScaffoldingForRollingTests {
     String MONTHLY_DATE_PATTERN = "yyyy-MM";
@@ -190,7 +182,7 @@ public class TimeBasedRollingWithArchiveRemoval_Test extends ScaffoldingForRolli
         generateDailyRollover(cp);
         StatusPrinter.print(context);
         checkFileCountAtMost(1);
-       
+
     }
 
     @Test
@@ -228,11 +220,11 @@ public class TimeBasedRollingWithArchiveRemoval_Test extends ScaffoldingForRolli
         String fileNamePattern = randomOutputDir + "clean-%d{" + DAILY_DATE_PATTERN + "}.txt";
 
         ConfigParameters cp0 = new ConfigParameters(currentTime).maxHistory(maxHistory).fileNamePattern(fileNamePattern)
-                        .simulatedNumberOfPeriods(maxHistory * 2);
+                .simulatedNumberOfPeriods(maxHistory * 2);
         long endTime = logOverMultiplePeriods(cp0);
 
         ConfigParameters cp1 = new ConfigParameters(endTime + MILLIS_IN_DAY * 10).maxHistory(maxHistory).fileNamePattern(fileNamePattern)
-                        .simulatedNumberOfPeriods(maxHistory);
+                .simulatedNumberOfPeriods(maxHistory);
         logOverMultiplePeriods(cp1);
         checkFileCount(expectedCountWithoutFolders(maxHistory));
     }
@@ -321,7 +313,7 @@ public class TimeBasedRollingWithArchiveRemoval_Test extends ScaffoldingForRolli
 
         int simulatedNumberOfPeriods = maxHistory * 4;
         ConfigParameters cp1 = new ConfigParameters(endTime + MILLIS_IN_DAY * 7).maxHistory(maxHistory).fileNamePattern(fileNamePattern)
-                        .simulatedNumberOfPeriods(simulatedNumberOfPeriods);
+                .simulatedNumberOfPeriods(simulatedNumberOfPeriods);
         logOverMultiplePeriods(cp1);
         checkDirPatternCompliance(maxHistory + 1);
     }
@@ -437,16 +429,16 @@ public class TimeBasedRollingWithArchiveRemoval_Test extends ScaffoldingForRolli
                 SpacePadder.spacePad(sb, 66 + (3 - iAsString.length() - currentDateStr.length()));
                 sb.append(iAsString);
                 rfa.doAppend(sb.toString());
-            } 
+            }
 
             tbrp.timeBasedFileNamingAndTriggeringPolicy.setCurrentTime(addTime(tbrp.timeBasedFileNamingAndTriggeringPolicy.getCurrentTime(), tickDuration));
-            
+
             add(tbrp.compressionFuture);
             add(tbrp.cleanUpFuture);
             waitForJobsToComplete();
         }
-        
-        
+
+
         try {
             Thread.sleep(100);
         } catch (InterruptedException e) {
@@ -455,7 +447,7 @@ public class TimeBasedRollingWithArchiveRemoval_Test extends ScaffoldingForRolli
         }
         rfa.stop();
 
-        System.out.println("Current time at end of loop: "+new Date(tbrp.timeBasedFileNamingAndTriggeringPolicy.getCurrentTime()));
+        System.out.println("Current time at end of loop: " + new Date(tbrp.timeBasedFileNamingAndTriggeringPolicy.getCurrentTime()));
         return tbrp.timeBasedFileNamingAndTriggeringPolicy.getCurrentTime();
     }
 
@@ -496,10 +488,10 @@ public class TimeBasedRollingWithArchiveRemoval_Test extends ScaffoldingForRolli
         List<File> fileList = new ArrayList<File>();
         findAllDirsOrStringContainsFilesRecursively(dir, fileList, "clean");
         int fileListSize = fileList.size();
-        
-        assertTrue("file list size "+ fileListSize+", expectedCount="+expectedCount, fileListSize <= expectedCount);
+
+        assertTrue("file list size " + fileListSize + ", expectedCount=" + expectedCount, fileListSize <= expectedCount);
     }
-    
+
     int expectedCountWithoutFoldersWithInactivity(int maxHistory, int totalPeriods, int endOfInactivity) {
         int availableHistory = (totalPeriods + 1) - endOfInactivity;
         int actualHistory = Math.min(availableHistory, maxHistory + 1);

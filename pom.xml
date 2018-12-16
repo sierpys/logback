@@ -232,6 +232,12 @@
         <artifactId>mockito-core</artifactId>
         <version>2.7.9</version>
       </dependency>
+
+      <dependency>
+        <groupId>com.taobao.eagleeye</groupId>
+        <artifactId>eagleeye-core</artifactId>
+        <version>1.6.3</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 

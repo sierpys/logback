@@ -1,13 +1,13 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
@@ -33,7 +33,7 @@ public class CoreConstants {
     // We thus set a pool size > 0 for tests to pass.
     public static final int SCHEDULED_EXECUTOR_POOL_SIZE = 1;
 
-    
+
     /**
      * Maximum number of threads to allow in a context's executor service.
      */
@@ -47,7 +47,7 @@ public class CoreConstants {
     public static final int LINE_SEPARATOR_LEN = LINE_SEPARATOR.length();
 
     public static final String CODES_URL = "http://logback.qos.ch/codes.html";
-    public static final String MANUAL_URL_PREFIX = "http://logback.qos.ch/manual/";   
+    public static final String MANUAL_URL_PREFIX = "http://logback.qos.ch/manual/";
     public static final String MORE_INFO_PREFIX = "For more information, please visit ";
 
     /**
@@ -76,14 +76,14 @@ public class CoreConstants {
 
     /**
      * Key used to locate a map Files used by FileAppender instances in context's object map.
-     * 
+     *
      * Said map consists of entries of the type (appender name, File option) 
      */
     public static final String FA_FILENAME_COLLISION_MAP = "FA_FILENAMES_MAP";
 
     /**
      * Key used to locate a collision map for RollingFileAppender instances in context's object map.
-     * 
+     *
      * The collision map consists of entities of the type (appender name, FileNamePattern option)
      */
     public static final String RFA_FILENAME_PATTERN_COLLISION_MAP = "RFA_FILENAME_PATTERN_COLLISION_MAP";
@@ -103,12 +103,12 @@ public class CoreConstants {
     /**
      * An empty string array.
      */
-    public static final String[] EMPTY_STRING_ARRAY = new String[] {};
+    public static final String[] EMPTY_STRING_ARRAY = new String[]{};
 
     /**
      * An empty Class array.
      */
-    public static final Class<?>[] EMPTY_CLASS_ARRAY = new Class[] {};
+    public static final Class<?>[] EMPTY_CLASS_ARRAY = new Class[]{};
     public static final String CAUSED_BY = "Caused by: ";
     public static final String SUPPRESSED = "Suppressed: ";
     public static final String WRAPPED_BY = "Wrapped by: ";
@@ -150,8 +150,8 @@ public class CoreConstants {
     public static final char TAB = '\t';
     public static final char DOLLAR = '$';
 
-    public static final String SEE_FNP_NOT_SET = "See also "+CODES_URL+"#tbr_fnp_not_set";
-    public static final String SEE_MISSING_INTEGER_TOKEN = "See also "+CODES_URL+"#sat_missing_integer_token";
+    public static final String SEE_FNP_NOT_SET = "See also " + CODES_URL + "#tbr_fnp_not_set";
+    public static final String SEE_MISSING_INTEGER_TOKEN = "See also " + CODES_URL + "#sat_missing_integer_token";
 
     public static final String CONFIGURATION_WATCH_LIST = "CONFIGURATION_WATCH_LIST";
     public static final String CONFIGURATION_WATCH_LIST_RESET_X = "CONFIGURATION_WATCH_LIST_RESET";
@@ -196,11 +196,11 @@ public class CoreConstants {
 
     public static final String UNDEFINED_PROPERTY_SUFFIX = "_IS_UNDEFINED";
 
-    public static final String LEFT_ACCOLADE = new String(new char[] { CURLY_LEFT });
-    public static final String RIGHT_ACCOLADE = new String(new char[] { CURLY_RIGHT });
+    public static final String LEFT_ACCOLADE = new String(new char[]{CURLY_LEFT});
+    public static final String RIGHT_ACCOLADE = new String(new char[]{CURLY_RIGHT});
     public static final long UNBOUNDED_TOTAL_SIZE_CAP = 0;
     public static final int UNBOUND_HISTORY = 0;
-    
+
     public static final String RECONFIGURE_ON_CHANGE_TASK = "RECONFIGURE_ON_CHANGE_TASK";
     public static final String SIZE_AND_TIME_BASED_FNATP_IS_DEPRECATED = "SizeAndTimeBasedFNATP is deprecated. Use SizeAndTimeBasedRollingPolicy instead";
 

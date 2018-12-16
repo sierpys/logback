@@ -1,13 +1,13 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
@@ -16,7 +16,7 @@ package ch.qos.logback.core.joran.action;
 /**
  *
  * This class contains costants used by other Actions.
- * 
+ *
  * @author Ceki G&uuml;lc&uuml;
  *
  */
@@ -34,7 +34,7 @@ public abstract class ActionConst {
 
     public static final String INHERITED = "INHERITED";
     public static final String NULL = "NULL";
-    static final Class<?>[] ONE_STRING_PARAM = new Class[] { String.class };
+    static final Class<?>[] ONE_STRING_PARAM = new Class[]{String.class};
 
     public static final String APPENDER_BAG = "APPENDER_BAG";
     //public static final String FILTER_CHAIN_BAG = "FILTER_CHAIN_BAG";

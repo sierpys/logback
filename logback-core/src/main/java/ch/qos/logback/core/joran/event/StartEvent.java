@@ -1,13 +1,13 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
@@ -38,16 +38,16 @@ public class StartEvent extends SaxEvent {
     public String toString() {
         StringBuilder b = new StringBuilder("StartEvent(");
         b.append(getQName());
-        if(attributes != null) {
-            for(int i = 0; i < attributes.getLength(); i++) {
-                if(i > 0) {
+        if (attributes != null) {
+            for (int i = 0; i < attributes.getLength(); i++) {
+                if (i > 0) {
                     b.append(' ');
                 }
                 b.append(attributes.getLocalName(i)).append("=\"").append(attributes.getValue(i)).append("\"");
             }
         }
         b.append(")  [");
-        b.append( locator.getLineNumber());
+        b.append(locator.getLineNumber());
         b.append(",");
         b.append(locator.getColumnNumber());
         b.append("]");

@@ -1,10 +1,10 @@
 package ch.qos.logback.core.util;
 
+import org.junit.Test;
+
 import static ch.qos.logback.core.util.DefaultInvocationGate.DEFAULT_MASK;
 import static ch.qos.logback.core.util.DefaultInvocationGate.MASK_DECREASE_RIGHT_SHIFT_COUNT;
 import static org.junit.Assert.*;
-
-import org.junit.Test;
 
 public class DefaultInvocationGateTest {
 

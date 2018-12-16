@@ -2,7 +2,7 @@
 <!DOCTYPE x>
 
 <included>
-  <stack name="a"/>
-  <include file="${subFileKey}" />
-  <stack name="c"/>
+    <stack name="a"/>
+    <include file="${subFileKey}"/>
+    <stack name="c"/>
 </included>

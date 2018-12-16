@@ -1,30 +1,26 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.db;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 import ch.qos.logback.core.UnsynchronizedAppenderBase;
 import ch.qos.logback.core.db.dialect.DBUtil;
 import ch.qos.logback.core.db.dialect.SQLDialect;
 import ch.qos.logback.core.db.dialect.SQLDialectCode;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.sql.*;
 
 /**
  * @author Ceki G&uuml;lc&uuml;
@@ -58,7 +54,7 @@ public abstract class DBAppenderBase<E> extends UnsynchronizedAppenderBase<E> {
         cnxSupportsBatchUpdates = connectionSource.supportsBatchUpdates();
         if (!cnxSupportsGetGeneratedKeys && (sqlDialect == null)) {
             throw new IllegalStateException(
-                            "DBAppender cannot function if the JDBC driver does not support getGeneratedKeys method *and* without a specific SQL dialect");
+                    "DBAppender cannot function if the JDBC driver does not support getGeneratedKeys method *and* without a specific SQL dialect");
         }
 
         // all nice and dandy on the eastern front
@@ -94,7 +90,7 @@ public abstract class DBAppenderBase<E> extends UnsynchronizedAppenderBase<E> {
                 if (connectionSource.getSQLDialectCode() == SQLDialectCode.POSTGRES_DIALECT) {
                     EVENT_ID_COL_NAME = EVENT_ID_COL_NAME.toLowerCase();
                 }
-                insertStatement = connection.prepareStatement(getInsertSQL(), new String[] { EVENT_ID_COL_NAME });
+                insertStatement = connection.prepareStatement(getInsertSQL(), new String[]{EVENT_ID_COL_NAME});
             } else {
                 insertStatement = connection.prepareStatement(getInsertSQL());
             }

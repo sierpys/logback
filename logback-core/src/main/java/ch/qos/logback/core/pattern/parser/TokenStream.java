@@ -1,29 +1,29 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.pattern.parser;
 
-import java.util.List;
-import java.util.ArrayList;
-
 import ch.qos.logback.core.CoreConstants;
-import static ch.qos.logback.core.CoreConstants.CURLY_LEFT;
-import static ch.qos.logback.core.CoreConstants.ESCAPE_CHAR;
-
 import ch.qos.logback.core.pattern.util.IEscapeUtil;
 import ch.qos.logback.core.pattern.util.RegularEscapeUtil;
 import ch.qos.logback.core.pattern.util.RestrictedEscapeUtil;
 import ch.qos.logback.core.spi.ScanException;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static ch.qos.logback.core.CoreConstants.CURLY_LEFT;
+import static ch.qos.logback.core.CoreConstants.ESCAPE_CHAR;
 
 /**
  * <p>
@@ -82,41 +82,41 @@ class TokenStream {
             pointer++;
 
             switch (state) {
-            case LITERAL_STATE:
-                handleLiteralState(c, tokenList, buf);
-                break;
-            case FORMAT_MODIFIER_STATE:
-                handleFormatModifierState(c, tokenList, buf);
-                break;
-            case OPTION_STATE:
-                processOption(c, tokenList, buf);
-                break;
-            case KEYWORD_STATE:
-                handleKeywordState(c, tokenList, buf);
-                break;
-            case RIGHT_PARENTHESIS_STATE:
-                handleRightParenthesisState(c, tokenList, buf);
-                break;
+                case LITERAL_STATE:
+                    handleLiteralState(c, tokenList, buf);
+                    break;
+                case FORMAT_MODIFIER_STATE:
+                    handleFormatModifierState(c, tokenList, buf);
+                    break;
+                case OPTION_STATE:
+                    processOption(c, tokenList, buf);
+                    break;
+                case KEYWORD_STATE:
+                    handleKeywordState(c, tokenList, buf);
+                    break;
+                case RIGHT_PARENTHESIS_STATE:
+                    handleRightParenthesisState(c, tokenList, buf);
+                    break;
 
-            default:
+                default:
             }
         }
 
         // EOS
         switch (state) {
-        case LITERAL_STATE:
-            addValuedToken(Token.LITERAL, buf, tokenList);
-            break;
-        case KEYWORD_STATE:
-            tokenList.add(new Token(Token.SIMPLE_KEYWORD, buf.toString()));
-            break;
-        case RIGHT_PARENTHESIS_STATE:
-            tokenList.add(Token.RIGHT_PARENTHESIS_TOKEN);
-            break;
+            case LITERAL_STATE:
+                addValuedToken(Token.LITERAL, buf, tokenList);
+                break;
+            case KEYWORD_STATE:
+                tokenList.add(new Token(Token.SIMPLE_KEYWORD, buf.toString()));
+                break;
+            case RIGHT_PARENTHESIS_STATE:
+                tokenList.add(Token.RIGHT_PARENTHESIS_TOKEN);
+                break;
 
-        case FORMAT_MODIFIER_STATE:
-        case OPTION_STATE:
-            throw new ScanException("Unexpected end of pattern string");
+            case FORMAT_MODIFIER_STATE:
+            case OPTION_STATE:
+                throw new ScanException("Unexpected end of pattern string");
         }
 
         return tokenList;
@@ -125,18 +125,18 @@ class TokenStream {
     private void handleRightParenthesisState(char c, List<Token> tokenList, StringBuffer buf) {
         tokenList.add(Token.RIGHT_PARENTHESIS_TOKEN);
         switch (c) {
-        case CoreConstants.RIGHT_PARENTHESIS_CHAR:
-            break;
-        case CURLY_LEFT:
-            state = TokenizerState.OPTION_STATE;
-            break;
-        case ESCAPE_CHAR:
-            escape("%{}", buf);
-            state = TokenizerState.LITERAL_STATE;
-            break;
-        default:
-            buf.append(c);
-            state = TokenizerState.LITERAL_STATE;
+            case CoreConstants.RIGHT_PARENTHESIS_CHAR:
+                break;
+            case CURLY_LEFT:
+                state = TokenizerState.OPTION_STATE;
+                break;
+            case ESCAPE_CHAR:
+                escape("%{}", buf);
+                state = TokenizerState.LITERAL_STATE;
+                break;
+            default:
+                buf.append(c);
+                state = TokenizerState.LITERAL_STATE;
         }
     }
 
@@ -161,23 +161,23 @@ class TokenStream {
 
     private void handleLiteralState(char c, List<Token> tokenList, StringBuffer buf) {
         switch (c) {
-        case ESCAPE_CHAR:
-            escape("%()", buf);
-            break;
+            case ESCAPE_CHAR:
+                escape("%()", buf);
+                break;
 
-        case CoreConstants.PERCENT_CHAR:
-            addValuedToken(Token.LITERAL, buf, tokenList);
-            tokenList.add(Token.PERCENT_TOKEN);
-            state = TokenizerState.FORMAT_MODIFIER_STATE;
-            break;
+            case CoreConstants.PERCENT_CHAR:
+                addValuedToken(Token.LITERAL, buf, tokenList);
+                tokenList.add(Token.PERCENT_TOKEN);
+                state = TokenizerState.FORMAT_MODIFIER_STATE;
+                break;
 
-        case CoreConstants.RIGHT_PARENTHESIS_CHAR:
-            addValuedToken(Token.LITERAL, buf, tokenList);
-            state = TokenizerState.RIGHT_PARENTHESIS_STATE;
-            break;
+            case CoreConstants.RIGHT_PARENTHESIS_CHAR:
+                addValuedToken(Token.LITERAL, buf, tokenList);
+                state = TokenizerState.RIGHT_PARENTHESIS_STATE;
+                break;
 
-        default:
-            buf.append(c);
+            default:
+                buf.append(c);
         }
     }
 

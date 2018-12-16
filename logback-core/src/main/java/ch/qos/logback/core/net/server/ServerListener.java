@@ -1,13 +1,13 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
@@ -30,7 +30,7 @@ import java.io.IOException;
  * {@code ServerRunner} cares about; namely, that it is something that has
  * an underlying resource (or resources) that need to be closed before the
  * listener is discarded.
- * 
+ *
  */
 public interface ServerListener<T extends Client> extends Closeable {
 
@@ -39,7 +39,7 @@ public interface ServerListener<T extends Client> extends Closeable {
      * <p>
      * An implementation of this method is expected to block the calling thread
      * and not return until either a client appears or an exception occurs.
-     * 
+     *
      * @return client object
      * @throws IOException
      * @throws InterruptedException

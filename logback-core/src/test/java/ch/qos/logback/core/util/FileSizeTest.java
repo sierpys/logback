@@ -1,21 +1,21 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core.util;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class FileSizeTest {
 
@@ -50,27 +50,27 @@ public class FileSizeTest {
             assertEquals(5 * GB_CO, fs.getSize());
         }
     }
-    
-    
-    @Test 
+
+
+    @Test
     public void testToString() {
         {
             FileSize fs = new FileSize(8);
             assertEquals("8 Bytes", fs.toString());
         }
-        
+
         {
-            FileSize fs = new FileSize(8*1024+3);
+            FileSize fs = new FileSize(8 * 1024 + 3);
             assertEquals("8 KB", fs.toString());
         }
-        
+
         {
-            FileSize fs = new FileSize(8*1024*1024+3*1024);
+            FileSize fs = new FileSize(8 * 1024 * 1024 + 3 * 1024);
             assertEquals("8 MB", fs.toString());
         }
-        
+
         {
-            FileSize fs = new FileSize(8*1024*1024*1024L);
+            FileSize fs = new FileSize(8 * 1024 * 1024 * 1024L);
             assertEquals("8 GB", fs.toString());
         }
     }

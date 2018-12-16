@@ -1,13 +1,13 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
@@ -45,60 +45,60 @@ public class Tokenizer {
             pointer++;
 
             switch (state) {
-            case LITERAL_STATE:
-                handleLiteralState(c, tokenList, buf);
-                break;
-            case START_STATE:
-                handleStartState(c, tokenList, buf);
-                break;
-            case DEFAULT_VAL_STATE:
-                handleDefaultValueState(c, tokenList, buf);
-            default:
+                case LITERAL_STATE:
+                    handleLiteralState(c, tokenList, buf);
+                    break;
+                case START_STATE:
+                    handleStartState(c, tokenList, buf);
+                    break;
+                case DEFAULT_VAL_STATE:
+                    handleDefaultValueState(c, tokenList, buf);
+                default:
             }
         }
         // EOS
         switch (state) {
-        case LITERAL_STATE:
-            addLiteralToken(tokenList, buf);
-            break;
-        case DEFAULT_VAL_STATE:
-            // trailing colon. see also LOGBACK-1140
-            buf.append(CoreConstants.COLON_CHAR);
-            addLiteralToken(tokenList, buf);
-            break;
-        case START_STATE:
-            // trailing $. see also LOGBACK-1149
-            buf.append(CoreConstants.DOLLAR);
-            addLiteralToken(tokenList, buf);
-            break;
+            case LITERAL_STATE:
+                addLiteralToken(tokenList, buf);
+                break;
+            case DEFAULT_VAL_STATE:
+                // trailing colon. see also LOGBACK-1140
+                buf.append(CoreConstants.COLON_CHAR);
+                addLiteralToken(tokenList, buf);
+                break;
+            case START_STATE:
+                // trailing $. see also LOGBACK-1149
+                buf.append(CoreConstants.DOLLAR);
+                addLiteralToken(tokenList, buf);
+                break;
         }
         return tokenList;
     }
 
     private void handleDefaultValueState(char c, List<Token> tokenList, StringBuilder stringBuilder) {
         switch (c) {
-        case CoreConstants.DASH_CHAR:
-            tokenList.add(Token.DEFAULT_SEP_TOKEN);
-            state = TokenizerState.LITERAL_STATE;
-            break;
-        case CoreConstants.DOLLAR:
-            stringBuilder.append(CoreConstants.COLON_CHAR);
-            addLiteralToken(tokenList, stringBuilder);
-            stringBuilder.setLength(0);
-            state = TokenizerState.START_STATE;
-            break;
-        case CoreConstants.CURLY_LEFT:
-            stringBuilder.append(CoreConstants.COLON_CHAR);
-            addLiteralToken(tokenList, stringBuilder);
-            stringBuilder.setLength(0);
-            tokenList.add(Token.CURLY_LEFT_TOKEN);
-            state = TokenizerState.LITERAL_STATE;
+            case CoreConstants.DASH_CHAR:
+                tokenList.add(Token.DEFAULT_SEP_TOKEN);
+                state = TokenizerState.LITERAL_STATE;
+                break;
+            case CoreConstants.DOLLAR:
+                stringBuilder.append(CoreConstants.COLON_CHAR);
+                addLiteralToken(tokenList, stringBuilder);
+                stringBuilder.setLength(0);
+                state = TokenizerState.START_STATE;
+                break;
+            case CoreConstants.CURLY_LEFT:
+                stringBuilder.append(CoreConstants.COLON_CHAR);
+                addLiteralToken(tokenList, stringBuilder);
+                stringBuilder.setLength(0);
+                tokenList.add(Token.CURLY_LEFT_TOKEN);
+                state = TokenizerState.LITERAL_STATE;
 
-            break;
-        default:
-            stringBuilder.append(CoreConstants.COLON_CHAR).append(c);
-            state = TokenizerState.LITERAL_STATE;
-            break;
+                break;
+            default:
+                stringBuilder.append(CoreConstants.COLON_CHAR).append(c);
+                state = TokenizerState.LITERAL_STATE;
+                break;
         }
     }
 
@@ -113,28 +113,28 @@ public class Tokenizer {
 
     private void handleLiteralState(char c, List<Token> tokenList, StringBuilder stringBuilder) {
         switch (c) {
-        case CoreConstants.DOLLAR:
-            addLiteralToken(tokenList, stringBuilder);
-            stringBuilder.setLength(0);
-            state = TokenizerState.START_STATE;
-            break;
-        case CoreConstants.COLON_CHAR:
-            addLiteralToken(tokenList, stringBuilder);
-            stringBuilder.setLength(0);
-            state = TokenizerState.DEFAULT_VAL_STATE;
-            break;
-        case CoreConstants.CURLY_LEFT:
-            addLiteralToken(tokenList, stringBuilder);
-            tokenList.add(Token.CURLY_LEFT_TOKEN);
-            stringBuilder.setLength(0);
-            break;
-        case CoreConstants.CURLY_RIGHT:
-            addLiteralToken(tokenList, stringBuilder);
-            tokenList.add(Token.CURLY_RIGHT_TOKEN);
-            stringBuilder.setLength(0);
-            break;
-        default:
-            stringBuilder.append(c);
+            case CoreConstants.DOLLAR:
+                addLiteralToken(tokenList, stringBuilder);
+                stringBuilder.setLength(0);
+                state = TokenizerState.START_STATE;
+                break;
+            case CoreConstants.COLON_CHAR:
+                addLiteralToken(tokenList, stringBuilder);
+                stringBuilder.setLength(0);
+                state = TokenizerState.DEFAULT_VAL_STATE;
+                break;
+            case CoreConstants.CURLY_LEFT:
+                addLiteralToken(tokenList, stringBuilder);
+                tokenList.add(Token.CURLY_LEFT_TOKEN);
+                stringBuilder.setLength(0);
+                break;
+            case CoreConstants.CURLY_RIGHT:
+                addLiteralToken(tokenList, stringBuilder);
+                tokenList.add(Token.CURLY_RIGHT_TOKEN);
+                stringBuilder.setLength(0);
+                break;
+            default:
+                stringBuilder.append(c);
         }
 
     }

@@ -1,26 +1,26 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 package ch.qos.logback.core;
-
-import java.io.OutputStream;
-import java.util.Arrays;
 
 import ch.qos.logback.core.joran.spi.ConsoleTarget;
 import ch.qos.logback.core.status.Status;
 import ch.qos.logback.core.status.WarnStatus;
 import ch.qos.logback.core.util.EnvUtil;
 import ch.qos.logback.core.util.OptionHelper;
+
+import java.io.OutputStream;
+import java.util.Arrays;
 
 /**
  * ConsoleAppender appends log events to <code>System.out</code> or
@@ -86,7 +86,7 @@ public class ConsoleAppender<E> extends OutputStreamAppender<E> {
         try {
             addInfo("Enabling JANSI WindowsAnsiOutputStream for the console.");
             Object windowsAnsiOutputStream = OptionHelper.instantiateByClassNameAndParameter(WindowsAnsiOutputStream_CLASS_NAME, Object.class, context,
-                            OutputStream.class, targetStream);
+                    OutputStream.class, targetStream);
             return (OutputStream) windowsAnsiOutputStream;
         } catch (Exception e) {
             addWarn("Failed to create WindowsAnsiOutputStream. Falling back on the default stream.", e);

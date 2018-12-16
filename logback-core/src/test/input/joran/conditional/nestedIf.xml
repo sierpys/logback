@@ -2,25 +2,25 @@
 
 
 <x>
-  <stack name="BEGIN"/>
+    <stack name="BEGIN"/>
 
-  <if condition='1 == 1'>
-    <then>
-      <stack name="a"/>
-      <if condition='1 != 1'>
+    <if condition='1 == 1'>
         <then>
-          <stack name="b"/>
+            <stack name="a"/>
+            <if condition='1 != 1'>
+                <then>
+                    <stack name="b"/>
+                </then>
+                <else>
+                    <stack name="c"/>
+                </else>
+            </if>
         </then>
         <else>
-          <stack name="c"/>
+            <stack name="d"/>
         </else>
-      </if>
-    </then>
-    <else>
-      <stack name="d"/>
-    </else>
-  </if>
-  <stack name="END"/>
+    </if>
+    <stack name="END"/>
 
 </x>
 

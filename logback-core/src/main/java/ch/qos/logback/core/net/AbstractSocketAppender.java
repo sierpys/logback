@@ -1,19 +1,25 @@
 /**
  * Logback: the reliable, generic, fast and flexible logging framework.
  * Copyright (C) 1999-2015, QOS.ch. All rights reserved.
- *
+ * <p>
  * This program and the accompanying materials are dual-licensed under
  * either the terms of the Eclipse Public License v1.0 as published by
  * the Eclipse Foundation
- *
- *   or (per the licensee's choosing)
- *
+ * <p>
+ * or (per the licensee's choosing)
+ * <p>
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
 // Contributors: Dan MacDonald <dan@redknee.com>
 package ch.qos.logback.core.net;
 
+import ch.qos.logback.core.AppenderBase;
+import ch.qos.logback.core.spi.PreSerializationTransformer;
+import ch.qos.logback.core.util.CloseUtil;
+import ch.qos.logback.core.util.Duration;
+
+import javax.net.SocketFactory;
 import java.io.IOException;
 import java.io.Serializable;
 import java.net.ConnectException;
@@ -24,17 +30,10 @@ import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
-import javax.net.SocketFactory;
-
-import ch.qos.logback.core.AppenderBase;
-import ch.qos.logback.core.spi.PreSerializationTransformer;
-import ch.qos.logback.core.util.CloseUtil;
-import ch.qos.logback.core.util.Duration;
-
 /**
  * An abstract base for module specific {@code SocketAppender}
  * implementations in other logback modules.
- * 
+ *
  * @author Ceki G&uuml;lc&uuml;
  * @author S&eacute;bastien Pennec
  * @author Carl Harris
@@ -121,7 +120,7 @@ public abstract class AbstractSocketAppender<E> extends AppenderBase<E> implemen
         if (remoteHost == null) {
             errorCount++;
             addError("No remote host was configured for appender" + name
-                            + " For more information, please visit http://logback.qos.ch/codes.html#socket_no_host");
+                    + " For more information, please visit http://logback.qos.ch/codes.html#socket_no_host");
         }
 
         if (queueSize == 0) {
@@ -268,7 +267,7 @@ public abstract class AbstractSocketAppender<E> extends AppenderBase<E> implemen
      * The default implementation creates an instance of {@link DefaultSocketConnector}.
      * A subclass may override to provide a different {@link SocketConnector}
      * implementation.
-     * 
+     *
      * @param address target remote address
      * @param port target remote port
      * @param initialDelay delay before the first connection attempt
@@ -360,7 +359,7 @@ public abstract class AbstractSocketAppender<E> extends AppenderBase<E> implemen
      * event, assuming that there is space available in the deque.  Using a
      * non-zero deque length can improve performance by eliminating delays
      * caused by transient network delays.
-     * 
+     *
      * @param queueSize the deque size to set.
      */
     public void setQueueSize(int queueSize) {
@@ -398,7 +397,7 @@ public abstract class AbstractSocketAppender<E> extends AppenderBase<E> implemen
      * <p>
      * This property is configurable primarily to support instrumentation
      * for unit testing.
-     * 
+     *
      * @param acceptConnectionTimeout timeout value in milliseconds
      */
     void setAcceptConnectionTimeout(int acceptConnectionTimeout) {
